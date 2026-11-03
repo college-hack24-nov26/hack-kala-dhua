@@ -1,0 +1,38 @@
+{
+ "version": "eta-20261010-1000",
+ "features": [
+  "plan_km",
+  "plan_free_min",
+  "plan_signals",
+  "plan_underpasses",
+  "plan_bridges",
+  "plan_p_sum",
+  "plan_p_max",
+  "plan_traffic",
+  "plan_nodata",
+  "plan_flood_reports",
+  "rain_1h",
+  "rain_fc",
+  "stage_frac_max",
+  "hour",
+  "unit",
+  "crow_km"
+ ],
+ "best_iteration": 691,
+ "p90_offset_min": 0.875,
+ "mobilise_median_min": 1.7116428167504274,
+ "trips": {
+  "train": 1493,
+  "tune": 146,
+  "test": 1404
+ },
+ "target": "mobilisation + travel (with replans, turn-backs, on-foot last stretch) in minutes",
+ "test": {
+  "mae_min": 2.79,
+  "within_5_min": 0.955,
+  "late_over_10_min": 0.026,
+  "p90_coverage": 0.911,
+  "pinball_p90": 1.51,
+  "late_vs_p90_over_10_min": 0.019
+ }
+}
