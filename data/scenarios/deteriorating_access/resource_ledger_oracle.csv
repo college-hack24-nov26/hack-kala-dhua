@@ -1,0 +1,250 @@
+t_min,t_replay,time_label,policy,subject,id,state,note,capacity,occupancy,reserved,unit,people,task,incident
+0.0,2024-07-24T08:30:00Z,REPLAY,oracle,unit,PC-AMB-01,available,start of window,,,,,,,
+0.0,2024-07-24T08:30:00Z,REPLAY,oracle,unit,PC-AMB-02,available,start of window,,,,,,,
+0.0,2024-07-24T08:30:00Z,REPLAY,oracle,unit,PC-AMB-03,available,start of window,,,,,,,
+0.0,2024-07-24T08:30:00Z,REPLAY,oracle,unit,PC-AMB-04,available,start of window,,,,,,,
+0.0,2024-07-24T08:30:00Z,REPLAY,oracle,unit,PC-AMB-05,available,start of window,,,,,,,
+0.0,2024-07-24T08:30:00Z,REPLAY,oracle,unit,PC-AMB-06,available,start of window,,,,,,,
+0.0,2024-07-24T08:30:00Z,REPLAY,oracle,unit,PC-BOAT-01,available,start of window,,,,,,,
+0.0,2024-07-24T08:30:00Z,REPLAY,oracle,unit,PC-BOAT-02,available,start of window,,,,,,,
+0.0,2024-07-24T08:30:00Z,REPLAY,oracle,unit,PC-BOAT-03,available,start of window,,,,,,,
+0.0,2024-07-24T08:30:00Z,REPLAY,oracle,unit,PC-BUS-01,available,start of window,,,,,,,
+0.0,2024-07-24T08:30:00Z,REPLAY,oracle,unit,PC-BUS-02,available,start of window,,,,,,,
+0.0,2024-07-24T08:30:00Z,REPLAY,oracle,unit,PC-FIRE-01,available,start of window,,,,,,,
+0.0,2024-07-24T08:30:00Z,REPLAY,oracle,unit,PC-FIRE-02,available,start of window,,,,,,,
+0.0,2024-07-24T08:30:00Z,REPLAY,oracle,unit,PC-FIRE-03,available,start of window,,,,,,,
+0.0,2024-07-24T08:30:00Z,REPLAY,oracle,unit,PC-FIRE-04,available,start of window,,,,,,,
+0.0,2024-07-24T08:30:00Z,REPLAY,oracle,unit,PC-FIRE-05,available,start of window,,,,,,,
+0.0,2024-07-24T08:30:00Z,REPLAY,oracle,unit,PC-FIRE-06,available,start of window,,,,,,,
+0.0,2024-07-24T08:30:00Z,REPLAY,oracle,unit,PC-FIRE-07,available,start of window,,,,,,,
+0.0,2024-07-24T08:30:00Z,REPLAY,oracle,unit,PC-JCB-01,available,start of window,,,,,,,
+0.0,2024-07-24T08:30:00Z,REPLAY,oracle,unit,PC-JCB-02,available,start of window,,,,,,,
+0.0,2024-07-24T08:30:00Z,REPLAY,oracle,unit,PC-POL-01,available,start of window,,,,,,,
+0.0,2024-07-24T08:30:00Z,REPLAY,oracle,unit,PC-POL-02,available,start of window,,,,,,,
+0.0,2024-07-24T08:30:00Z,REPLAY,oracle,unit,PC-POL-03,available,start of window,,,,,,,
+0.0,2024-07-24T08:30:00Z,REPLAY,oracle,unit,PC-POL-04,available,start of window,,,,,,,
+0.0,2024-07-24T08:30:00Z,REPLAY,oracle,unit,PC-PUMP-01,available,start of window,,,,,,,
+0.0,2024-07-24T08:30:00Z,REPLAY,oracle,unit,PC-PUMP-02,available,start of window,,,,,,,
+0.0,2024-07-24T08:30:00Z,REPLAY,oracle,unit,PC-PUMP-03,available,start of window,,,,,,,
+0.0,2024-07-24T08:30:00Z,REPLAY,oracle,unit,PC-PUMP-04,available,start of window,,,,,,,
+0.0,2024-07-24T08:30:00Z,REPLAY,oracle,unit,PC-PUMP-05,available,start of window,,,,,,,
+0.0,2024-07-24T08:30:00Z,REPLAY,oracle,unit,PC-TEAM-01,available,start of window,,,,,,,
+0.0,2024-07-24T08:30:00Z,REPLAY,oracle,unit,PC-TEAM-02,available,start of window,,,,,,,
+0.0,2024-07-24T08:30:00Z,REPLAY,oracle,unit,PC-TEAM-03,available,start of window,,,,,,,
+0.0,2024-07-24T08:30:00Z,REPLAY,oracle,unit,PC-TRUCK-01,available,start of window,,,,,,,
+0.0,2024-07-24T08:30:00Z,REPLAY,oracle,unit,PC-TRUCK-02,available,start of window,,,,,,,
+0.0,2024-07-24T08:30:00Z,REPLAY,oracle,unit,PC-TANK-01,available,start of window,,,,,,,
+0.0,2024-07-24T08:30:00Z,REPLAY,oracle,unit,PC-TANK-02,available,start of window,,,,,,,
+0.0,2024-07-24T08:30:00Z,REPLAY,oracle,shelter,lf-pc-r1,open,,1000.0,0.0,0.0,,,,
+0.0,2024-07-24T08:30:00Z,REPLAY,oracle,shelter,lf-pc-r2,open,,900.0,0.0,0.0,,,,
+0.0,2024-07-24T08:30:00Z,REPLAY,oracle,shelter,lf-pc-s1,open,,800.0,0.0,0.0,,,,
+0.0,2024-07-24T08:30:00Z,REPLAY,oracle,shelter,lf-pc-s2,open,,400.0,0.0,0.0,,,,
+0.0,2024-07-24T08:30:00Z,REPLAY,oracle,shelter,lf-pc-s3,open,,450.0,0.0,0.0,,,,
+0.0,2024-07-24T08:30:00Z,REPLAY,oracle,shelter,lf-pc-s4,open,,400.0,0.0,0.0,,,,
+0.0,2024-07-24T08:30:00Z,REPLAY,oracle,shelter,lf-pc-s5,open,,350.0,0.0,0.0,,,,
+0.0,2024-07-24T08:30:00Z,REPLAY,oracle,shelter,lf-pc-s6,open,,350.0,0.0,0.0,,,,
+0.0,2024-07-24T08:30:00Z,REPLAY,oracle,shelter,lf-pc-r1,reserved,,1000.0,0.0,45.0,PC-TRUCK-02,45.0,,
+0.0,2024-07-24T08:30:00Z,REPLAY,oracle,unit,PC-TRUCK-02,en_route,,,,,,,I001:mass_transport:1,I001
+0.0,2024-07-24T08:30:00Z,REPLAY,oracle,unit,PC-PUMP-02,en_route,,,,,,,I001:dewatering:0,I001
+0.0,2024-07-24T08:30:00Z,REPLAY,oracle,shelter,lf-pc-r1,reserved,,1000.0,0.0,90.0,PC-TRUCK-01,45.0,,
+0.0,2024-07-24T08:30:00Z,REPLAY,oracle,unit,PC-TRUCK-01,en_route,,,,,,,I001:mass_transport:0,I001
+0.0,2024-07-24T08:30:00Z,REPLAY,oracle,unit,PC-JCB-01,en_route,,,,,,,I002:debris_clearance:0,I002
+0.0,2024-07-24T08:30:00Z,REPLAY,oracle,unit,PC-POL-04,en_route,,,,,,,I003:field_assessment:0,I003
+7.0,2024-07-24T08:36:57.003314488Z,REPLAY,oracle,unit,PC-POL-04,on_site,,,,,,,I003:field_assessment:0,I003
+7.9,2024-07-24T08:37:56.649233527Z,REPLAY,oracle,unit,PC-TRUCK-02,on_site,,,,,,,I001:mass_transport:1,I001
+10.0,2024-07-24T08:40:00Z,REPLAY,oracle,unit,PC-JCB-02,en_route,,,,,,,I003:debris_clearance:0,I003
+10.0,2024-07-24T08:40:00Z,REPLAY,oracle,unit,PC-FIRE-05,en_route,,,,,,,I004:field_assessment:0,I004
+10.8,2024-07-24T08:40:48.506366478Z,REPLAY,oracle,unit,PC-PUMP-02,on_site,,,,,,,I001:dewatering:0,I001
+12.0,2024-07-24T08:41:57.003314488Z,REPLAY,oracle,unit,PC-POL-04,available,field_assessment finished at I003,,,,,,,
+15.8,2024-07-24T08:45:50.959164418Z,REPLAY,oracle,unit,PC-FIRE-05,on_site,,,,,,,I004:field_assessment:0,I004
+19.0,2024-07-24T08:49:00.042926659Z,REPLAY,oracle,unit,PC-TRUCK-01,on_site,,,,,,,I001:mass_transport:0,I001
+19.7,2024-07-24T08:49:41.228672149Z,REPLAY,oracle,unit,PC-JCB-01,on_site,,,,,,,I002:debris_clearance:0,I002
+20.0,2024-07-24T08:50:00Z,REPLAY,oracle,unit,PC-TEAM-03,en_route,,,,,,,I004:debris_clearance:0,I004
+20.8,2024-07-24T08:50:50.959164418Z,REPLAY,oracle,unit,PC-FIRE-05,available,field_assessment finished at I004,,,,,,,
+27.0,2024-07-24T08:56:58.395008706Z,REPLAY,oracle,unit,PC-JCB-02,on_site,,,,,,,I003:debris_clearance:0,I003
+40.0,2024-07-24T09:10:00Z,REPLAY,oracle,unit,PC-AMB-06,en_route,,,,,,,I005:field_assessment:0,I005
+44.7,2024-07-24T09:14:41.285006199Z,REPLAY,oracle,unit,PC-TEAM-03,on_site,,,,,,,I004:debris_clearance:0,I004
+50.0,2024-07-24T09:20:00Z,REPLAY,oracle,unit,PC-BOAT-01,en_route,,,,,,,I005:water_rescue:0,I005
+52.8,2024-07-24T09:22:48.008271448Z,REPLAY,oracle,shelter,lf-pc-r1,arrived,,1000.0,45.0,45.0,PC-TRUCK-02,45.0,,
+52.8,2024-07-24T09:22:48.008271448Z,REPLAY,oracle,unit,PC-TRUCK-02,available,mass_transport finished at I001,,,,,,,
+57.9,2024-07-24T09:27:56.871189172Z,REPLAY,oracle,unit,PC-AMB-06,on_site,,,,,,,I005:field_assessment:0,I005
+59.7,2024-07-24T09:29:41.228672149Z,REPLAY,oracle,unit,PC-JCB-01,available,debris_clearance finished at I002,,,,,,,
+60.0,2024-07-24T09:30:00Z,REPLAY,oracle,unit,PC-POL-01,en_route,,,,,,,I007:field_assessment:0,I007
+60.0,2024-07-24T09:30:00Z,REPLAY,oracle,unit,PC-FIRE-07,en_route,,,,,,,I006:field_assessment:0,I006
+62.9,2024-07-24T09:32:56.871189172Z,REPLAY,oracle,unit,PC-AMB-06,available,field_assessment finished at I005,,,,,,,
+64.4,2024-07-24T09:34:26.643991949Z,REPLAY,oracle,shelter,lf-pc-r1,arrived,,1000.0,90.0,0.0,PC-TRUCK-01,45.0,,
+64.4,2024-07-24T09:34:26.643991949Z,REPLAY,oracle,unit,PC-TRUCK-01,available,mass_transport finished at I001,,,,,,,
+66.0,2024-07-24T09:36:02.599673444Z,REPLAY,oracle,unit,PC-POL-01,on_site,,,,,,,I007:field_assessment:0,I007
+67.0,2024-07-24T09:36:58.395008706Z,REPLAY,oracle,unit,PC-JCB-02,available,debris_clearance finished at I003,,,,,,,
+70.0,2024-07-24T09:40:00Z,REPLAY,oracle,unit,PC-BOAT-03,en_route,,,,,,,I007:water_rescue:0,I007
+70.0,2024-07-24T09:40:00Z,REPLAY,oracle,unit,PC-AMB-04,en_route,,,,,,,I008:field_assessment:0,I008
+70.8,2024-07-24T09:40:48.506366478Z,REPLAY,oracle,unit,PC-PUMP-02,available,dewatering finished at I001,,,,,,,
+71.0,2024-07-24T09:41:02.599673444Z,REPLAY,oracle,unit,PC-POL-01,available,field_assessment finished at I007,,,,,,,
+76.1,2024-07-24T09:46:08.502069557Z,REPLAY,oracle,unit,PC-BOAT-03,on_site,,,,,,,I007:water_rescue:0,I007
+77.7,2024-07-24T09:47:41.510850771Z,REPLAY,oracle,unit,PC-FIRE-07,on_site,,,,,,,I006:field_assessment:0,I006
+80.0,2024-07-24T09:50:00Z,REPLAY,oracle,unit,PC-FIRE-02,en_route,,,,,,,I006:water_rescue:0,I006
+80.0,2024-07-24T09:50:00Z,REPLAY,oracle,unit,PC-POL-03,en_route,,,,,,,I009:field_assessment:0,I009
+81.4,2024-07-24T09:51:25.208233658Z,REPLAY,oracle,unit,PC-AMB-04,on_site,,,,,,,I008:field_assessment:0,I008
+82.0,2024-07-24T09:52:01.541040485Z,REPLAY,oracle,unit,PC-BOAT-01,on_site,,,,,,,I005:water_rescue:0,I005
+82.7,2024-07-24T09:52:41.510850771Z,REPLAY,oracle,unit,PC-FIRE-07,available,field_assessment finished at I006,,,,,,,
+84.7,2024-07-24T09:54:41.285006199Z,REPLAY,oracle,unit,PC-TEAM-03,available,debris_clearance finished at I004,,,,,,,
+86.4,2024-07-24T09:56:25.208233658Z,REPLAY,oracle,unit,PC-AMB-04,available,field_assessment finished at I008,,,,,,,
+90.0,2024-07-24T10:00:00Z,REPLAY,oracle,unit,PC-FIRE-07,en_route,,,,,,,I006:water_rescue:0,I006
+90.0,2024-07-24T10:00:00Z,REPLAY,oracle,unit,PC-JCB-01,en_route,,,,,,,I008:debris_clearance:0,I008
+90.0,2024-07-24T10:00:00Z,REPLAY,oracle,unit,PC-FIRE-02,available,need covered by a closer unit,,,,,,,
+91.1,2024-07-24T10:01:04.300153698Z,REPLAY,oracle,unit,PC-POL-03,on_site,,,,,,,I009:field_assessment:0,I009
+92.4,2024-07-24T10:02:26.661511837Z,REPLAY,oracle,unit,PC-FIRE-07,on_site,,,,,,,I006:water_rescue:0,I006
+92.9,2024-07-24T10:02:54.892358908Z,REPLAY,oracle,unit,PC-JCB-01,on_site,,,,,,,I008:debris_clearance:0,I008
+96.1,2024-07-24T10:06:04.300153698Z,REPLAY,oracle,unit,PC-POL-03,available,field_assessment finished at I009,,,,,,,
+100.0,2024-07-24T10:10:00Z,REPLAY,oracle,unit,PC-FIRE-01,en_route,,,,,,,I009:water_rescue:0,I009
+114.7,2024-07-24T10:24:43.813666448Z,REPLAY,oracle,unit,PC-FIRE-01,on_site,,,,,,,I009:water_rescue:0,I009
+121.1,2024-07-24T10:31:08.502069557Z,REPLAY,oracle,unit,PC-BOAT-03,available,water_rescue finished at I007,,,,,,,
+127.0,2024-07-24T10:37:01.541040485Z,REPLAY,oracle,unit,PC-BOAT-01,available,water_rescue finished at I005,,,,,,,
+132.9,2024-07-24T10:42:54.892358908Z,REPLAY,oracle,unit,PC-JCB-01,available,debris_clearance finished at I008,,,,,,,
+137.4,2024-07-24T10:47:26.661511837Z,REPLAY,oracle,unit,PC-FIRE-07,available,water_rescue finished at I006,,,,,,,
+140.0,2024-07-24T10:50:00Z,REPLAY,oracle,unit,PC-POL-04,en_route,,,,,,,I010:field_assessment:0,I010
+149.0,2024-07-24T10:59:01.521110384Z,REPLAY,oracle,unit,PC-POL-04,on_site,,,,,,,I010:field_assessment:0,I010
+154.0,2024-07-24T11:04:01.521110384Z,REPLAY,oracle,unit,PC-POL-04,available,field_assessment finished at I010,,,,,,,
+159.7,2024-07-24T11:09:43.813666448Z,REPLAY,oracle,unit,PC-FIRE-01,available,water_rescue finished at I009,,,,,,,
+170.0,2024-07-24T11:20:00Z,REPLAY,oracle,unit,PC-POL-03,en_route,,,,,,,I011:field_assessment:0,I011
+176.0,2024-07-24T11:25:58.704703370Z,REPLAY,oracle,unit,PC-POL-03,on_site,,,,,,,I011:field_assessment:0,I011
+180.0,2024-07-24T11:30:00Z,REPLAY,oracle,unit,PC-FIRE-01,en_route,,,,,,,I011:water_rescue:0,I011
+180.0,2024-07-24T11:30:00Z,REPLAY,oracle,unit,PC-AMB-06,en_route,,,,,,,I012:field_assessment:0,I012
+181.0,2024-07-24T11:30:58.704703370Z,REPLAY,oracle,unit,PC-POL-03,available,field_assessment finished at I011,,,,,,,
+184.9,2024-07-24T11:34:52.752085872Z,REPLAY,oracle,unit,PC-AMB-06,on_site,,,,,,,I012:field_assessment:0,I012
+186.7,2024-07-24T11:36:41.601267369Z,REPLAY,oracle,unit,PC-FIRE-01,on_site,,,,,,,I011:water_rescue:0,I011
+189.9,2024-07-24T11:39:52.752085872Z,REPLAY,oracle,unit,PC-AMB-06,available,field_assessment finished at I012,,,,,,,
+190.0,2024-07-24T11:40:00Z,REPLAY,oracle,unit,PC-BOAT-01,en_route,,,,,,,I012:water_rescue:0,I012
+195.4,2024-07-24T11:45:23.439316077Z,REPLAY,oracle,unit,PC-BOAT-01,on_site,,,,,,,I012:water_rescue:0,I012
+210.0,2024-07-24T12:00:00Z,REPLAY,oracle,unit,PC-POL-03,en_route,,,,,,,I013:field_assessment:0,I013
+210.0,2024-07-24T12:00:00Z,REPLAY,oracle,unit,PC-TEAM-03,en_route,,,,,,,I014:field_assessment:0,I014
+219.6,2024-07-24T12:09:34.231595366Z,REPLAY,oracle,unit,PC-POL-03,on_site,,,,,,,I013:field_assessment:0,I013
+222.4,2024-07-24T12:12:26.376613475Z,REPLAY,oracle,unit,PC-TEAM-03,on_site,,,,,,,I014:field_assessment:0,I014
+224.6,2024-07-24T12:14:34.231595366Z,REPLAY,oracle,unit,PC-POL-03,available,field_assessment finished at I013,,,,,,,
+227.4,2024-07-24T12:17:26.376613475Z,REPLAY,oracle,unit,PC-TEAM-03,available,field_assessment finished at I014,,,,,,,
+230.0,2024-07-24T12:20:00Z,REPLAY,oracle,unit,PC-PUMP-05,en_route,,,,,,,I014:dewatering:0,I014
+231.7,2024-07-24T12:21:41.601267369Z,REPLAY,oracle,unit,PC-FIRE-01,available,water_rescue finished at I011,,,,,,,
+239.7,2024-07-24T12:29:44.450903145Z,REPLAY,oracle,unit,PC-PUMP-05,on_site,,,,,,,I014:dewatering:0,I014
+240.4,2024-07-24T12:30:23.439316077Z,REPLAY,oracle,unit,PC-BOAT-01,available,water_rescue finished at I012,,,,,,,
+250.0,2024-07-24T12:40:00Z,REPLAY,oracle,unit,PC-FIRE-05,en_route,,,,,,,I015:field_assessment:0,I015
+252.6,2024-07-24T12:42:35.178898875Z,REPLAY,oracle,unit,PC-FIRE-05,on_site,,,,,,,I015:field_assessment:0,I015
+257.6,2024-07-24T12:47:35.178898875Z,REPLAY,oracle,unit,PC-FIRE-05,available,field_assessment finished at I015,,,,,,,
+260.0,2024-07-24T12:50:00Z,REPLAY,oracle,unit,PC-FIRE-01,en_route,,,,,,,I016:water_rescue:0,I016
+264.6,2024-07-24T12:54:35.449343673Z,REPLAY,oracle,unit,PC-FIRE-01,on_site,,,,,,,I016:water_rescue:0,I016
+270.0,2024-07-24T13:00:00Z,REPLAY,oracle,unit,PC-POL-04,en_route,,,,,,,I017:field_assessment:0,I017
+281.7,2024-07-24T13:11:43.931598405Z,REPLAY,oracle,unit,PC-POL-04,on_site,,,,,,,I017:field_assessment:0,I017
+286.7,2024-07-24T13:16:43.931598405Z,REPLAY,oracle,unit,PC-POL-04,available,field_assessment finished at I017,,,,,,,
+290.0,2024-07-24T13:20:00Z,REPLAY,oracle,unit,PC-TEAM-03,en_route,,,,,,,I018:debris_clearance:0,I018
+290.0,2024-07-24T13:20:00Z,REPLAY,oracle,unit,PC-JCB-02,en_route,,,,,,,I017:debris_clearance:0,I017
+299.7,2024-07-24T13:29:44.450903145Z,REPLAY,oracle,unit,PC-PUMP-05,available,dewatering finished at I014,,,,,,,
+309.6,2024-07-24T13:39:35.449343673Z,REPLAY,oracle,unit,PC-FIRE-01,available,water_rescue finished at I016,,,,,,,
+309.8,2024-07-24T13:39:47.293942930Z,REPLAY,oracle,unit,PC-TEAM-03,on_site,,,,,,,I018:debris_clearance:0,I018
+310.0,2024-07-24T13:40:00Z,REPLAY,oracle,unit,PC-FIRE-06,en_route,,,,,,,I019:field_assessment:0,I019
+314.9,2024-07-24T13:44:51.165313370Z,REPLAY,oracle,unit,PC-JCB-02,on_site,,,,,,,I017:debris_clearance:0,I017
+319.8,2024-07-24T13:49:45.691556235Z,REPLAY,oracle,unit,PC-FIRE-06,on_site,,,,,,,I019:field_assessment:0,I019
+320.0,2024-07-24T13:50:00Z,REPLAY,oracle,unit,PC-FIRE-07,en_route,,,,,,,I020:field_assessment:0,I020
+324.8,2024-07-24T13:54:45.691556235Z,REPLAY,oracle,unit,PC-FIRE-06,available,field_assessment finished at I019,,,,,,,
+331.5,2024-07-24T14:01:30.696827031Z,REPLAY,oracle,unit,PC-FIRE-07,on_site,,,,,,,I020:field_assessment:0,I020
+336.5,2024-07-24T14:06:30.696827031Z,REPLAY,oracle,unit,PC-FIRE-07,available,field_assessment finished at I020,,,,,,,
+340.0,2024-07-24T14:10:00Z,REPLAY,oracle,unit,PC-JCB-01,en_route,,,,,,,I020:debris_clearance:0,I020
+349.8,2024-07-24T14:19:47.293942930Z,REPLAY,oracle,unit,PC-TEAM-03,available,debris_clearance finished at I018,,,,,,,
+350.0,2024-07-24T14:20:00Z,REPLAY,oracle,unit,PC-BOAT-03,en_route,,,,,,,I021:field_assessment:0,I021
+354.5,2024-07-24T14:24:27.017106740Z,REPLAY,oracle,unit,PC-BOAT-03,on_site,,,,,,,I021:field_assessment:0,I021
+354.9,2024-07-24T14:24:51.165313370Z,REPLAY,oracle,unit,PC-JCB-02,available,debris_clearance finished at I017,,,,,,,
+359.5,2024-07-24T14:29:27.017106740Z,REPLAY,oracle,unit,PC-BOAT-03,available,field_assessment finished at I021,,,,,,,
+360.0,2024-07-24T14:30:00Z,REPLAY,oracle,unit,PC-AMB-01,en_route,,,,,,,I022:field_assessment:0,I022
+368.2,2024-07-24T14:38:11.584433005Z,REPLAY,oracle,unit,PC-AMB-01,on_site,,,,,,,I022:field_assessment:0,I022
+370.0,2024-07-24T14:40:00Z,REPLAY,oracle,unit,PC-TEAM-01,en_route,,,,,,,I022:water_rescue:0,I022
+370.0,2024-07-24T14:40:00Z,REPLAY,oracle,unit,PC-FIRE-05,en_route,,,,,,,I023:field_assessment:0,I023
+373.2,2024-07-24T14:43:11.584433005Z,REPLAY,oracle,unit,PC-AMB-01,available,field_assessment finished at I022,,,,,,,
+375.6,2024-07-24T14:45:37.659367583Z,REPLAY,oracle,unit,PC-JCB-01,on_site,,,,,,,I020:debris_clearance:0,I020
+376.0,2024-07-24T14:46:00.066749695Z,REPLAY,oracle,unit,PC-FIRE-05,on_site,,,,,,,I023:field_assessment:0,I023
+380.0,2024-07-24T14:50:00Z,REPLAY,oracle,unit,PC-BOAT-03,en_route,,,,,,,I023:water_rescue:0,I023
+380.0,2024-07-24T14:50:00Z,REPLAY,oracle,unit,PC-JCB-02,en_route,,,,,,,I024:debris_clearance:0,I024
+380.0,2024-07-24T14:50:00Z,REPLAY,oracle,unit,PC-TEAM-03,en_route,,,,,,,I026:field_assessment:0,I026
+380.0,2024-07-24T14:50:00Z,REPLAY,oracle,unit,PC-POL-04,en_route,,,,,,,I025:field_assessment:0,I025
+381.0,2024-07-24T14:51:00.066749695Z,REPLAY,oracle,unit,PC-FIRE-05,available,field_assessment finished at I023,,,,,,,
+381.8,2024-07-24T14:51:47.523284586Z,REPLAY,oracle,unit,PC-TEAM-01,on_site,,,,,,,I022:water_rescue:0,I022
+382.0,2024-07-24T14:52:00Z,REPLAY,oracle,unit,PC-TEAM-03,on_site,,,,,,,I026:field_assessment:0,I026
+387.0,2024-07-24T14:57:00Z,REPLAY,oracle,unit,PC-TEAM-03,available,field_assessment finished at I026,,,,,,,
+389.9,2024-07-24T14:59:54.992021787Z,REPLAY,oracle,unit,PC-POL-04,on_site,,,,,,,I025:field_assessment:0,I025
+390.0,2024-07-24T15:00:00Z,REPLAY,oracle,unit,PC-FIRE-05,en_route,,,,,,,I023:water_rescue:0,I023
+390.0,2024-07-24T15:00:00Z,REPLAY,oracle,unit,PC-TEAM-03,en_route,,,,,,,I026:debris_clearance:0,I026
+390.0,2024-07-24T15:00:00Z,REPLAY,oracle,unit,PC-TEAM-02,en_route,,,,,,,I025:debris_clearance:0,I025
+390.0,2024-07-24T15:00:00Z,REPLAY,oracle,unit,PC-BOAT-03,available,need covered by a closer unit,,,,,,,
+392.0,2024-07-24T15:02:00Z,REPLAY,oracle,unit,PC-FIRE-05,on_site,,,,,,,I023:water_rescue:0,I023
+392.0,2024-07-24T15:02:00Z,REPLAY,oracle,unit,PC-TEAM-03,on_site,,,,,,,I026:debris_clearance:0,I026
+394.9,2024-07-24T15:04:54.992021787Z,REPLAY,oracle,unit,PC-POL-04,available,field_assessment finished at I025,,,,,,,
+399.7,2024-07-24T15:09:41.585166762Z,REPLAY,oracle,unit,PC-JCB-02,on_site,,,,,,,I024:debris_clearance:0,I024
+410.0,2024-07-24T15:20:00Z,REPLAY,oracle,unit,PC-BOAT-03,en_route,,,,,,,I027:field_assessment:0,I027
+415.1,2024-07-24T15:25:03.417750444Z,REPLAY,oracle,unit,PC-TEAM-02,on_site,,,,,,,I025:debris_clearance:0,I025
+415.6,2024-07-24T15:25:37.659367583Z,REPLAY,oracle,unit,PC-JCB-01,available,debris_clearance finished at I020,,,,,,,
+426.8,2024-07-24T15:36:47.523284586Z,REPLAY,oracle,unit,PC-TEAM-01,available,water_rescue finished at I022,,,,,,,
+432.0,2024-07-24T15:42:00Z,REPLAY,oracle,unit,PC-TEAM-03,available,debris_clearance finished at I026,,,,,,,
+437.0,2024-07-24T15:47:00Z,REPLAY,oracle,unit,PC-FIRE-05,available,water_rescue finished at I023,,,,,,,
+439.7,2024-07-24T15:49:41.585166762Z,REPLAY,oracle,unit,PC-JCB-02,available,debris_clearance finished at I024,,,,,,,
+453.3,2024-07-24T16:03:17.358342419Z,REPLAY,oracle,unit,PC-BOAT-03,on_site,,,,,,,I027:field_assessment:0,I027
+455.1,2024-07-24T16:05:03.417750444Z,REPLAY,oracle,unit,PC-TEAM-02,available,debris_clearance finished at I025,,,,,,,
+458.3,2024-07-24T16:08:17.358342419Z,REPLAY,oracle,unit,PC-BOAT-03,available,field_assessment finished at I027,,,,,,,
+460.0,2024-07-24T16:10:00Z,REPLAY,oracle,unit,PC-AMB-01,en_route,,,,,,,I028:field_assessment:0,I028
+470.0,2024-07-24T16:20:00Z,REPLAY,oracle,unit,PC-FIRE-05,en_route,,,,,,,I029:field_assessment:0,I029
+470.0,2024-07-24T16:20:00Z,REPLAY,oracle,unit,PC-FIRE-01,en_route,,,,,,,I030:field_assessment:0,I030
+471.2,2024-07-24T16:21:13.391191686Z,REPLAY,oracle,unit,PC-AMB-01,on_site,,,,,,,I028:field_assessment:0,I028
+475.5,2024-07-24T16:25:27.628436276Z,REPLAY,oracle,unit,PC-FIRE-05,on_site,,,,,,,I029:field_assessment:0,I029
+476.2,2024-07-24T16:26:13.391191686Z,REPLAY,oracle,unit,PC-AMB-01,available,field_assessment finished at I028,,,,,,,
+480.0,2024-07-24T16:30:00Z,REPLAY,oracle,unit,PC-TEAM-03,en_route,,,,,,,I029:debris_clearance:0,I029
+480.0,2024-07-24T16:30:00Z,REPLAY,oracle,unit,PC-TEAM-01,en_route,,,,,,,I028:debris_clearance:0,I028
+480.0,2024-07-24T16:30:00Z,REPLAY,oracle,unit,PC-AMB-01,en_route,,,,,,,I031:field_assessment:0,I031
+480.5,2024-07-24T16:30:27.628436276Z,REPLAY,oracle,unit,PC-FIRE-05,available,field_assessment finished at I029,,,,,,,
+482.3,2024-07-24T16:32:15.429119360Z,REPLAY,oracle,unit,PC-FIRE-01,on_site,,,,,,,I030:field_assessment:0,I030
+487.3,2024-07-24T16:37:15.429119360Z,REPLAY,oracle,unit,PC-FIRE-01,available,field_assessment finished at I030,,,,,,,
+490.0,2024-07-24T16:40:00Z,REPLAY,oracle,unit,PC-JCB-02,en_route,,,,,,,I030:debris_clearance:0,I030
+490.0,2024-07-24T16:40:02.534232308Z,REPLAY,oracle,unit,PC-AMB-01,on_site,,,,,,,I031:field_assessment:0,I031
+494.6,2024-07-24T16:44:36.995469874Z,REPLAY,oracle,unit,PC-TEAM-03,on_site,,,,,,,I029:debris_clearance:0,I029
+495.0,2024-07-24T16:45:02.534232308Z,REPLAY,oracle,unit,PC-AMB-01,available,field_assessment finished at I031,,,,,,,
+498.1,2024-07-24T16:48:06.042934333Z,REPLAY,oracle,unit,PC-TEAM-01,on_site,,,,,,,I028:debris_clearance:0,I028
+500.0,2024-07-24T16:50:00Z,REPLAY,oracle,unit,PC-TEAM-02,en_route,,,,,,,I031:debris_clearance:0,I031
+510.0,2024-07-24T17:00:00Z,REPLAY,oracle,unit,PC-AMB-05,en_route,,,,,,,I032:field_assessment:0,I032
+516.7,2024-07-24T17:06:43.436867098Z,REPLAY,oracle,unit,PC-JCB-02,on_site,,,,,,,I030:debris_clearance:0,I030
+520.0,2024-07-24T17:10:00Z,REPLAY,oracle,unit,PC-POL-02,en_route,,,,,,,I033:field_assessment:0,I033
+521.2,2024-07-24T17:11:14.407124074Z,REPLAY,oracle,unit,PC-AMB-05,on_site,,,,,,,I032:field_assessment:0,I032
+526.2,2024-07-24T17:16:14.407124074Z,REPLAY,oracle,unit,PC-AMB-05,available,field_assessment finished at I032,,,,,,,
+526.4,2024-07-24T17:16:23.175697923Z,REPLAY,oracle,unit,PC-POL-02,on_site,,,,,,,I033:field_assessment:0,I033
+527.9,2024-07-24T17:17:52.883751961Z,REPLAY,oracle,unit,PC-TEAM-02,on_site,,,,,,,I031:debris_clearance:0,I031
+530.0,2024-07-24T17:20:00Z,REPLAY,oracle,unit,PC-AMB-04,en_route,,,,,,,I034:medical_transport:0,I034
+530.0,2024-07-24T17:20:00Z,REPLAY,oracle,unit,PC-POL-03,en_route,,,,,,,I034:traffic_control:0,I034
+530.0,2024-07-24T17:20:00Z,REPLAY,oracle,unit,PC-JCB-01,en_route,,,,,,,I032:debris_clearance:0,I032
+531.4,2024-07-24T17:21:23.175697923Z,REPLAY,oracle,unit,PC-POL-02,available,field_assessment finished at I033,,,,,,,
+534.6,2024-07-24T17:24:36.995469874Z,REPLAY,oracle,unit,PC-TEAM-03,available,debris_clearance finished at I029,,,,,,,
+537.2,2024-07-24T17:27:13.081299196Z,REPLAY,oracle,unit,PC-AMB-04,on_site,,,,,,,I034:medical_transport:0,I034
+538.1,2024-07-24T17:28:06.042934333Z,REPLAY,oracle,unit,PC-TEAM-01,available,debris_clearance finished at I028,,,,,,,
+543.1,2024-07-24T17:33:04.478889069Z,REPLAY,oracle,unit,PC-POL-03,on_site,,,,,,,I034:traffic_control:0,I034
+552.5,2024-07-24T17:42:32.851163879Z,REPLAY,oracle,unit,PC-JCB-01,on_site,,,,,,,I032:debris_clearance:0,I032
+556.7,2024-07-24T17:46:43.436867098Z,REPLAY,oracle,unit,PC-JCB-02,available,debris_clearance finished at I030,,,,,,,
+564.1,2024-07-24T17:54:07.203958402Z,REPLAY,oracle,unit,PC-AMB-04,available,medical_transport finished at I034,,,,,,,
+567.9,2024-07-24T17:57:52.883751961Z,REPLAY,oracle,unit,PC-TEAM-02,available,debris_clearance finished at I031,,,,,,,
+570.0,2024-07-24T18:00:00Z,REPLAY,oracle,unit,PC-TEAM-02,en_route,,,,,,,I035:field_assessment:0,I035
+572.0,2024-07-24T18:02:00Z,REPLAY,oracle,unit,PC-TEAM-02,on_site,,,,,,,I035:field_assessment:0,I035
+577.0,2024-07-24T18:07:00Z,REPLAY,oracle,unit,PC-TEAM-02,available,field_assessment finished at I035,,,,,,,
+580.0,2024-07-24T18:10:00Z,REPLAY,oracle,unit,PC-AMB-01,en_route,,,,,,,I036:field_assessment:0,I036
+586.7,2024-07-24T18:16:40.115927265Z,REPLAY,oracle,unit,PC-AMB-01,on_site,,,,,,,I036:field_assessment:0,I036
+588.1,2024-07-24T18:18:04.478889069Z,REPLAY,oracle,unit,PC-POL-03,available,traffic_control finished at I034,,,,,,,
+590.0,2024-07-24T18:20:00Z,REPLAY,oracle,unit,PC-TEAM-03,en_route,,,,,,,I037:field_assessment:0,I037
+591.7,2024-07-24T18:21:40.115927265Z,REPLAY,oracle,unit,PC-AMB-01,available,field_assessment finished at I036,,,,,,,
+592.5,2024-07-24T18:22:32.851163879Z,REPLAY,oracle,unit,PC-JCB-01,available,debris_clearance finished at I032,,,,,,,
+593.1,2024-07-24T18:23:04.850618205Z,REPLAY,oracle,unit,PC-TEAM-03,on_site,,,,,,,I037:field_assessment:0,I037
+598.1,2024-07-24T18:28:04.850618205Z,REPLAY,oracle,unit,PC-TEAM-03,available,field_assessment finished at I037,,,,,,,
+600.0,2024-07-24T18:30:00Z,REPLAY,oracle,unit,PC-TEAM-03,en_route,,,,,,,I037:debris_clearance:0,I037
+603.1,2024-07-24T18:33:04.850618205Z,REPLAY,oracle,unit,PC-TEAM-03,on_site,,,,,,,I037:debris_clearance:0,I037
+640.0,2024-07-24T19:10:00Z,REPLAY,oracle,unit,PC-FIRE-06,en_route,,,,,,,I038:field_assessment:0,I038
+643.1,2024-07-24T19:13:04.850618205Z,REPLAY,oracle,unit,PC-TEAM-03,available,debris_clearance finished at I037,,,,,,,
+645.8,2024-07-24T19:15:50.990310405Z,REPLAY,oracle,unit,PC-FIRE-06,on_site,,,,,,,I038:field_assessment:0,I038
+650.0,2024-07-24T19:20:00Z,REPLAY,oracle,unit,PC-TEAM-01,en_route,,,,,,,I038:water_rescue:0,I038
+650.8,2024-07-24T19:20:50.990310405Z,REPLAY,oracle,unit,PC-FIRE-06,available,field_assessment finished at I038,,,,,,,
+660.0,2024-07-24T19:30:00Z,REPLAY,oracle,unit,PC-FIRE-06,en_route,,,,,,,I038:water_rescue:0,I038
+660.0,2024-07-24T19:30:00Z,REPLAY,oracle,unit,PC-TEAM-01,available,need covered by a closer unit,,,,,,,
+662.3,2024-07-24T19:32:16.568584285Z,REPLAY,oracle,unit,PC-FIRE-06,on_site,,,,,,,I038:water_rescue:0,I038
+707.3,2024-07-24T20:17:16.568584285Z,REPLAY,oracle,unit,PC-FIRE-06,available,water_rescue finished at I038,,,,,,,
+720.0,2024-07-24T20:30:00Z,REPLAY,oracle,unit,PC-POL-04,en_route,,,,,,,I041:field_assessment:0,I041
+720.0,2024-07-24T20:30:00Z,REPLAY,oracle,unit,PC-FIRE-02,en_route,,,,,,,I040:field_assessment:0,I040
+720.0,2024-07-24T20:30:00Z,REPLAY,oracle,unit,PC-AMB-02,en_route,,,,,,,I039:field_assessment:0,I039

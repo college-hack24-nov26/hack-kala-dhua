@@ -1,0 +1,630 @@
+{
+"_source": "Supabase project Indradhanu, read 2026-10-10: resources (PCMC corridor, base locations), lifelines (PCMC wards: shelters, relief centres, schools, hospitals), wards (w-pc-*), aid_offers (pune). Frozen here so scenario replays do not depend on the live database.",
+"units": [
+{
+"id": "PC-AMB-01",
+"kind": "ambulance",
+"label": "108 Ambulance 01 (YCM Hospital)",
+"capacity": 4,
+"lng": 73.82116,
+"lat": 18.62203
+},
+{
+"id": "PC-AMB-02",
+"kind": "ambulance",
+"label": "108 Ambulance 02 (YCM Hospital)",
+"capacity": 4,
+"lng": 73.8212,
+"lat": 18.6221
+},
+{
+"id": "PC-AMB-03",
+"kind": "ambulance",
+"label": "Ambulance 03 (Aditya Birla Hospital)",
+"capacity": 3,
+"lng": 73.77499,
+"lat": 18.62584
+},
+{
+"id": "PC-AMB-04",
+"kind": "ambulance",
+"label": "Ambulance 04 (Lokmanya Hospital, Nigdi)",
+"capacity": 3,
+"lng": 73.7732,
+"lat": 18.65618
+},
+{
+"id": "PC-AMB-05",
+"kind": "ambulance",
+"label": "Ambulance 05 (D Y Patil Hospital)",
+"capacity": 3,
+"lng": 73.82197,
+"lat": 18.62317
+},
+{
+"id": "PC-AMB-06",
+"kind": "ambulance",
+"label": "Ambulance 06 (Global Hospital, Ravet)",
+"capacity": 3,
+"lng": 73.75716,
+"lat": 18.64646
+},
+{
+"id": "PC-BOAT-01",
+"kind": "boat",
+"label": "Rescue boat 01 (Pawana, Ravet)",
+"capacity": 8,
+"lng": 73.7456,
+"lat": 18.6438
+},
+{
+"id": "PC-BOAT-02",
+"kind": "boat",
+"label": "Rescue boat 02 (Pawana, Morya Gosavi ghat)",
+"capacity": 8,
+"lng": 73.77844,
+"lat": 18.62632
+},
+{
+"id": "PC-BOAT-03",
+"kind": "boat",
+"label": "Inflatable boat 03 (SDRF, Pimpri)",
+"capacity": 6,
+"lng": 73.8025,
+"lat": 18.623
+},
+{
+"id": "PC-BUS-01",
+"kind": "bus",
+"label": "Evacuation bus 01 (Bhakti Shakti depot)",
+"capacity": 45,
+"lng": 73.77063,
+"lat": 18.66526
+},
+{
+"id": "PC-BUS-02",
+"kind": "bus",
+"label": "Evacuation bus 02 (Bhakti Shakti depot)",
+"capacity": 45,
+"lng": 73.7707,
+"lat": 18.6653
+},
+{
+"id": "PC-FIRE-01",
+"kind": "fire_engine",
+"label": "Fire tender 01 (Pradhikaran stn, Nigdi)",
+"capacity": 6,
+"lng": 73.77174,
+"lat": 18.65925
+},
+{
+"id": "PC-FIRE-02",
+"kind": "fire_engine",
+"label": "Fire tender 02 (Pradhikaran stn, Nigdi)",
+"capacity": 6,
+"lng": 73.7718,
+"lat": 18.6593
+},
+{
+"id": "PC-FIRE-03",
+"kind": "fire_engine",
+"label": "Fire tender 03 (Main PCMC stn, Pimpri)",
+"capacity": 6,
+"lng": 73.81805,
+"lat": 18.62276
+},
+{
+"id": "PC-FIRE-04",
+"kind": "fire_engine",
+"label": "Hydraulic platform 04 (Main PCMC stn)",
+"capacity": 4,
+"lng": 73.8181,
+"lat": 18.6228
+},
+{
+"id": "PC-FIRE-05",
+"kind": "fire_engine",
+"label": "Fire tender 05 (Thergaon stn)",
+"capacity": 6,
+"lng": 73.77881,
+"lat": 18.61219
+},
+{
+"id": "PC-FIRE-06",
+"kind": "fire_engine",
+"label": "Fire tender 06 (Rahatani stn)",
+"capacity": 6,
+"lng": 73.78172,
+"lat": 18.59624
+},
+{
+"id": "PC-FIRE-07",
+"kind": "fire_engine",
+"label": "Foam tender 07 (Chikhali stn, MIDC)",
+"capacity": 6,
+"lng": 73.8178,
+"lat": 18.66441
+},
+{
+"id": "PC-JCB-01",
+"kind": "jcb",
+"label": "JCB 01 (PCMC Works, Nigdi)",
+"capacity": 1,
+"lng": 73.77063,
+"lat": 18.66526
+},
+{
+"id": "PC-JCB-02",
+"kind": "jcb",
+"label": "JCB 02 (PCMC Works, Thergaon)",
+"capacity": 1,
+"lng": 73.7729,
+"lat": 18.6093
+},
+{
+"id": "PC-POL-01",
+"kind": "police",
+"label": "Police 01 (Pimpri police station)",
+"capacity": 4,
+"lng": 73.8016,
+"lat": 18.6262
+},
+{
+"id": "PC-POL-02",
+"kind": "police",
+"label": "Police 02 (Chinchwad police station)",
+"capacity": 4,
+"lng": 73.7856,
+"lat": 18.6339
+},
+{
+"id": "PC-POL-03",
+"kind": "police",
+"label": "Police 03 (Nigdi police station)",
+"capacity": 4,
+"lng": 73.7715,
+"lat": 18.6542
+},
+{
+"id": "PC-POL-04",
+"kind": "police",
+"label": "Police 04 (Wakad police station)",
+"capacity": 4,
+"lng": 73.7639,
+"lat": 18.5989
+},
+{
+"id": "PC-PUMP-01",
+"kind": "pump",
+"label": "Dewatering pump 01 (Akurdi station underpass)",
+"capacity": 1,
+"lng": 73.76535,
+"lat": 18.64899
+},
+{
+"id": "PC-PUMP-02",
+"kind": "pump",
+"label": "Dewatering pump 02 (Chinchwad station)",
+"capacity": 1,
+"lng": 73.7915,
+"lat": 18.63948
+},
+{
+"id": "PC-PUMP-03",
+"kind": "pump",
+"label": "Dewatering pump 03 (Pimpri station)",
+"capacity": 1,
+"lng": 73.80251,
+"lat": 18.62295
+},
+{
+"id": "PC-PUMP-04",
+"kind": "pump",
+"label": "Dewatering pump 04 (Ravet)",
+"capacity": 1,
+"lng": 73.74506,
+"lat": 18.64327
+},
+{
+"id": "PC-PUMP-05",
+"kind": "pump",
+"label": "Dewatering pump 05 (Kasarwadi)",
+"capacity": 1,
+"lng": 73.82087,
+"lat": 18.60809
+},
+{
+"id": "PC-TEAM-01",
+"kind": "rescue_team",
+"label": "PCMC disaster cell team 01 (Pimpri)",
+"capacity": 15,
+"lng": 73.818,
+"lat": 18.6227
+},
+{
+"id": "PC-TEAM-02",
+"kind": "rescue_team",
+"label": "SDRF team 02 (Nigdi)",
+"capacity": 20,
+"lng": 73.7717,
+"lat": 18.6592
+},
+{
+"id": "PC-TEAM-03",
+"kind": "rescue_team",
+"label": "Civil Defence team 03 (Chinchwad)",
+"capacity": 12,
+"lng": 73.7915,
+"lat": 18.6395
+},
+{
+"id": "PC-TRUCK-01",
+"kind": "supply_truck",
+"label": "Relief truck 01 (PCCOE staging)",
+"capacity": 400,
+"lng": 73.76238,
+"lat": 18.65267
+},
+{
+"id": "PC-TRUCK-02",
+"kind": "supply_truck",
+"label": "Relief truck 02 (Chinchwad)",
+"capacity": 400,
+"lng": 73.7804,
+"lat": 18.6294
+},
+{
+"id": "PC-TANK-01",
+"kind": "water_tanker",
+"label": "Water tanker 01 (Nigdi)",
+"capacity": 10000,
+"lng": 73.7706,
+"lat": 18.6652
+},
+{
+"id": "PC-TANK-02",
+"kind": "water_tanker",
+"label": "Water tanker 02 (Pimpri)",
+"capacity": 10000,
+"lng": 73.8026,
+"lat": 18.6229
+}
+],
+"shelters": [
+{
+"id": "lf-pc-r1",
+"kind": "relief_centre",
+"name": "Morya Gosavi temple relief centre, Chinchwad",
+"capacity": 1000,
+"lng": 73.77844,
+"lat": 18.62632
+},
+{
+"id": "lf-pc-r2",
+"kind": "relief_centre",
+"name": "Ravet relief camp (D Y Patil Dnyanshanti School)",
+"capacity": 900,
+"lng": 73.75948,
+"lat": 18.64756
+},
+{
+"id": "lf-pc-s1",
+"kind": "shelter",
+"name": "PCCOE campus, Nigdi",
+"capacity": 800,
+"lng": 73.76238,
+"lat": 18.65267
+},
+{
+"id": "lf-pc-s2",
+"kind": "shelter",
+"name": "Jnana Prabodhini ground, Nigdi",
+"capacity": 400,
+"lng": 73.76625,
+"lat": 18.65879
+},
+{
+"id": "lf-pc-s3",
+"kind": "shelter",
+"name": "S B Patil Public School, Ravet",
+"capacity": 450,
+"lng": 73.74602,
+"lat": 18.65596
+},
+{
+"id": "lf-pc-s4",
+"kind": "shelter",
+"name": "Kamalnayan Bajaj High School, More Wasti",
+"capacity": 400,
+"lng": 73.79867,
+"lat": 18.65895
+},
+{
+"id": "lf-pc-s5",
+"kind": "shelter",
+"name": "St Ursula's High School, Nigdi",
+"capacity": 350,
+"lng": 73.77732,
+"lat": 18.65712
+},
+{
+"id": "lf-pc-s6",
+"kind": "shelter",
+"name": "Mhalsakant School, Akurdi",
+"capacity": 350,
+"lng": 73.77545,
+"lat": 18.64839
+}
+],
+"schools": [
+{
+"id": "lf-pc-sc1",
+"name": "Kendriya Vidyalaya No. 2, Dehu Road",
+"capacity": 500,
+"lng": 73.74593,
+"lat": 18.67305
+},
+{
+"id": "lf-pc-sc2",
+"name": "Kirti Vidyalaya High School, Nigdi",
+"capacity": 350,
+"lng": 73.76634,
+"lat": 18.65716
+},
+{
+"id": "lf-pc-sc3",
+"name": "Podar International School, Chinchwad",
+"capacity": 400,
+"lng": 73.78654,
+"lat": 18.62474
+},
+{
+"id": "lf-pc-sc4",
+"name": "Thergaon High School",
+"capacity": 350,
+"lng": 73.77916,
+"lat": 18.61465
+},
+{
+"id": "lf-pc-sc5",
+"name": "Rangabhumi Hall, Tathawade",
+"capacity": 300,
+"lng": 73.74948,
+"lat": 18.61962
+},
+{
+"id": "lf-pc-sc6",
+"name": "Hindustan Antibiotics School, Pimpri",
+"capacity": 450,
+"lng": 73.8115,
+"lat": 18.62532
+},
+{
+"id": "lf-pc-sc7",
+"name": "Infant Jesus School, Wakad",
+"capacity": 300,
+"lng": 73.77084,
+"lat": 18.6031
+},
+{
+"id": "lf-pc-sc8",
+"name": "St Ann's School, Chikhli",
+"capacity": 350,
+"lng": 73.78824,
+"lat": 18.667
+}
+],
+"hospitals": [
+{
+"id": "lf-pc-h1",
+"name": "YCM Hospital (PCMC), Pimpri",
+"lng": 73.82116,
+"lat": 18.62203
+},
+{
+"id": "lf-pc-h2",
+"name": "Aditya Birla Memorial Hospital, Thergaon",
+"lng": 73.77499,
+"lat": 18.62584
+},
+{
+"id": "lf-pc-h3",
+"name": "Lokmanya Hospital, Nigdi",
+"lng": 73.7732,
+"lat": 18.65618
+},
+{
+"id": "lf-pc-h4",
+"name": "Dr D Y Patil Hospital, Pimpri",
+"lng": 73.82197,
+"lat": 18.62317
+},
+{
+"id": "lf-pc-h5",
+"name": "Global Hospital, Ravet",
+"lng": 73.75716,
+"lat": 18.64646
+},
+{
+"id": "lf-pc-h6",
+"name": "Thergaon Hospital (PCMC)",
+"lng": 73.78166,
+"lat": 18.61338
+}
+],
+"aid_offers": [
+{
+"id": "pun-redcross-amb",
+"kind": "ambulance",
+"quantity": 3,
+"response_minutes": 25,
+"accept_p": 0.85,
+"min_level": 2,
+"lng": 73.8567,
+"lat": 18.5204,
+"label": "Red Cross ambulances (Pune)"
+},
+{
+"id": "pun-redcross-team",
+"kind": "rescue_team",
+"quantity": 2,
+"response_minutes": 35,
+"accept_p": 0.8,
+"min_level": 2,
+"lng": 73.8567,
+"lat": 18.5204,
+"label": "Red Cross first-aid teams"
+},
+{
+"id": "pun-vol-team",
+"kind": "rescue_team",
+"quantity": 3,
+"response_minutes": 30,
+"accept_p": 0.75,
+"min_level": 2,
+"lng": 73.78,
+"lat": 18.644,
+"label": "Volunteer search teams"
+},
+{
+"id": "pun-pmc-fire",
+"kind": "fire_engine",
+"quantity": 2,
+"response_minutes": 30,
+"accept_p": 0.7,
+"min_level": 2,
+"lng": 73.8553,
+"lat": 18.5196,
+"label": "PMC fire tenders"
+},
+{
+"id": "pun-pmc-pump",
+"kind": "pump",
+"quantity": 2,
+"response_minutes": 40,
+"accept_p": 0.7,
+"min_level": 2,
+"lng": 73.8553,
+"lat": 18.5196,
+"label": "PMC dewatering pumps"
+},
+{
+"id": "pun-sdrf-boat",
+"kind": "boat",
+"quantity": 2,
+"response_minutes": 60,
+"accept_p": 0.9,
+"min_level": 2,
+"lng": 73.804,
+"lat": 18.644,
+"label": "SDRF boats"
+},
+{
+"id": "pun-sdrf-team",
+"kind": "rescue_team",
+"quantity": 2,
+"response_minutes": 60,
+"accept_p": 0.9,
+"min_level": 2,
+"lng": 73.804,
+"lat": 18.644,
+"label": "SDRF rescue teams"
+},
+{
+"id": "pun-pvt-bus",
+"kind": "bus",
+"quantity": 4,
+"response_minutes": 40,
+"accept_p": 0.8,
+"min_level": 3,
+"lng": 73.7706,
+"lat": 18.6653,
+"label": "Requisitioned buses"
+},
+{
+"id": "pun-ndrf-team",
+"kind": "rescue_team",
+"quantity": 3,
+"response_minutes": 90,
+"accept_p": 0.95,
+"min_level": 4,
+"lng": 73.682,
+"lat": 18.714,
+"label": "NDRF 5th Bn rescue teams (Sudumbare)"
+},
+{
+"id": "pun-ndrf-boat",
+"kind": "boat",
+"quantity": 3,
+"response_minutes": 90,
+"accept_p": 0.95,
+"min_level": 4,
+"lng": 73.682,
+"lat": 18.714,
+"label": "NDRF 5th Bn boats (Sudumbare)"
+}
+],
+"kind_capabilities": {
+"fire_engine": {
+"fire_suppression": 1,
+"dewatering": 0.5,
+"water_rescue": 0.6,
+"field_assessment": 0.8
+},
+"jcb": {
+"debris_clearance": 1
+},
+"police": {
+"traffic_control": 1,
+"field_assessment": 0.8
+},
+"boat": {
+"water_rescue": 1,
+"search_rescue": 0.7,
+"field_assessment": 0.6
+},
+"rescue_team": {
+"search_rescue": 1,
+"water_rescue": 0.8,
+"debris_clearance": 0.6,
+"field_assessment": 1
+},
+"pump": {
+"dewatering": 1
+},
+"supply_truck": {
+"supply_delivery": 1,
+"mass_transport": 0.4
+},
+"bus": {
+"mass_transport": 1,
+"supply_delivery": 0.45
+},
+"water_tanker": {
+"water_supply": 1,
+"supply_delivery": 0.6
+},
+"ambulance": {
+"medical_transport": 1,
+"medical_care": 0.7,
+"field_assessment": 0.8
+}
+},
+"_note": "Units based outside the modelled road graph (PMC units south of 18.575 N, BUS-04 Bhosari east of 73.848 E) are excluded from scenario replays.",
+"ward_elderly_share": {
+"w-pc-01": 0.09,
+"w-pc-02": 0.11,
+"w-pc-03": 0.07,
+"w-pc-04": 0.06,
+"w-pc-05": 0.1,
+"w-pc-06": 0.1,
+"w-pc-07": 0.1,
+"w-pc-08": 0.09,
+"w-pc-09": 0.06,
+"w-pc-10": 0.09,
+"w-pc-11": 0.07,
+"w-pc-12": 0.08,
+"w-pc-13": 0.07,
+"w-pc-14": 0.08
+}
+}

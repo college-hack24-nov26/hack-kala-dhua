@@ -1,0 +1,131 @@
+{
+ "scenario": "deteriorating_access",
+ "title": "Deteriorating access: the Pawana rises during the response",
+ "story": "July 2024 monsoon window. The river climbs through the window; roads that are open when a unit leaves are under water when it gets there. Current-status routing finds out on the road; predicted routing avoids roads likely to close before arrival.",
+ "data": {
+  "storm_id": "20240724-08",
+  "realization": 0,
+  "split": "test",
+  "inputs": "REPLAY: historical ERA5 rain and GloFAS river discharge for this window; roads, hazards, people and reports simulated (ml.sim). Not live data.",
+  "window_start_replay": "2024-07-24T08:30:00Z",
+  "window_end_replay": "2024-07-24T20:30:00Z",
+  "hours": 12,
+  "plan_every_min": 10
+ },
+ "model": "pass-20261010-1049",
+ "fleet_on_shift": 36,
+ "fleet_off_shift": [],
+ "shelter_places": 4650,
+ "injected": null,
+ "policies": {
+  "current_status": {
+   "policy": "current_status",
+   "incidents": 41,
+   "incidents_real": 33,
+   "incidents_false_or_stale": 8,
+   "confirmed": 28,
+   "dismissed_by_assessor": 8,
+   "expired": 2,
+   "dispatches": 72,
+   "crews_sent_to_false_reports": 0,
+   "legs_driven": 69,
+   "invalid_routes": 4,
+   "invalid_route_rate": 0.0606,
+   "reroutes_before_reaching_a_closure": 3,
+   "response_p50_min": 16.6,
+   "response_p90_min": 36.1,
+   "life_safety_response_p50_min": 22.3,
+   "real_incidents_reached": 30,
+   "real_incidents_unreached_at_end": 3,
+   "unmet_need_decisions": 1558,
+   "unmet_by_reason": {
+    "No unit able to provide mass transport could reach this ward within 45": 1079,
+    "No unit able to provide mass transport within 45 minutes; the nearest ": 390,
+    "No unit able to provide dewatering could reach this ward within 45 min": 56,
+    "No unit able to provide dewatering within 45 minutes; the nearest free": 17,
+    "No unit able to provide field assessment could reach this ward within ": 7,
+    "No unit able to provide debris clearance could reach this ward within ": 6,
+    "No unit able to provide field assessment within 45 minutes; the neares": 3
+   },
+   "people_sheltered": 90,
+   "shelter_peak_occupancy": 0.09,
+   "surge_max_level": 0,
+   "aid_units_arrived": 0,
+   "checks": {
+    "unit_double_assignment": 0,
+    "shelter_overflow": 0
+   }
+  },
+  "predicted": {
+   "policy": "predicted",
+   "incidents": 40,
+   "incidents_real": 32,
+   "incidents_false_or_stale": 8,
+   "confirmed": 28,
+   "dismissed_by_assessor": 8,
+   "expired": 1,
+   "dispatches": 71,
+   "crews_sent_to_false_reports": 0,
+   "legs_driven": 64,
+   "invalid_routes": 0,
+   "invalid_route_rate": 0.0,
+   "reroutes_before_reaching_a_closure": 2,
+   "response_p50_min": 16.4,
+   "response_p90_min": 38.5,
+   "life_safety_response_p50_min": 21.7,
+   "real_incidents_reached": 30,
+   "real_incidents_unreached_at_end": 2,
+   "unmet_need_decisions": 1610,
+   "unmet_by_reason": {
+    "No unit able to provide mass transport could reach this ward within 45": 1179,
+    "No unit able to provide mass transport within 45 minutes; the nearest ": 317,
+    "No unit able to provide dewatering could reach this ward within 45 min": 78,
+    "No unit able to provide dewatering within 45 minutes; the nearest free": 22,
+    "No unit able to provide debris clearance could reach this ward within ": 14
+   },
+   "people_sheltered": 90,
+   "shelter_peak_occupancy": 0.09,
+   "surge_max_level": 0,
+   "aid_units_arrived": 0,
+   "checks": {
+    "unit_double_assignment": 0,
+    "shelter_overflow": 0
+   }
+  },
+  "oracle": {
+   "policy": "oracle",
+   "incidents": 41,
+   "incidents_real": 33,
+   "incidents_false_or_stale": 8,
+   "confirmed": 29,
+   "dismissed_by_assessor": 8,
+   "expired": 1,
+   "dispatches": 70,
+   "crews_sent_to_false_reports": 0,
+   "legs_driven": 67,
+   "invalid_routes": 0,
+   "invalid_route_rate": 0.0,
+   "reroutes_before_reaching_a_closure": 0,
+   "response_p50_min": 15.3,
+   "response_p90_min": 26.7,
+   "life_safety_response_p50_min": 22.3,
+   "real_incidents_reached": 31,
+   "real_incidents_unreached_at_end": 2,
+   "unmet_need_decisions": 1523,
+   "unmet_by_reason": {
+    "No unit able to provide mass transport could reach this ward within 45": 1151,
+    "No unit able to provide mass transport within 45 minutes; the nearest ": 345,
+    "No unit able to provide dewatering could reach this ward within 45 min": 18,
+    "No unit able to provide dewatering within 45 minutes; the nearest free": 9
+   },
+   "people_sheltered": 90,
+   "shelter_peak_occupancy": 0.09,
+   "surge_max_level": 0,
+   "aid_units_arrived": 0,
+   "checks": {
+    "unit_double_assignment": 0,
+    "shelter_overflow": 0
+   }
+  }
+ }
+}
