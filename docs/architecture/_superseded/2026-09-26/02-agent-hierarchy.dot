@@ -1,0 +1,63 @@
+// Indradhanu — Agent Hierarchy (supervisor → managers → agents)
+// Render: dot -Tsvg 02-agent-hierarchy.dot -o 02-agent-hierarchy.svg   (or -Tpng)
+digraph G {
+  label=<<font point-size="20"><b>Indradhanu — Agent Hierarchy (supervisor → managers → agents)</b></font>>;
+  rankdir=TB;
+  graph [fontname="Helvetica", fontsize=12, bgcolor="white", pad=0.4, nodesep=0.35, ranksep=0.55,
+         newrank=true, compound=true, labelloc=t, labeljust=l];
+  node  [fontname="Helvetica", shape=plain];
+  edge  [fontname="Helvetica", fontsize=9, color="#475569", fontcolor="#334155", arrowsize=0.7, penwidth=1.2];
+  graph [ranksep=0.8, nodesep=0.3];
+  edge [arrowhead=none, penwidth=1.8, color="#1F2937"];
+  sup [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#374151" bgcolor="white" width="380"><tr><td bgcolor="#374151" align="left"><font color="white"><b>SUPERVISOR  (LangGraph main graph)</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• holds MainState, routes on it<br align="left"/>• starts / resumes threads per incident<br align="left"/>• budgets: recursion limit, time, tokens<br align="left"/></font></td></tr></table>>];
+  m_sit [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#1F4E79" bgcolor="white"><tr><td bgcolor="#1F4E79" align="left"><font color="white"><b>SITUATION MANAGER</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• what is happening?<br align="left"/></font></td></tr></table>>];
+  sup -> m_sit;
+  l_tri [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#1F4E79" bgcolor="white"><tr><td bgcolor="#1F4E79" align="left"><font color="white"><b>Triage Agent</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• trust, classify, cluster<br align="left"/></font></td></tr></table>>];
+  m_sit -> l_tri [penwidth=1.3, color="#475569"];
+  l_pred [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#1F4E79" bgcolor="white"><tr><td bgcolor="#1F4E79" align="left"><font color="white"><b>Prediction Agent</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• risk, demand, flood peak<br align="left"/></font></td></tr></table>>];
+  m_sit -> l_pred [penwidth=1.3, color="#475569"];
+  l_cur [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#1F4E79" bgcolor="white"><tr><td bgcolor="#1F4E79" align="left"><font color="white"><b>Current-State Agents</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• weather, roads, hospitals<br align="left"/>• units, citizen reports<br align="left"/></font></td></tr></table>>];
+  m_sit -> l_cur [penwidth=1.3, color="#475569"];
+  m_ops [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#4C3D8F" bgcolor="white"><tr><td bgcolor="#4C3D8F" align="left"><font color="white"><b>OPERATIONS MANAGER</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• what does each domain need?<br align="left"/></font></td></tr></table>>];
+  sup -> m_ops;
+  l_med [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#4C3D8F" bgcolor="white"><tr><td bgcolor="#4C3D8F" align="left"><font color="white"><b>Medical Subgraph</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• ambulances, beds<br align="left"/></font></td></tr></table>>];
+  m_ops -> l_med [penwidth=1.3, color="#475569"];
+  l_res [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#4C3D8F" bgcolor="white"><tr><td bgcolor="#4C3D8F" align="left"><font color="white"><b>Rescue Subgraph</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• fire, flood, collapse<br align="left"/></font></td></tr></table>>];
+  m_ops -> l_res [penwidth=1.3, color="#475569"];
+  l_log [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#4C3D8F" bgcolor="white"><tr><td bgcolor="#4C3D8F" align="left"><font color="white"><b>Logistics Subgraph</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• shelters, supplies, routes<br align="left"/></font></td></tr></table>>];
+  m_ops -> l_log [penwidth=1.3, color="#475569"];
+  m_plan [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#0E5E6F" bgcolor="white"><tr><td bgcolor="#0E5E6F" align="left"><font color="white"><b>PLANNING MANAGER</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• who goes where?<br align="left"/></font></td></tr></table>>];
+  sup -> m_plan;
+  l_needs [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#4C3D8F" bgcolor="white"><tr><td bgcolor="#4C3D8F" align="left"><font color="white"><b>Needs Agent</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• capabilities and counts<br align="left"/></font></td></tr></table>>];
+  m_plan -> l_needs [penwidth=1.3, color="#475569"];
+  l_opt [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#0E5E6F" bgcolor="white"><tr><td bgcolor="#0E5E6F" align="left"><font color="white"><b>Optimiser</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• OR-Tools CP-SAT<br align="left"/></font></td></tr></table>>];
+  m_plan -> l_opt [penwidth=1.3, color="#475569"];
+  l_val [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#0E5E6F" bgcolor="white"><tr><td bgcolor="#0E5E6F" align="left"><font color="white"><b>Validator</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• simulate, check orders<br align="left"/></font></td></tr></table>>];
+  m_plan -> l_val [penwidth=1.3, color="#475569"];
+  l_rep [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#0E5E6F" bgcolor="white"><tr><td bgcolor="#0E5E6F" align="left"><font color="white"><b>Re-planner</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• adjust constraints, loop<br align="left"/></font></td></tr></table>>];
+  m_plan -> l_rep [penwidth=1.3, color="#475569"];
+  m_cmd [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#7A2E2E" bgcolor="white"><tr><td bgcolor="#7A2E2E" align="left"><font color="white"><b>COMMAND MANAGER</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• may we do it?<br align="left"/></font></td></tr></table>>];
+  sup -> m_cmd;
+  l_ic [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#4C3D8F" bgcolor="white"><tr><td bgcolor="#4C3D8F" align="left"><font color="white"><b>Incident Commander</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• ReAct over MCP tools<br align="left"/></font></td></tr></table>>];
+  m_cmd -> l_ic [penwidth=1.3, color="#475569"];
+  l_cop [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#4C3D8F" bgcolor="white"><tr><td bgcolor="#4C3D8F" align="left"><font color="white"><b>Command Copilot</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• officer questions<br align="left"/></font></td></tr></table>>];
+  m_cmd -> l_cop [penwidth=1.3, color="#475569"];
+  l_gate [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#7A2E2E" bgcolor="white"><tr><td bgcolor="#7A2E2E" align="left"><font color="white"><b>Policy Gate</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• auto or officer<br align="left"/></font></td></tr></table>>];
+  m_cmd -> l_gate [penwidth=1.3, color="#475569"];
+  l_hum [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#9A5B13" bgcolor="white"><tr><td bgcolor="#9A5B13" align="left"><font color="white"><b>Human Approval</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• interrupt / resume<br align="left"/></font></td></tr></table>>];
+  m_cmd -> l_hum [penwidth=1.3, color="#475569"];
+  m_com [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#1D6B47" bgcolor="white"><tr><td bgcolor="#1D6B47" align="left"><font color="white"><b>COMMUNICATIONS MANAGER</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• tell the right people<br align="left"/></font></td></tr></table>>];
+  sup -> m_com;
+  l_disp [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#1D6B47" bgcolor="white"><tr><td bgcolor="#1D6B47" align="left"><font color="white"><b>Dispatch</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• crews: app + mesh<br align="left"/></font></td></tr></table>>];
+  m_com -> l_disp [penwidth=1.3, color="#475569"];
+  l_pub [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#1D6B47" bgcolor="white"><tr><td bgcolor="#1D6B47" align="left"><font color="white"><b>Public Alerts</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• mesh, SMS, cell broadcast<br align="left"/></font></td></tr></table>>];
+  m_com -> l_pub [penwidth=1.3, color="#475569"];
+  l_agy [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#1D6B47" bgcolor="white"><tr><td bgcolor="#1D6B47" align="left"><font color="white"><b>Agency Liaison</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• police, fire, health, NDRF<br align="left"/></font></td></tr></table>>];
+  m_com -> l_agy [penwidth=1.3, color="#475569"];
+  { rank=same; m_sit; m_ops; m_plan; m_cmd; m_com; }
+  { rank=same; l_tri; l_pred; l_cur; l_med; l_res; l_log; l_needs; l_opt; l_val; l_rep; l_ic; l_cop; l_gate; l_hum; l_disp; l_pub; l_agy; }
+  shared [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#374151" bgcolor="white" width="380"><tr><td bgcolor="#374151" align="left"><font color="white"><b>Shared by every agent</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• MCP tool server (role-scoped tools)<br align="left"/>• guardrails on every LLM call<br align="left"/>• namespaced memory store<br align="left"/>• event log + checkpoints<br align="left"/></font></td></tr></table>>];
+  l_log -> shared [style=invis];
+  legend [label=<<table border="1" cellborder="0" cellspacing="3" cellpadding="3" color="#CBD5E1"><tr><td colspan="2" align="left"><b>Legend</b></td></tr><tr><td bgcolor="#374151" width="14"> </td><td align="left"><font point-size="10">supervisor / runtime</font></td></tr><tr><td bgcolor="#4C3D8F" width="14"> </td><td align="left"><font point-size="10">LLM agent / subgraph</font></td></tr><tr><td bgcolor="#1F4E79" width="14"> </td><td align="left"><font point-size="10">deterministic agent</font></td></tr><tr><td bgcolor="#0E5E6F" width="14"> </td><td align="left"><font point-size="10">optimisation</font></td></tr><tr><td bgcolor="#7A2E2E" width="14"> </td><td align="left"><font point-size="10">governance</font></td></tr><tr><td bgcolor="#9A5B13" width="14"> </td><td align="left"><font point-size="10">human</font></td></tr><tr><td bgcolor="#1D6B47" width="14"> </td><td align="left"><font point-size="10">communication</font></td></tr></table>>];
+  shared -> legend [style=invis];
+}

@@ -1,0 +1,89 @@
+// Indradhanu — LangGraph Agent Graph (target design)
+// Render: dot -Tsvg 01-langgraph-agent-graph.dot -o 01-langgraph-agent-graph.svg   (or -Tpng)
+digraph G {
+  label=<<font point-size="20"><b>Indradhanu — LangGraph Agent Graph (target design)</b></font>>;
+  rankdir=TB;
+  graph [fontname="Helvetica", fontsize=12, bgcolor="white", pad=0.4, nodesep=0.35, ranksep=0.55,
+         newrank=true, compound=true, labelloc=t, labeljust=l];
+  node  [fontname="Helvetica", shape=plain];
+  edge  [fontname="Helvetica", fontsize=9, color="#475569", fontcolor="#334155", arrowsize=0.7, penwidth=1.2];
+  graph [ranksep=0.5, nodesep=0.45, splines=spline];
+  start [shape=box, style="rounded,filled", fillcolor="#111827", color="#111827", fontcolor="white", fontname="Helvetica-Bold", fontsize=13, margin="0.25,0.12", label="EVENT\n(new report · camera alarm · road block · crew status · officer override)"];
+  triage [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#1F4E79" bgcolor="white" width="300"><tr><td bgcolor="#1F4E79" align="left"><font color="white"><b>TRIAGE</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• isolate untrusted text · trust score<br align="left"/>• classify: keywords → XLM-R → LLM<br align="left"/>• merge duplicates · set severity<br align="left"/></font></td></tr></table>>];
+  d_tri [shape=diamond, style="filled", fillcolor="#FFF7ED", color="#9A5B13", penwidth=1.4, fontname="Helvetica-Bold", fontsize=11, margin="0.05,0.02", label="triage\nresult?"];
+  link [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#1F4E79" bgcolor="white"><tr><td bgcolor="#1F4E79" align="left"><font color="white"><b>LINK</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• attach to the existing incident<br align="left"/>• raise corroboration<br align="left"/></font></td></tr></table>>];
+  verify [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#9A5B13" bgcolor="white"><tr><td bgcolor="#9A5B13" align="left"><font color="white"><b>VERIFY (human)</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• low trust: officer or<br align="left"/>• second source confirms<br align="left"/>• interrupt() until then<br align="left"/></font></td></tr></table>>];
+  subgraph cluster_pred {
+    label=<<b>PREDICTION</b>>; fontsize=13; style="rounded"; color="#93C5FD"; bgcolor="#EFF6FF"; margin=14;
+    p_risk [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#1F4E79" bgcolor="white"><tr><td bgcolor="#1F4E79" align="left"><font color="white"><b>Hazard risk</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• risk score per ward<br align="left"/></font></td></tr></table>>];
+    p_fore [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#1F4E79" bgcolor="white"><tr><td bgcolor="#1F4E79" align="left"><font color="white"><b>Demand forecast</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• expected calls, flood peak<br align="left"/></font></td></tr></table>>];
+    { rank=same; p_risk; p_fore; }
+  }
+  subgraph cluster_cur {
+    label=<<b>CURRENT STATE  (parallel, Send)</b>>; fontsize=13; style="rounded"; color="#93C5FD"; bgcolor="#EFF6FF"; margin=14;
+    c_wx [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#1F4E79" bgcolor="white"><tr><td bgcolor="#1F4E79" align="left"><font color="white"><b>Weather</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• rain, river level<br align="left"/></font></td></tr></table>>];
+    c_road [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#1F4E79" bgcolor="white"><tr><td bgcolor="#1F4E79" align="left"><font color="white"><b>Roads</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• travel times, blocks<br align="left"/></font></td></tr></table>>];
+    c_hosp [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#1F4E79" bgcolor="white"><tr><td bgcolor="#1F4E79" align="left"><font color="white"><b>Hospitals &amp; shelters</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• beds, occupancy<br align="left"/></font></td></tr></table>>];
+    c_units [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#1F4E79" bgcolor="white"><tr><td bgcolor="#1F4E79" align="left"><font color="white"><b>Units</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• position, status, skills<br align="left"/></font></td></tr></table>>];
+    c_cit [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#1F4E79" bgcolor="white"><tr><td bgcolor="#1F4E79" align="left"><font color="white"><b>Citizen reports</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• nearby, corroborating<br align="left"/></font></td></tr></table>>];
+    { rank=same; c_wx; c_road; c_hosp; c_units; c_cit; }
+  }
+  needs [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#4C3D8F" bgcolor="white" width="300"><tr><td bgcolor="#4C3D8F" align="left"><font color="white"><b>NEEDS AGENT</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• turns incident + context into<br align="left"/>• required capabilities and counts<br align="left"/>• LLM for free text, rules for known cases<br align="left"/></font></td></tr></table>>];
+  subgraph cluster_dom {
+    label=<<b>DOMAIN SUBGRAPHS  (parallel, each with private state and memory)</b>>; fontsize=13; style="rounded"; color="#C4B5FD"; bgcolor="#F5F3FF"; margin=14;
+    s_med [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#4C3D8F" bgcolor="white"><tr><td bgcolor="#4C3D8F" align="left"><font color="white"><b>MEDICAL</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• ambulances, hospital beds<br align="left"/>• casualty priority<br align="left"/></font></td></tr></table>>];
+    s_res [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#4C3D8F" bgcolor="white"><tr><td bgcolor="#4C3D8F" align="left"><font color="white"><b>RESCUE</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• fire, flood, collapse teams<br align="left"/>• boats, NDRF request<br align="left"/></font></td></tr></table>>];
+    s_log [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#4C3D8F" bgcolor="white"><tr><td bgcolor="#4C3D8F" align="left"><font color="white"><b>LOGISTICS</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• shelters, food, water<br align="left"/>• routes, relief supplies<br align="left"/></font></td></tr></table>>];
+    { rank=same; s_med; s_res; s_log; }
+  }
+  opt [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#0E5E6F" bgcolor="white" width="330"><tr><td bgcolor="#0E5E6F" align="left"><font color="white"><b>OPTIMISATION  (OR-Tools CP-SAT)</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• assign units to needs under hard constraints<br align="left"/>• minimise travel + reassignment + unmet demand<br align="left"/>• respects pins, holds, road blocks, standing orders<br align="left"/></font></td></tr></table>>];
+  val [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#0E5E6F" bgcolor="white" width="300"><tr><td bgcolor="#0E5E6F" align="left"><font color="white"><b>VALIDATION</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• simulate the plan: coverage, ETA<br align="left"/>• standing orders, crew hours<br align="left"/>• guardrails on any LLM text<br align="left"/></font></td></tr></table>>];
+  d_val [shape=diamond, style="filled", fillcolor="#FEF2F2", color="#B42318", penwidth=1.4, fontname="Helvetica-Bold", fontsize=11, margin="0.05,0.02", label="plan\nvalid?"];
+  replan [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#0E5E6F" bgcolor="white"><tr><td bgcolor="#0E5E6F" align="left"><font color="white"><b>REPLAN</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• relax or add constraints<br align="left"/>• add mutual-aid option<br align="left"/>• max 3 loops, then escalate<br align="left"/></font></td></tr></table>>];
+  policy [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#7A2E2E" bgcolor="white" width="280"><tr><td bgcolor="#7A2E2E" align="left"><font color="white"><b>POLICY GATE</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• match action to policy clause<br align="left"/>• confidence ≥ 0.70 and<br align="left"/>• severity within clause<br align="left"/></font></td></tr></table>>];
+  d_pol [shape=diamond, style="filled", fillcolor="#FFF7ED", color="#9A5B13", penwidth=1.4, fontname="Helvetica-Bold", fontsize=11, margin="0.05,0.02", label="needs an\nofficer?"];
+  human [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#9A5B13" bgcolor="white"><tr><td bgcolor="#9A5B13" align="left"><font color="white"><b>HUMAN APPROVAL</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• interrupt(): graph pauses<br align="left"/>• state checkpointed<br align="left"/>• resumes on approve / edit / reject<br align="left"/></font></td></tr></table>>];
+  d_hum [shape=diamond, style="filled", fillcolor="#FFF7ED", color="#9A5B13", penwidth=1.4, fontname="Helvetica-Bold", fontsize=11, margin="0.05,0.02", label="officer\ndecision"];
+  dispatch [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#1D6B47" bgcolor="white" width="280"><tr><td bgcolor="#1D6B47" align="left"><font color="white"><b>DISPATCH</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• crews: app + bitchat mesh<br align="left"/>• public alerts: mesh, SMS<br align="left"/>• agencies notified<br align="left"/></font></td></tr></table>>];
+  observe [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#1D6B47" bgcolor="white"><tr><td bgcolor="#1D6B47" align="left"><font color="white"><b>OBSERVE</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• crew status, ETA drift<br align="left"/>• new reports, new blocks<br align="left"/></font></td></tr></table>>];
+  d_obs [shape=diamond, style="filled", fillcolor="#F0FDFA", color="#0E5E6F", penwidth=1.4, fontname="Helvetica-Bold", fontsize=11, margin="0.05,0.02", label="world\nchanged?"];
+  end [shape=box, style="rounded,filled", fillcolor="#111827", color="#111827", fontcolor="white", fontname="Helvetica-Bold", fontsize=13, margin="0.25,0.12", label="END  (incident resolved)"];
+  subgraph cluster_esc {
+    label=<<b>ESCALATION  (severity ≥ 5, camera alarm)</b>>; fontsize=13; style="rounded,dashed"; color="#C4B5FD"; bgcolor="#F5F3FF"; margin=14;
+    cmd [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#4C3D8F" bgcolor="white"><tr><td bgcolor="#4C3D8F" align="left"><font color="white"><b>INCIDENT COMMANDER</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• ReAct loop over MCP tools<br align="left"/>• ≤ 6 steps, simulate first<br align="left"/>• proposes extra actions<br align="left"/></font></td></tr></table>>];
+  }
+  subgraph cluster_cop {
+    label=<<b>OFFICER ENTRY POINT</b>>; fontsize=13; style="rounded,dashed"; color="#FDBA74"; bgcolor="#FFF7ED"; margin=14;
+    q [shape=box, style="rounded,filled", fillcolor="#9A5B13", color="#9A5B13", fontcolor="white", fontname="Helvetica-Bold", fontsize=13, margin="0.25,0.12", label="OFFICER QUESTION"];
+    copilot [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#4C3D8F" bgcolor="white"><tr><td bgcolor="#4C3D8F" align="left"><font color="white"><b>COMMAND COPILOT</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• answers from tools<br align="left"/>• proposes on request<br align="left"/></font></td></tr></table>>];
+  }
+  legend [label=<<table border="1" cellborder="0" cellspacing="3" cellpadding="3" color="#CBD5E1"><tr><td colspan="2" align="left"><b>Legend</b></td></tr><tr><td bgcolor="#4C3D8F" width="14"> </td><td align="left"><font point-size="10">LLM node / subgraph</font></td></tr><tr><td bgcolor="#1F4E79" width="14"> </td><td align="left"><font point-size="10">deterministic node</font></td></tr><tr><td bgcolor="#0E5E6F" width="14"> </td><td align="left"><font point-size="10">optimisation / validation</font></td></tr><tr><td bgcolor="#7A2E2E" width="14"> </td><td align="left"><font point-size="10">governance</font></td></tr><tr><td bgcolor="#9A5B13" width="14"> </td><td align="left"><font point-size="10">human in the loop</font></td></tr><tr><td bgcolor="#1D6B47" width="14"> </td><td align="left"><font point-size="10">field action</font></td></tr><tr><td bgcolor="#1F4E79" width="14"> </td><td align="left"><font point-size="10">blue edge: parallel fan-out (Send)</font></td></tr><tr><td bgcolor="#B42318" width="14"> </td><td align="left"><font point-size="10">red edge: loop back</font></td></tr></table>>];
+  start -> triage -> d_tri;
+  d_tri -> link [label=" duplicate"]; link -> end [style=dashed];
+  d_tri -> verify [label=" low trust"];
+  verify -> p_risk [label=" confirmed", lhead=cluster_pred, constraint=false];
+  d_tri -> p_risk [label=" new / changed need", lhead=cluster_pred, color="#1F4E79", penwidth=1.6];
+  d_tri -> c_units [lhead=cluster_cur, color="#1F4E79", penwidth=1.6];
+  d_tri -> cmd [label=" severity ≥ 5", style=dashed, lhead=cluster_esc];
+  p_fore -> needs [ltail=cluster_pred, color="#1F4E79", penwidth=1.6];
+  c_units -> needs [ltail=cluster_cur, color="#1F4E79", penwidth=1.6, label=" join"];
+  needs -> s_res [lhead=cluster_dom, color="#1F4E79", penwidth=1.6, label=" Send per domain"];
+  s_res -> opt [ltail=cluster_dom, color="#1F4E79", penwidth=1.6, label=" join"];
+  opt -> val -> d_val;
+  d_val -> policy [label=" PASS", color="#1D6B47", penwidth=2];
+  d_val -> replan [label=" FAIL", color="#B42318", penwidth=2, fontcolor="#B42318"];
+  replan -> opt [label=" re-solve", color="#B42318", penwidth=2, fontcolor="#B42318", constraint=false];
+  policy -> d_pol;
+  d_pol -> dispatch [label=" no: auto"];
+  d_pol -> human [label=" yes"];
+  human -> d_hum;
+  d_hum -> dispatch [label=" approve / edit"];
+  d_hum -> replan [label=" reject", color="#B42318", penwidth=2, fontcolor="#B42318", constraint=false];
+  dispatch -> observe -> d_obs;
+  d_obs -> end [label=" no"];
+  d_obs -> triage [label=" yes: plan → act → observe → replan", color="#B42318", penwidth=2, fontcolor="#B42318", constraint=false];
+  cmd -> policy [label=" proposals", ltail=cluster_esc, style=dashed];
+  q -> copilot;
+  copilot -> policy [label=" proposals", ltail=cluster_cop, style=dashed];
+  end -> legend [style=invis];
+}

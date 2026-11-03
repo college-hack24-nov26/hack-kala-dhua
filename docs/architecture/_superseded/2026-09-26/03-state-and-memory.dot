@@ -1,0 +1,52 @@
+// Indradhanu — State and Memory Scoping per Agent
+// Render: dot -Tsvg 03-state-and-memory.dot -o 03-state-and-memory.svg   (or -Tpng)
+digraph G {
+  label=<<font point-size="20"><b>Indradhanu — State and Memory Scoping per Agent</b></font>>;
+  rankdir=TB;
+  graph [fontname="Helvetica", fontsize=12, bgcolor="white", pad=0.4, nodesep=0.35, ranksep=0.55,
+         newrank=true, compound=true, labelloc=t, labeljust=l];
+  node  [fontname="Helvetica", shape=plain];
+  edge  [fontname="Helvetica", fontsize=9, color="#475569", fontcolor="#334155", arrowsize=0.7, penwidth=1.2];
+  graph [ranksep=1.0, nodesep=0.35];
+  main [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#374151" bgcolor="white" width="360"><tr><td bgcolor="#374151" align="left"><font color="white"><b>MainState  (shared, travels through the graph)</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• incident_id · severity · location<br align="left"/>• required_resources · allocation<br align="left"/>• approvals · audit_log<br align="left"/></font></td></tr></table>>];
+  ckpt [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#6B5320" bgcolor="white" width="300"><tr><td bgcolor="#6B5320" align="left"><font color="white"><b>Checkpointer  (PostgresSaver)</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• snapshot of state after every node<br align="left"/>• pause for human approval, resume later<br align="left"/>• crash recovery, replay, audit<br align="left"/></font></td></tr></table>>];
+  subgraph cluster_sub {
+    label=<<b>Agent / subgraph state  (private: each sees only its own keys)</b>>; fontsize=13; style="rounded"; color="#C4B5FD"; bgcolor="#F5F3FF"; margin=14;
+    st_tri [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#1F4E79" bgcolor="white"><tr><td bgcolor="#1F4E79" align="left"><font color="white"><b>Triage node</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• report, candidates<br align="left"/>• trust evidence<br align="left"/></font></td></tr></table>>];
+    st_med [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#4C3D8F" bgcolor="white"><tr><td bgcolor="#4C3D8F" align="left"><font color="white"><b>MedicalState</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• patients, hospitals<br align="left"/>• ambulances, medical_plan<br align="left"/></font></td></tr></table>>];
+    st_res [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#4C3D8F" bgcolor="white"><tr><td bgcolor="#4C3D8F" align="left"><font color="white"><b>RescueState</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• teams, equipment<br align="left"/>• rescue_plan<br align="left"/></font></td></tr></table>>];
+    st_log [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#4C3D8F" bgcolor="white"><tr><td bgcolor="#4C3D8F" align="left"><font color="white"><b>LogisticsState</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• vehicles, shelters<br align="left"/>• routes, supply_plan<br align="left"/></font></td></tr></table>>];
+    st_cmd [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#4C3D8F" bgcolor="white"><tr><td bgcolor="#4C3D8F" align="left"><font color="white"><b>CommanderState</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• scratchpad, tool results<br align="left"/>• proposal<br align="left"/></font></td></tr></table>>];
+    st_cop [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#4C3D8F" bgcolor="white"><tr><td bgcolor="#4C3D8F" align="left"><font color="white"><b>CopilotState</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• question, tool results<br align="left"/>• answer<br align="left"/></font></td></tr></table>>];
+    { rank=same; st_tri; st_med; st_res; st_log; st_cmd; st_cop; }
+  }
+  subgraph cluster_store {
+    label=<<b>Long-term memory — Store (PostgreSQL + pgvector), one namespace per agent</b>>; fontsize=13; style="rounded"; color="#FCD34D"; bgcolor="#FFFBEB"; margin=14;
+    ns_tri [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#6B5320" bgcolor="white"><tr><td bgcolor="#6B5320" align="left"><font color="white"><b>(&quot;triage&quot;, city)</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• incident history<br align="left"/>• report patterns<br align="left"/></font></td></tr></table>>];
+    ns_med [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#6B5320" bgcolor="white"><tr><td bgcolor="#6B5320" align="left"><font color="white"><b>(&quot;medical&quot;, city)</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• hospital history<br align="left"/>• medical protocols<br align="left"/></font></td></tr></table>>];
+    ns_res [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#6B5320" bgcolor="white"><tr><td bgcolor="#6B5320" align="left"><font color="white"><b>(&quot;rescue&quot;, city)</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• past rescues<br align="left"/>• equipment use<br align="left"/></font></td></tr></table>>];
+    ns_log [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#6B5320" bgcolor="white"><tr><td bgcolor="#6B5320" align="left"><font color="white"><b>(&quot;logistics&quot;, city)</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• route history<br align="left"/>• supply history<br align="left"/></font></td></tr></table>>];
+    ns_cmd [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#6B5320" bgcolor="white"><tr><td bgcolor="#6B5320" align="left"><font color="white"><b>(&quot;commander&quot;, city)</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• episodes<br align="left"/>• lessons<br align="left"/></font></td></tr></table>>];
+    ns_cop [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#6B5320" bgcolor="white"><tr><td bgcolor="#6B5320" align="left"><font color="white"><b>(&quot;copilot&quot;, session)</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• conversation turns<br align="left"/>• facts<br align="left"/></font></td></tr></table>>];
+    { rank=same; ns_tri; ns_med; ns_res; ns_log; ns_cmd; ns_cop; }
+  }
+  ns_orders [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#6B5320" bgcolor="white" width="420"><tr><td bgcolor="#6B5320" align="left"><font color="white"><b>(&quot;orders&quot;, city)  — shared, read-only to agents</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• standing orders written by officers only<br align="left"/></font></td></tr></table>>];
+  ns_pol [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#7A2E2E" bgcolor="white"><tr><td bgcolor="#7A2E2E" align="left"><font color="white"><b>(&quot;police&quot;, confidential)</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• restricted: police agents only<br align="left"/></font></td></tr></table>>];
+  guard [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#7A2E2E" bgcolor="white" width="460"><tr><td bgcolor="#7A2E2E" align="left"><font color="white"><b>Memory access policy  (enforced on every read / write)</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• MEMORY_ACCESS: agent → allowed namespaces<br align="left"/>• metadata filter (namespace, agency, ward) before vector similarity<br align="left"/>• content screened before it is stored · officers alone write orders<br align="left"/></font></td></tr></table>>];
+  ledger [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#374151" bgcolor="white" width="320"><tr><td bgcolor="#374151" align="left"><font color="white"><b>Memory ledger → console Memory page</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• which agent read or wrote which row<br align="left"/>• in which incident thread, and why<br align="left"/></font></td></tr></table>>];
+  main -> st_res [lhead=cluster_sub, label=" only the keys each agent needs"];
+  main -> ckpt [style=dashed, label=" every step"];
+  { rank=same; main; ckpt; }
+  st_tri -> ns_tri [color="#6B5320", penwidth=1.6, dir=both, label=" R/W"];
+  st_med -> ns_med [color="#6B5320", penwidth=1.6, dir=both, label=" R/W"];
+  st_res -> ns_res [color="#6B5320", penwidth=1.6, dir=both, label=" R/W"];
+  st_log -> ns_log [color="#6B5320", penwidth=1.6, dir=both, label=" R/W"];
+  st_cmd -> ns_cmd [color="#6B5320", penwidth=1.6, dir=both, label=" R/W"];
+  st_cop -> ns_cop [color="#6B5320", penwidth=1.6, dir=both, label=" R/W"];
+  ns_med -> ns_orders [ltail=cluster_store, color="#6B5320", style=dashed, dir=back, label=" every agent: read only"];
+  ns_log -> ns_pol [ltail=cluster_store, color="#B42318", style=dashed, penwidth=1.6, arrowhead=tee, fontcolor="#B42318", label=" medical, rescue, logistics, copilot: denied"];
+  { rank=same; ns_orders; ns_pol; }
+  ns_orders -> guard [style=invis]; guard -> ledger [style=dashed, label=" logs"];
+  legend [label=<<table border="1" cellborder="0" cellspacing="3" cellpadding="3" color="#CBD5E1"><tr><td colspan="2" align="left"><b>Legend</b></td></tr><tr><td bgcolor="#374151" width="14"> </td><td align="left"><font point-size="10">graph state / runtime</font></td></tr><tr><td bgcolor="#4C3D8F" width="14"> </td><td align="left"><font point-size="10">LLM agent state</font></td></tr><tr><td bgcolor="#1F4E79" width="14"> </td><td align="left"><font point-size="10">deterministic node state</font></td></tr><tr><td bgcolor="#6B5320" width="14"> </td><td align="left"><font point-size="10">memory namespace</font></td></tr><tr><td bgcolor="#7A2E2E" width="14"> </td><td align="left"><font point-size="10">access control / restricted</font></td></tr><tr><td bgcolor="#B42318" width="14"> </td><td align="left"><font point-size="10">red: denied</font></td></tr></table>>];
+  ledger -> legend [style=invis];
+}
