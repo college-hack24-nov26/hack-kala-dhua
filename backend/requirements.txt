@@ -1,0 +1,84 @@
+# --- web ---
+fastapi>=0.115
+uvicorn[standard]>=0.32
+pydantic>=2.9
+pydantic-settings>=2.6
+orjson>=3.10
+python-multipart>=0.0.12
+
+# --- database ---
+asyncpg>=0.30
+supabase>=2.9            # storage + auth admin only; queries go through asyncpg
+
+# --- http / resilience ---
+httpx>=0.27
+# drone swarm live feed listener (app/drone/swarm.py)
+websockets>=13
+tenacity>=9.0            # retry policy in app/ingest/client.py
+
+# --- auth ---
+pyjwt[crypto]>=2.9
+cryptography>=43.0
+
+# --- observability ---
+structlog>=24.4
+prometheus-fastapi-instrumentator>=7.0
+
+# --- shared state across replicas (optional: app/core/shared.py) ---
+# Used only when REDIS_URL is set: global rate limits, shared LLM cache and
+# token budget, ingest streams. Imported lazily; absent or unreachable Redis
+# means the in-process path, never a failed request.
+redis>=5.0
+
+# --- rate limiting ---
+slowapi>=0.1.9
+
+# --- optimisation & geometry ---
+ortools>=9.11
+shapely>=2.0
+pyproj>=3.7
+
+# --- agents / llm ---
+# Both of these are imported *lazily*, inside the provider branches of
+# app/agents/llm.py, so that the app boots when neither is configured. That also
+# means a grep for top-level imports does not find them — which is exactly how
+# they were mistakenly removed once. They are required whenever the Gemini or
+# Bedrock path is actually taken.
+google-genai>=0.3        # `from google import genai`  — llm.py:54
+boto3>=1.35              # `import boto3`              — llm.py:93
+
+# --- config ---
+python-dotenv>=1.0
+
+# Removed: langchain, langchain-core, langchain-google-genai, (langgraph is back:
+# see the end of this file), langchain-aws.
+#
+# Verified against all 66 Python files in app/: zero occurrences of any kind,
+# imports or otherwise. The orchestrator is deterministic on purpose — a fixed
+# order, one transaction, every step writing an event that names its cause — so
+# there was never a graph runtime to install. Declaring them invited a fair
+# question about what this project actually is, and the honest answer is better
+# than the dependency.
+#
+# Nothing else has been removed. Several packages here are genuinely unimported
+# today (slowapi is superseded by app/core/ratelimit.py; shapely and pyproj are
+# unused because geometry is done in PostGIS). They are being left in place
+# deliberately: trimming them buys nothing before the demo, and getting it wrong
+# costs a failed deploy — which is precisely what happened when tenacity was
+# removed on the strength of an incomplete search.
+
+# --- agent graph (app/agents/graph.py) ---
+# Back, and this time imported: the event router runs every re-plan through the
+# LangGraph cycle. Guarded at import, so a missing package falls back to the
+# direct re-plan instead of failing the boot. The Postgres checkpointer is
+# optional (AGENT_GRAPH_CHECKPOINTER=postgres).
+langgraph>=0.4
+langgraph-checkpoint-postgres>=2.0
+psycopg[binary]>=3.2
+
+# ---- live road-risk scoring (app/nav/live.py loads the trained passability model) ----
+numpy>=1.26
+pandas>=2.1
+pyarrow>=15
+scipy>=1.11
+xgboost-cpu>=2.1          # CPU-only build: same `import xgboost`, a fraction of the size
