@@ -1,0 +1,108 @@
+{
+ "version": "eta-20261010-1000",
+ "seconds": 2,
+ "train": 1493,
+ "tune": 146,
+ "test": 1404,
+ "results": {
+  "model": {
+   "mae_min": 2.79,
+   "within_5_min": 0.955,
+   "late_over_10_min": 0.026,
+   "p90_coverage": 0.911,
+   "pinball_p90": 1.51,
+   "late_vs_p90_over_10_min": 0.019
+  },
+  "distance_rule": {
+   "mae_min": 11.24,
+   "within_5_min": 0.283,
+   "late_over_10_min": 0.024
+  },
+  "traffic_eta": {
+   "mae_min": 3.27,
+   "within_5_min": 0.943,
+   "late_over_10_min": 0.029
+  },
+  "to_flooded_places": {
+   "model": {
+    "mae_min": 3.16,
+    "within_5_min": 0.943,
+    "late_over_10_min": 0.031,
+    "p90_coverage": 0.9,
+    "pinball_p90": 1.81,
+    "late_vs_p90_over_10_min": 0.021
+   },
+   "traffic_eta": {
+    "mae_min": 3.69,
+    "within_5_min": 0.929,
+    "late_over_10_min": 0.035
+   }
+  }
+ },
+ "shap_mean_abs_p50": [
+  [
+   "plan_free_min",
+   4.904
+  ],
+  [
+   "plan_nodata",
+   0.463
+  ],
+  [
+   "plan_km",
+   0.433
+  ],
+  [
+   "stage_frac_max",
+   0.203
+  ],
+  [
+   "plan_p_sum",
+   0.116
+  ],
+  [
+   "rain_1h",
+   0.103
+  ],
+  [
+   "plan_signals",
+   0.099
+  ],
+  [
+   "plan_p_max",
+   0.097
+  ],
+  [
+   "plan_flood_reports",
+   0.094
+  ],
+  [
+   "hour",
+   0.093
+  ],
+  [
+   "rain_fc",
+   0.069
+  ],
+  [
+   "plan_traffic",
+   0.063
+  ],
+  [
+   "crow_km",
+   0.061
+  ],
+  [
+   "plan_bridges",
+   0.033
+  ],
+  [
+   "plan_underpasses",
+   0.029
+  ],
+  [
+   "unit",
+   0.016
+  ]
+ ]
+}

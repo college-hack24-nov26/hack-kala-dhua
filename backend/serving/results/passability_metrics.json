@@ -1,0 +1,252 @@
+{
+ "version": "pass-20261010-1049",
+ "threshold": 0.032836638391017914,
+ "threshold_b1": 0.0011055503273382783,
+ "seconds": 361,
+ "test_rows": 762534,
+ "test_positive_share": 0.0688,
+ "results": {
+  "model": {
+   "n": 762534,
+   "positives": 52477,
+   "brier_natural": 0.0022,
+   "ece_natural": 0.0006,
+   "precision": 0.2108,
+   "recall": 0.9112,
+   "missed_closure_rate": 0.0888,
+   "false_closure_rate": 0.0114,
+   "roc_auc": 0.9828,
+   "pr_auc": 0.8696,
+   "log_loss": 0.0973
+  },
+  "b1_logistic": {
+   "n": 762534,
+   "positives": 52477,
+   "brier_natural": 0.0054,
+   "ece_natural": 0.0156,
+   "precision": 0.0039,
+   "recall": 0.9362,
+   "missed_closure_rate": 0.0638,
+   "false_closure_rate": 0.8061,
+   "roc_auc": 0.954,
+   "pr_auc": 0.7171,
+   "log_loss": 0.1164
+  },
+  "b0_current_status": {
+   "n": 762534,
+   "positives": 52477,
+   "brier_natural": 0.0079,
+   "ece_natural": 0.0079,
+   "precision": 0.0624,
+   "recall": 0.0978,
+   "missed_closure_rate": 0.9022,
+   "false_closure_rate": 0.0049,
+   "roc_auc": 0.6203,
+   "pr_auc": 0.2307,
+   "log_loss": 0.8058
+  },
+  "anticipation": {
+   "open_now_rows": 709499,
+   "will_close": 1571,
+   "will_close_model": {
+    "n": 709499,
+    "positives": 1571,
+    "brier_natural": 0.0004,
+    "ece_natural": 0.0016,
+    "precision": 0.0063,
+    "recall": 0.6835,
+    "missed_closure_rate": 0.3165,
+    "false_closure_rate": 0.0113,
+    "roc_auc": 0.8625,
+    "pr_auc": 0.0282,
+    "log_loss": 0.0188
+   },
+   "will_close_b0": {
+    "n": 709499,
+    "positives": 1571,
+    "brier_natural": 0.005,
+    "ece_natural": 0.005,
+    "precision": 0.0008,
+    "recall": 0.0384,
+    "missed_closure_rate": 0.9616,
+    "false_closure_rate": 0.0049,
+    "roc_auc": 0.5114,
+    "pr_auc": 0.0024,
+    "log_loss": 0.1204
+   },
+   "blocked_now_rows": 53035,
+   "will_reopen": 2129,
+   "will_reopen_model_auc": 0.7522,
+   "mean_p": {
+    "stay_open": 0.0064,
+    "will_close": 0.1066,
+    "will_reopen": 0.212,
+    "stay_blocked": 0.5272
+   }
+  },
+  "by_profile_horizon": [
+   {
+    "profile": 0,
+    "horizon_min": 30,
+    "model_precision": 0.1696,
+    "model_recall": 0.9073,
+    "model_missed_closure_rate": 0.0927,
+    "model_roc_auc": 0.985,
+    "b0_precision": 0.0538,
+    "b0_recall": 0.1393,
+    "b0_missed_closure_rate": 0.8607
+   },
+   {
+    "profile": 0,
+    "horizon_min": 60,
+    "model_precision": 0.167,
+    "model_recall": 0.9082,
+    "model_missed_closure_rate": 0.0918,
+    "model_roc_auc": 0.9825,
+    "b0_precision": 0.0683,
+    "b0_recall": 0.1507,
+    "b0_missed_closure_rate": 0.8493
+   },
+   {
+    "profile": 0,
+    "horizon_min": 90,
+    "model_precision": 0.1668,
+    "model_recall": 0.917,
+    "model_missed_closure_rate": 0.083,
+    "model_roc_auc": 0.9781,
+    "b0_precision": 0.061,
+    "b0_recall": 0.1515,
+    "b0_missed_closure_rate": 0.8485
+   },
+   {
+    "profile": 1,
+    "horizon_min": 30,
+    "model_precision": 0.1773,
+    "model_recall": 0.941,
+    "model_missed_closure_rate": 0.059,
+    "model_roc_auc": 0.9817,
+    "b0_precision": 0.0499,
+    "b0_recall": 0.2092,
+    "b0_missed_closure_rate": 0.7908
+   },
+   {
+    "profile": 1,
+    "horizon_min": 60,
+    "model_precision": 0.2008,
+    "model_recall": 0.9345,
+    "model_missed_closure_rate": 0.0655,
+    "model_roc_auc": 0.98,
+    "b0_precision": 0.0575,
+    "b0_recall": 0.2298,
+    "b0_missed_closure_rate": 0.7702
+   },
+   {
+    "profile": 1,
+    "horizon_min": 90,
+    "model_precision": 0.188,
+    "model_recall": 0.9222,
+    "model_missed_closure_rate": 0.0778,
+    "model_roc_auc": 0.9762,
+    "b0_precision": 0.0537,
+    "b0_recall": 0.2066,
+    "b0_missed_closure_rate": 0.7934
+   },
+   {
+    "profile": 2,
+    "horizon_min": 30,
+    "model_precision": 0.2342,
+    "model_recall": 0.905,
+    "model_missed_closure_rate": 0.095,
+    "model_roc_auc": 0.9849,
+    "b0_precision": 0.0788,
+    "b0_recall": 0.0635,
+    "b0_missed_closure_rate": 0.9365
+   },
+   {
+    "profile": 2,
+    "horizon_min": 60,
+    "model_precision": 0.2424,
+    "model_recall": 0.8986,
+    "model_missed_closure_rate": 0.1014,
+    "model_roc_auc": 0.984,
+    "b0_precision": 0.0746,
+    "b0_recall": 0.0619,
+    "b0_missed_closure_rate": 0.9381
+   },
+   {
+    "profile": 2,
+    "horizon_min": 90,
+    "model_precision": 0.2315,
+    "model_recall": 0.92,
+    "model_missed_closure_rate": 0.08,
+    "model_roc_auc": 0.9844,
+    "b0_precision": 0.0614,
+    "b0_recall": 0.0552,
+    "b0_missed_closure_rate": 0.9448
+   }
+  ],
+  "uncertainty_error_corr": 0.619
+ },
+ "top_features_gain": [
+  [
+   "freeboard_m",
+   701.5
+  ],
+  [
+   "underpass",
+   568.2
+  ],
+  [
+   "status_now",
+   437.2
+  ],
+  [
+   "pond_m",
+   405.9
+  ],
+  [
+   "hand_m",
+   400.2
+  ],
+  [
+   "rain_48h",
+   170.5
+  ],
+  [
+   "traffic_nodata",
+   128.8
+  ],
+  [
+   "profile",
+   117.3
+  ],
+  [
+   "traffic_level",
+   108.7
+  ],
+  [
+   "sink_m",
+   104.6
+  ],
+  [
+   "closure_active",
+   101.0
+  ],
+  [
+   "haz_100_6h",
+   79.8
+  ],
+  [
+   "cls_code",
+   67.6
+  ],
+  [
+   "flood_400_3h",
+   59.9
+  ],
+  [
+   "low_bridge",
+   53.2
+  ]
+ ]
+}
