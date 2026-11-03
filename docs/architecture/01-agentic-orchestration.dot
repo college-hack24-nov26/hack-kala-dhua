@@ -1,0 +1,125 @@
+// 01 — Full agentic orchestration, with the boundaries of state and memory.
+// Each band is one table so its internal order is fixed; edges use ports.
+// Render: dot -Tsvg 01-agentic-orchestration.dot -o 01-agentic-orchestration.svg
+digraph Orchestration {
+  graph [rankdir=TB, fontname="Helvetica", fontsize=14, bgcolor="white", pad=0.5, nodesep=0.5, ranksep=0.75, splines=spline,
+         label=<<b>Indradhanu — agentic orchestration: who decides what, and where state and memory live</b><br/><font point-size="11">Models never write numbers: CP-SAT assigns, policy decides authority, officers decide exceptions. Each coloured boundary is enforced in code.</font>>,
+         labelloc=t];
+  node  [shape=plain, fontname="Helvetica", fontsize=10];
+  edge  [fontname="Helvetica", fontsize=9, color="#475569", arrowsize=0.7, penwidth=1.2];
+
+  signals [label=<<table border="1" cellborder="1" cellspacing="6" cellpadding="6" bgcolor="#f8fafc" color="#94a3b8" style="rounded">
+    <tr><td colspan="6" border="0" align="left"><b>1 · SIGNALS IN</b></td></tr>
+    <tr>
+      <td port="cit" bgcolor="white">Citizen app / PWA<br/><font point-size="9">POST /citizen/report</font></td>
+      <td port="mesh" bgcolor="white">bitchat gateway phone<br/><font point-size="9">/mesh/inbound · /mesh/civ-sync<br/>IDX1 R/S/F/H/K, HMAC-signed</font></td>
+      <td port="vlm" bgcolor="white">VLM camera node<br/><font point-size="9">signed S packet → phone first<br/>/ingest/sensor fallback</font></td>
+      <td port="field" bgcolor="white">Field crews<br/><font point-size="9">/field/status · /field/report</font></td>
+      <td port="haz" bgcolor="white">Hazard feeds<br/><font point-size="9">Open-Meteo · Google Flood Hub</font></td>
+      <td port="off" bgcolor="#fef3c7">Officers (console)<br/><font point-size="9">approve · cancel · pin · orders<br/>ask Copilot · EMERGENCY STOP</font></td>
+    </tr></table>>];
+
+  intake [label=<<table border="1" cellborder="1" cellspacing="6" cellpadding="6" bgcolor="#eff6ff" color="#3b82f6" style="rounded">
+    <tr><td colspan="9" border="0" align="left"><b>2 · INTAKE AGENTS</b>  <font point-size="9">one report at a time · stateless · the text is data, never instructions</font></td></tr>
+    <tr>
+      <td port="g" bgcolor="#fff7ed">guardrails.clean_input()<br/><font point-size="9">NFKC · PII redaction<br/>injection flag · length cap</font></td><td border="0">→</td>
+      <td bgcolor="white">parse_with_model()<br/><font point-size="9">keywords → XLM-R → LLM<br/>category, closed set</font></td><td border="0">→</td>
+      <td port="sev" bgcolor="white">severity.assess()<br/><font point-size="9">keywords → XLM-R → LLM (schema)<br/>bounded +2/−1 · life-safety floor</font></td><td border="0">→</td>
+      <td bgcolor="white">trust.score()<br/><font point-size="9">source · reporter · location<br/>independent corroboration</font></td><td border="0">→</td>
+      <td port="cl" bgcolor="white">clustering.decide()<br/><font point-size="9">link or open incident<br/>→ incident_needs</font></td>
+    </tr></table>>];
+
+  world [label=<<table border="2" cellborder="1" cellspacing="6" cellpadding="6" bgcolor="#f0fdf4" color="#15803d" style="rounded">
+    <tr><td colspan="5" border="0" align="left"><b>3 · DURABLE WORLD STATE</b> — Postgres / PostGIS (Supabase)  <font point-size="9">single source of truth · written only in transactions · every change appends an event naming its cause</font></td></tr>
+    <tr>
+      <td port="ev" bgcolor="#dcfce7"><b>events</b><br/><font point-size="9">append-only · caused_by</font></td>
+      <td port="ops" bgcolor="#dcfce7"><b>incidents · incident_needs</b><br/><font point-size="9">citizen_reports · assignments<br/>field_tasks · routes</font></td>
+      <td port="dec" bgcolor="#dcfce7"><b>decisions · alerts</b><br/><font point-size="9">agency_requests · overrides</font></td>
+      <td port="mesh" bgcolor="#dcfce7"><b>mesh_messages · outbox</b><br/><font point-size="9">mesh_nodes (gateways, cameras)</font></td>
+      <td port="ctrl" bgcolor="#fee2e2"><b>control_state</b><br/><font point-size="9">emergency-stop flag<br/>(survives restarts)</font></td>
+    </tr></table>>];
+
+  spine [label=<<table border="1" cellborder="1" cellspacing="6" cellpadding="6" bgcolor="#f0f9ff" color="#0369a1" style="rounded">
+    <tr><td colspan="4" border="0" align="left"><b>4 · ORCHESTRATION SPINE</b>  <font point-size="9">deterministic</font></td></tr>
+    <tr>
+      <td port="auto" bgcolor="#fee2e2"><b>autonomy.paused()</b><br/><font point-size="9">emergency stop: re-plans held,<br/>no auto-issue, agents idle,<br/>crews already out NOT recalled</font></td>
+      <td port="router" bgcolor="#e0f2fe"><b>Event router</b> (always on)<br/><font point-size="9">_poll_once: tail events every 1.5 s<br/>route(): re-plan? wake Commander?<br/>_replan_loop: coalesce 1 s · one at a time<br/>ignores planner actors (no loops)</font></td>
+      <td port="policy" bgcolor="#fef3c7"><b>policy.gate()</b><br/><font point-size="9">delegation matrix × confidence<br/>→ auto_issued | awaiting_approval<br/>(always awaiting while stopped)</font></td>
+      <td port="solver" bgcolor="#ccfbf1"><b>CP-SAT allocate()</b><br/><font point-size="9">+ travel matrix (OSRM)<br/>blocked roads priced out</font></td>
+    </tr></table>>];
+
+  lg [label=<<table border="2" cellborder="0" cellspacing="4" cellpadding="4" bgcolor="#faf5ff" color="#7c3aed" style="rounded">
+    <tr><td colspan="19" align="left"><b>5 · LANGGRAPH CYCLE</b> — app/agents/graph.py  <font point-size="9">(node-level detail: diagram 02)</font></td></tr>
+    <tr><td colspan="19" align="left" bgcolor="white" border="1" color="#7c3aed" style="dashed"><font color="#6d28d9"><b>SHARED RUN STATE — GraphState</b></font> <font point-size="9">one per run (thread_id = run_id) · checkpointed after every step · @contract: a node sees only its declared reads (read-only) and may return only its writes, pydantic-validated · Send nodes get a validated payload, never the state</font></td></tr>
+    <tr>
+      <td port="tri" border="1" bgcolor="white" width="60">triage<br/><font point-size="8">orders in force</font></td><td>→</td>
+      <td border="1" bgcolor="#ecfeff">sense ×4<br/><font point-size="8">Send · payload</font></td><td>→</td>
+      <td border="1" bgcolor="white">assess</td><td>→</td>
+      <td port="dom" border="1" bgcolor="#f5f3ff">domain ×3<br/><font point-size="8">rescue · medical · logistics</font></td><td>→</td>
+      <td port="opt" border="1" bgcolor="#dcfce7">optimise<br/><font point-size="8">preview (dry run)</font></td><td>→</td>
+      <td border="1" bgcolor="#fff7ed">validate<br/><font point-size="8">guardrails · retry ≤3</font></td><td>→</td>
+      <td port="gate" border="1" bgcolor="#fef3c7">policy_gate</td><td>→</td>
+      <td port="hum" border="1" bgcolor="#fde68a"><b>human_approval</b><br/><font point-size="8">interrupt()</font></td><td>→</td>
+      <td port="disp" border="1" bgcolor="#bbf7d0">dispatch<br/><font point-size="8">replan.replan()</font></td><td>→</td>
+      <td border="1" bgcolor="white">observe</td>
+    </tr>
+    <tr><td colspan="19" align="left"><font point-size="8" color="#6d28d9">keys: run_id · city_id · trigger · max_severity · situation[] ⊕ · shortfall · current_coverage · domain_plans[] ⊕ · attempts · proposal(Proposal) · valid · needs_officer · held · gate_reason · approval(Approval) · dispatched · outcome · trace[] ⊕   (⊕ = reducer merging parallel writes)</font></td></tr>
+    </table>>];
+
+  mem [label=<<table border="2" cellborder="1" cellspacing="6" cellpadding="5" bgcolor="#fdf4ff" color="#a21caf" style="rounded">
+    <tr><td colspan="8" border="0" align="left"><b>6 · PRIVATE AGENT MEMORY</b> — agent_memory.namespace  <font point-size="9">ACCESS table enforced (MemoryAccessDenied) · every read, write and refusal → agent_memory_ledger</font></td></tr>
+    <tr>
+      <td port="orders" bgcolor="#fef3c7"><b>orders</b><br/><font point-size="9">officers WRITE (console)<br/>every agent READ</font></td>
+      <td port="triage" bgcolor="white"><b>triage</b><br/><font point-size="9">r/w own</font></td>
+      <td port="dom" bgcolor="white"><b>rescue · medical · logistics</b><br/><font point-size="9">each r/w its own only<br/>3 cycles short → mutual aid</font></td>
+      <td port="planner" bgcolor="white"><b>planner</b><br/><font point-size="9">r: own + domains + gate</font></td>
+      <td port="gate" bgcolor="white"><b>gate</b><br/><font point-size="9">officer approvals / rejections<br/>rejection held 30 min</font></td>
+      <td port="cmd" bgcolor="white"><b>commander</b><br/><font point-size="9">r: all but police</font></td>
+      <td bgcolor="#e5e7eb"><font color="#6b7280"><b>police</b><br/><font point-size="9">sealed — no agent</font></font></td>
+      <td bgcolor="#fae8ff"><b>agent_memory_ledger</b><br/><font point-size="9">audit of every access</font></td>
+    </tr></table>>];
+
+  llm [label=<<table border="1" cellborder="1" cellspacing="6" cellpadding="6" bgcolor="#fef2f2" color="#dc2626" style="rounded">
+    <tr><td colspan="4" border="0" align="left"><b>7 · LLM AGENTS</b>  <font point-size="9">prose and tool choice only · every call through guardrails · rules take over when no model answers</font></td></tr>
+    <tr>
+      <td port="cmd" bgcolor="#fee2e2"><b>Incident Commander</b><br/><font point-size="9">commander.run(): ReAct over read / analyse tools<br/>step + time budget · proposals → policy gate</font></td>
+      <td port="cop" bgcolor="#fee2e2"><b>Copilot</b> (officer-facing)<br/><font point-size="9">"stop everything" / "resume" → control_state (rule, no model)<br/>router → handler → tools: read · analyse · act (→ gate)</font></td>
+      <td bgcolor="#fff1f2"><b>copilot memory</b><br/><font point-size="9">agent_memory scopes · copilot_turns</font></td>
+      <td port="prov" bgcolor="white"><b>LLM providers</b><br/><font point-size="9">Gemini → Bedrock → rules fallback<br/>(production: on-prem vLLM)</font></td>
+    </tr></table>>];
+
+  // vertical spine of the drawing
+  signals -> intake -> world -> spine -> lg -> mem -> llm [style=invis, weight=10];
+
+  signals:cit -> intake:g [label="report"];
+  signals:mesh -> intake:g [label="R / S packets"];
+  signals:mesh -> world:mesh [color="#15803d", label="packets, nodes"];
+  signals:field -> world:ops [color="#15803d", label="task status"];
+  signals:haz -> spine:policy [label="run_hazard → proposed actions"];
+  intake:cl -> world:ops [color="#15803d", label="write (txn)"];
+  intake:cl -> world:ev [color="#15803d", label="report.received · incident.opened"];
+
+  world:ev -> spine:router [color="#0369a1", penwidth=2, label="tail"];
+  world:ctrl -> spine:auto [style=dashed, color="#b91c1c", label="read at startup"];
+  spine:auto -> spine:router [style=dashed, color="#b91c1c", label="holds"];
+  spine:router -> lg:tri [color="#7c3aed", penwidth=2, label="run_cycle(trigger)"];
+  spine:router -> llm:cmd [color="#dc2626", label="nudge: S≥4, road blocked", constraint=false];
+  spine:policy -> world:dec [label="decisions · alerts"];
+  world:dec -> world:mesh [label="outbox → broadcast"];
+
+  lg:opt -> spine:solver [color="#0f766e", dir=both, label="solve"];
+  lg:gate -> spine:policy [style=dashed, label="authority"];
+  lg:hum -> signals:off [color="#92400e", dir=both, penwidth=1.6, label="Approve / Reject (interrupt ⇄ resume)", constraint=false];
+  lg:disp -> world:ops [color="#15803d", label="assignments · tasks · routes", constraint=false];
+
+  lg:tri -> mem:orders [style=dotted, color="#a21caf", label="read"];
+  lg:tri -> mem:triage [style=dotted, color="#a21caf"];
+  lg:dom -> mem:dom [style=dotted, color="#a21caf"];
+  lg:opt -> mem:planner [style=dotted, color="#a21caf"];
+  lg:gate -> mem:gate [style=dotted, color="#a21caf", dir=both];
+  lg:hum -> mem:gate [style=dotted, color="#a21caf", label="decision"];
+
+  llm:cmd -> mem:cmd [style=dotted, color="#a21caf"];
+  llm:cmd -> spine:policy [label="propose_action", constraint=false];
+  llm:cop -> spine:policy [label="act tier", constraint=false];
+}

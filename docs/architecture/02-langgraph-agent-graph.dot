@@ -1,0 +1,149 @@
+// 02 — The LangGraph agent graph, exactly as compiled in backend/app/agents/graph.py
+// Render: dot -Tsvg 02-langgraph-agent-graph.dot -o 02-langgraph-agent-graph.svg
+digraph LangGraph {
+  graph [rankdir=TB, fontname="Helvetica", fontsize=12, bgcolor="white", pad=0.4,
+         nodesep=0.45, ranksep=0.55, splines=spline, newrank=true,
+         label=<<b>Indradhanu — LangGraph agent graph</b><br/><font point-size="10">StateGraph(GraphState) · every node wrapped by @contract(reads, writes, agent) · checkpointer: InMemorySaver (Postgres optional) · thread_id = run_id · recursion_limit 40 · run timeout 90 s</font>>,
+         labelloc=t];
+  node  [shape=plain, fontname="Helvetica", fontsize=10];
+  edge  [fontname="Helvetica", fontsize=9, color="#475569", arrowsize=0.7];
+
+  START [shape=circle, style=filled, fillcolor="#0f172a", fontcolor="white", label="START", width=0.7, fixedsize=true];
+  END1  [shape=doublecircle, style=filled, fillcolor="#0f172a", fontcolor="white", label="END", width=0.6, fixedsize=true];
+  END2  [shape=doublecircle, style=filled, fillcolor="#0f172a", fontcolor="white", label="END", width=0.6, fixedsize=true];
+  END3  [shape=doublecircle, style=filled, fillcolor="#0f172a", fontcolor="white", label="END", width=0.6, fixedsize=true];
+  END4  [shape=doublecircle, style=filled, fillcolor="#0f172a", fontcolor="white", label="END", width=0.6, fixedsize=true];
+
+  ENTRY [shape=note, style=filled, fillcolor="#f1f5f9", color="#94a3b8", fontsize=9,
+         label="Entry: event_router._replan_loop → graph.run_cycle(city, trigger)\nor POST /agent-graph/run · skipped while the emergency stop is on\ntrigger text passes guardrails.clean_input()"];
+  ENTRY -> START [style=dashed, arrowhead=none];
+
+  triage [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="4" bgcolor="#e0f2fe" color="#0369a1">
+    <tr><td align="left"><b>triage</b>  <font color="#0369a1">agent: triage</font></td></tr>
+    <tr><td align="left">worst open severity (SQL) · standing orders in force</td></tr>
+    <tr><td align="left"><font color="#64748b">reads: run_id, city_id, trigger</font></td></tr>
+    <tr><td align="left"><font color="#065f46">writes: max_severity, attempts, orders_in_force</font></td></tr>
+    <tr><td align="left"><font color="#7c3aed">memory: read orders · write triage</font></td></tr></table>>];
+
+  command [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="4" bgcolor="#fee2e2" color="#b91c1c">
+    <tr><td align="left"><b>command</b>  <font color="#b91c1c">LLM Incident Commander</font></td></tr>
+    <tr><td align="left">commander.nudge() — background ReAct episode,</td></tr>
+    <tr><td align="left">never blocks the plan · debounced 60 s</td></tr>
+    <tr><td align="left"><font color="#065f46">writes: commander_woken</font></td></tr></table>>];
+
+  fanout [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="4" bgcolor="#f1f5f9" color="#475569">
+    <tr><td align="left"><b>fanout</b></td></tr>
+    <tr><td align="left">to_sensors(): Send × 4</td></tr></table>>];
+
+  subgraph cluster_sense {
+    label=<<b>parallel · Send("sense", SensePayload)</b>  <font point-size="9">payload validated (extra=forbid); node never sees shared state</font>>;
+    style="rounded,dashed"; color="#0369a1"; fontsize=10;
+    s_units [label=<<table border="1" cellborder="0" cellpadding="3" bgcolor="#ecfeff" color="#0891b2"><tr><td><b>sense[units]</b></td></tr><tr><td>available / total</td></tr></table>>];
+    s_needs [label=<<table border="1" cellborder="0" cellpadding="3" bgcolor="#ecfeff" color="#0891b2"><tr><td><b>sense[needs]</b></td></tr><tr><td>required / met per capability</td></tr></table>>];
+    s_risk  [label=<<table border="1" cellborder="0" cellpadding="3" bgcolor="#ecfeff" color="#0891b2"><tr><td><b>sense[risk]</b></td></tr><tr><td>wards at S4+</td></tr></table>>];
+    s_fac   [label=<<table border="1" cellborder="0" cellpadding="3" bgcolor="#ecfeff" color="#0891b2"><tr><td><b>sense[facilities]</b></td></tr><tr><td>shelters / hospitals full</td></tr></table>>];
+  }
+  REDUCE1 [shape=box, style="rounded,filled", fillcolor="#fef9c3", color="#ca8a04", fontsize=9, label="reducer: situation = operator.add"];
+
+  assess [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="4" bgcolor="#e0f2fe" color="#0369a1">
+    <tr><td align="left"><b>assess</b></td></tr>
+    <tr><td align="left">unmet capabilities · current coverage</td></tr>
+    <tr><td align="left"><font color="#64748b">reads: situation</font></td></tr>
+    <tr><td align="left"><font color="#065f46">writes: shortfall, current_coverage</font></td></tr></table>>];
+
+  subgraph cluster_domain {
+    label=<<b>parallel · Send("domain", DomainPayload)</b>  <font point-size="9">only domains with a shortfall · private state by construction</font>>;
+    style="rounded,dashed"; color="#7c3aed"; fontsize=10;
+    d_rescue [label=<<table border="1" cellborder="0" cellpadding="3" bgcolor="#f5f3ff" color="#7c3aed"><tr><td><b>domain[rescue]</b></td></tr><tr><td>water/search rescue, assess, fire</td></tr><tr><td><font color="#7c3aed">memory: rescue (r/w)</font></td></tr></table>>];
+    d_medical [label=<<table border="1" cellborder="0" cellpadding="3" bgcolor="#f5f3ff" color="#7c3aed"><tr><td><b>domain[medical]</b></td></tr><tr><td>medical transport / care</td></tr><tr><td><font color="#7c3aed">memory: medical (r/w)</font></td></tr></table>>];
+    d_log [label=<<table border="1" cellborder="0" cellpadding="3" bgcolor="#f5f3ff" color="#7c3aed"><tr><td><b>domain[logistics]</b></td></tr><tr><td>dewatering, debris, supply, transport</td></tr><tr><td><font color="#7c3aed">memory: logistics (r/w)</font></td></tr></table>>];
+  }
+  REDUCE2 [shape=box, style="rounded,filled", fillcolor="#fef9c3", color="#ca8a04", fontsize=9,
+           label="reducer: domain_plans = operator.add\nshort of the same capability ≥3 cycles → flag mutual aid"];
+
+  optimise [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="4" bgcolor="#dcfce7" color="#15803d">
+    <tr><td align="left"><b>optimise</b>  <font color="#15803d">agent: planner · CP-SAT</font></td></tr>
+    <tr><td align="left">replan.preview(): the real solve inside a</td></tr>
+    <tr><td align="left">transaction that is rolled back (dry run)</td></tr>
+    <tr><td align="left"><font color="#64748b">reads: attempts</font></td></tr>
+    <tr><td align="left"><font color="#065f46">writes: attempts, proposal (Proposal model)</font></td></tr>
+    <tr><td align="left"><font color="#7c3aed">memory: write planner</font></td></tr></table>>];
+
+  validate [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="4" bgcolor="#fff7ed" color="#c2410c">
+    <tr><td align="left"><b>validate</b>  <font color="#c2410c">action guardrails</font></td></tr>
+    <tr><td align="left">no unit twice · coverage in [0,1]</td></tr>
+    <tr><td align="left">&gt;8 units moved or coverage −5% → officer</td></tr>
+    <tr><td align="left"><font color="#64748b">reads: proposal, current_coverage</font></td></tr>
+    <tr><td align="left"><font color="#065f46">writes: valid, validation, needs_officer</font></td></tr></table>>];
+
+  give_up [label=<<table border="1" cellborder="0" cellpadding="4" bgcolor="#f1f5f9" color="#475569"><tr><td><b>give_up</b></td></tr><tr><td>outcome = failed · assignments stand</td></tr></table>>];
+
+  policy_gate [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="4" bgcolor="#fef3c7" color="#b45309">
+    <tr><td align="left"><b>policy_gate</b>  <font color="#b45309">agent: gate</font></td></tr>
+    <tr><td align="left">emergency stop → held</td></tr>
+    <tr><td align="left">officer rejected same move &lt;30 min ago (memory) → held</td></tr>
+    <tr><td align="left">pulls a unit off an S≥4 incident / guardrail → officer</td></tr>
+    <tr><td align="left"><font color="#065f46">writes: needs_officer, held, gate_reason</font></td></tr>
+    <tr><td align="left"><font color="#7c3aed">memory: read gate, orders, planner</font></td></tr></table>>];
+
+  human [label=<<table border="2" cellborder="0" cellspacing="0" cellpadding="4" bgcolor="#fde68a" color="#92400e">
+    <tr><td align="left"><b>human_approval</b>  <font color="#92400e">interrupt()</font></td></tr>
+    <tr><td align="left">run pauses, checkpointed · console Approve / Reject</td></tr>
+    <tr><td align="left">resume: Command(resume=Approval) — strict model</td></tr>
+    <tr><td align="left">no answer in 300 s → rejected (safe default)</td></tr>
+    <tr><td align="left"><font color="#065f46">writes: approval</font> · <font color="#7c3aed">memory: write gate</font></td></tr></table>>];
+
+  held [label=<<table border="1" cellborder="0" cellpadding="4" bgcolor="#f1f5f9" color="#475569"><tr><td><b>held</b></td></tr><tr><td>outcome = held · nothing written</td></tr></table>>];
+  rejected [label=<<table border="1" cellborder="0" cellpadding="4" bgcolor="#f1f5f9" color="#475569"><tr><td><b>rejected</b></td></tr><tr><td>outcome = rejected · assignments stand</td></tr></table>>];
+
+  dispatch [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="4" bgcolor="#bbf7d0" color="#166534">
+    <tr><td align="left"><b>dispatch</b></td></tr>
+    <tr><td align="left">replan.replan(): solve + write assignments,</td></tr>
+    <tr><td align="left">field tasks, routes, events (one transaction)</td></tr>
+    <tr><td align="left">refuses if the emergency stop came on meanwhile</td></tr>
+    <tr><td align="left"><font color="#065f46">writes: dispatched, outcome</font></td></tr></table>>];
+
+  observe [label=<<table border="1" cellborder="0" cellpadding="4" bgcolor="#e0f2fe" color="#0369a1"><tr><td><b>observe</b></td></tr><tr><td>coverage, unmet · router re-enters on next change</td></tr><tr><td><font color="#065f46">writes: outcome</font></td></tr></table>>];
+
+  START -> triage;
+  triage -> command [label="  max_severity ≥ 5", color="#b91c1c", fontcolor="#b91c1c"];
+  triage -> fanout  [label="  otherwise"];
+  command -> fanout;
+  fanout -> s_units [style=bold, color="#0891b2"];
+  fanout -> s_needs [style=bold, color="#0891b2"];
+  fanout -> s_risk  [style=bold, color="#0891b2"];
+  fanout -> s_fac   [style=bold, color="#0891b2"];
+  s_units -> REDUCE1; s_needs -> REDUCE1; s_risk -> REDUCE1; s_fac -> REDUCE1;
+  REDUCE1 -> assess;
+  assess -> d_rescue  [label=" Send", style=bold, color="#7c3aed", fontcolor="#7c3aed"];
+  assess -> d_medical [style=bold, color="#7c3aed"];
+  assess -> d_log     [style=bold, color="#7c3aed"];
+  assess -> optimise  [label="  no shortfall", style=dashed];
+  d_rescue -> REDUCE2; d_medical -> REDUCE2; d_log -> REDUCE2;
+  REDUCE2 -> optimise;
+  optimise -> validate;
+  validate -> optimise [label="invalid · attempts < 3\n(loop)", color="#c2410c", fontcolor="#c2410c", constraint=false];
+  validate -> give_up [label="invalid ×3", color="#c2410c", fontcolor="#c2410c"];
+  validate -> policy_gate [label="  valid"];
+  give_up -> END1;
+  policy_gate -> held [label="held"];
+  policy_gate -> human [label="needs officer", color="#92400e", fontcolor="#92400e", penwidth=1.6];
+  policy_gate -> dispatch [label="within delegation\n& plan changes", color="#166534", fontcolor="#166534"];
+  policy_gate -> observe [label="no change"];
+  held -> END2;
+  human -> dispatch [label="approved", color="#166534", fontcolor="#166534"];
+  human -> rejected [label="rejected / timeout", color="#b91c1c", fontcolor="#b91c1c"];
+  rejected -> END3;
+  dispatch -> observe;
+  observe -> END4;
+
+  // Legend
+  subgraph cluster_legend {
+    label=<<b>Legend</b>>; style="rounded"; color="#cbd5e1"; fontsize=10;
+    lg [label=<<table border="0" cellborder="0" cellspacing="2" cellpadding="2">
+      <tr><td align="left"><font color="#64748b">reads:</font> keys the node is shown (read-only view); anything else is invisible</td></tr>
+      <tr><td align="left"><font color="#065f46">writes:</font> the only keys it may return; others → StateViolation, run "blocked"</td></tr>
+      <tr><td align="left"><font color="#7c3aed">memory:</font> ScopedMemory namespace access (ACL enforced, every access in the ledger)</td></tr>
+      <tr><td align="left"><b>bold coloured edges</b>: Send fan-out · yellow boxes: reducers merging parallel writes</td></tr></table>>];
+  }
+}

@@ -1,0 +1,89 @@
+// 03 — Current high-level system architecture (as deployed, Sep 2026).
+// Render: dot -Tsvg 03-system-architecture.dot -o 03-system-architecture.svg
+digraph System {
+  graph [rankdir=TB, fontname="Helvetica", fontsize=14, bgcolor="white", pad=0.5, nodesep=0.5, ranksep=0.9, splines=spline,
+         label=<<b>Indradhanu — current system architecture</b><br/><font point-size="11">Edge devices work with no internet (Bluetooth mesh, LAN); any phone that finds signal links the mesh to the cloud control room.</font>>,
+         labelloc=t];
+  node  [shape=plain, fontname="Helvetica", fontsize=10];
+  edge  [fontname="Helvetica", fontsize=9, color="#475569", arrowsize=0.7, penwidth=1.3];
+
+  edge_ [label=<<table border="2" cellborder="1" cellspacing="8" cellpadding="7" bgcolor="#fff7ed" color="#c2410c" style="rounded">
+    <tr><td colspan="7" border="0" align="left"><b>EDGE</b> — works offline  <font point-size="9">Bluetooth LE mesh · local Wi-Fi · no dependency on the cloud</font></td></tr>
+    <tr>
+      <td port="cam" bgcolor="white"><b>VLM camera node</b> (GPU laptop)<br/><font point-size="9">camera → YOLO detectors (disaster mode:<br/>face / ReID / phone / smoking off)<br/>→ Qwen2.5-VL-3B (4-bit) scene brief<br/>indradhanu_bridge: signed IDX1 S, phone first<br/>VLM node HTTP :8780 (/health · /analyze)</font></td>
+      <td border="0"><font color="#c2410c" point-size="9">LAN HTTP<br/>:8765<br/>──────▶<br/>image + brief<br/>IDX1 S</font></td>
+      <td port="phone" bgcolor="white"><b>bitchat phones</b> (Android)<br/><font point-size="9">BLE mesh · Noise encryption · Ed25519<br/>roles (civilian … COMMAND) · SOS · shelters<br/>offline map + cached walking routes<br/>VLM API :8765 (/send/text · /send/image · /inbox)</font></td>
+      <td border="0"><font color="#c2410c" point-size="9">BLE mesh<br/>multi-hop<br/>◀─────▶</font></td>
+      <td port="gw" bgcolor="#ffedd5"><b>Gateway phone</b> (any phone with signal)<br/><font point-size="9">IndradhanuGateway every 10 s:<br/>heartbeat · forward IDX1 queue · civ-sync bundle<br/>pull outbox → broadcast as COMMAND<br/>cache centres + routes · Tor only if Arti is up</font></td>
+      <td border="0"><font color="#c2410c" point-size="9">mesh mode:<br/>localhost API<br/>◀ ─ ─ ─</font></td>
+      <td port="pwa" bgcolor="white"><b>Citizen / Field PWAs</b><br/><font point-size="9">/citizen · /field on any phone<br/>service worker: offline outbox, replay on signal<br/>mesh mode via local bitchat API</font></td>
+    </tr></table>>];
+
+  cloud [label=<<table border="2" cellborder="1" cellspacing="8" cellpadding="7" bgcolor="#eff6ff" color="#1d4ed8" style="rounded">
+    <tr><td colspan="4" border="0" align="left"><b>CLOUD CONTROL ROOM API</b> — FastAPI on Render  <font point-size="9">/api/v1 · staff JWT (Supabase Auth) · devices by X-Mesh-Gateway-Key · packets by HMAC</font></td></tr>
+    <tr>
+      <td port="api" bgcolor="white"><b>Routers</b><br/><font point-size="9">citizen · field · reports · mesh<br/>ops · decisions · copilot · agent-graph<br/>demo/state (1 s snapshot) · config</font></td>
+      <td port="intake" bgcolor="white"><b>Intake pipeline</b><br/><font point-size="9">guardrails → classify → severity<br/>→ trust → cluster → incident + needs</font></td>
+      <td port="mesh" bgcolor="white"><b>Mesh service</b><br/><font point-size="9">IDX1 envelope verify (HMAC) · dedup<br/>R/S/F/H/K handlers · gateway heartbeat<br/>sync_outbox: events → mesh messages</font></td>
+      <td port="haz" bgcolor="white"><b>Hazard orchestrator</b><br/><font point-size="9">adapters score wards → impact<br/>→ proposed actions → policy gate</font></td>
+    </tr>
+    <tr>
+      <td port="router" bgcolor="#e0f2fe"><b>Event router</b><br/><font point-size="9">tails the event log · triggers cycles</font></td>
+      <td port="graph" bgcolor="#f5f3ff"><b>LangGraph agent graph</b><br/><font point-size="9">contracts · guardrails · per-agent memory<br/>interrupt() officer approval · checkpoints</font></td>
+      <td port="solver" bgcolor="#ccfbf1"><b>CP-SAT allocation + routing</b><br/><font point-size="9">OR-Tools · OSRM travel matrix<br/>preview (dry run) / replan (commit)</font></td>
+      <td port="llmag" bgcolor="#fee2e2"><b>LLM agents</b><br/><font point-size="9">Incident Commander · Copilot<br/>policy gate · emergency stop (autonomy)</font></td>
+    </tr></table>>];
+
+  data [label=<<table border="2" cellborder="1" cellspacing="8" cellpadding="7" bgcolor="#f0fdf4" color="#15803d" style="rounded">
+    <tr><td colspan="4" border="0" align="left"><b>DATA</b> — Supabase</td></tr>
+    <tr>
+      <td port="pg" bgcolor="white"><b>Postgres + PostGIS</b><br/><font point-size="9">events (append-only) · incidents · reports<br/>assignments · decisions · alerts · wards<br/>mesh_* · agent_memory (+ledger) · control_state</font></td>
+      <td port="auth" bgcolor="white"><b>Auth</b><br/><font point-size="9">staff roles: commissioner ·<br/>officer · field crew</font></td>
+      <td port="storage" bgcolor="white"><b>Storage</b><br/><font point-size="9">report photos (evidence)</font></td>
+      <td port="rt" bgcolor="white"><b>Realtime</b><br/><font point-size="9">row changes → console refresh</font></td>
+    </tr></table>>];
+
+  front [label=<<table border="2" cellborder="1" cellspacing="8" cellpadding="7" bgcolor="#faf5ff" color="#7c3aed" style="rounded">
+    <tr><td colspan="3" border="0" align="left"><b>CONSOLE</b> — React + Vite on Vercel  <font point-size="9">IndexedDB cache (snapshot, ward geometry, map pictures) · service worker (Mapbox styles / fonts)</font></td></tr>
+    <tr>
+      <td port="wall" bgcolor="white"><b>/admin — control room</b><br/><font point-size="9">Command wall (zone screens + analytics) · Live map<br/>Live feed · Incidents &amp; response · Mesh &amp; devices<br/>Approvals · Agent graph · Copilot · Emergency stop</font></td>
+      <td port="cit" bgcolor="white"><b>/citizen</b><br/><font point-size="9">report · guidance · routes<br/>mesh mode offline</font></td>
+      <td port="fld" bgcolor="white"><b>/field</b><br/><font point-size="9">tasks · status · road blocked</font></td>
+    </tr></table>>];
+
+  ext [label=<<table border="1" cellborder="1" cellspacing="8" cellpadding="6" bgcolor="#f8fafc" color="#64748b" style="rounded">
+    <tr><td colspan="5" border="0" align="left"><b>EXTERNAL SERVICES</b></td></tr>
+    <tr>
+      <td port="llm" bgcolor="white"><b>LLMs</b><br/><font point-size="9">Gemini → Bedrock<br/>(production: on-prem vLLM)</font></td>
+      <td port="hf" bgcolor="white"><b>Hugging Face Inference</b><br/><font point-size="9">XLM-R large XNLI<br/>zero-shot (category, severity)</font></td>
+      <td port="osrm" bgcolor="white"><b>OSRM</b><br/><font point-size="9">road routing</font></td>
+      <td port="wx" bgcolor="white"><b>Open-Meteo · Flood Hub</b><br/><font point-size="9">rain, river, flood forecasts</font></td>
+      <td port="map" bgcolor="white"><b>Mapbox</b><br/><font point-size="9">vector tiles · styles</font></td>
+    </tr></table>>];
+
+  edge_ -> cloud -> data [style=invis, weight=10];
+  { rank=same; data; front; }
+  data -> ext [style=invis];
+  front -> ext [style=invis];
+
+
+  edge_:gw -> cloud:mesh [label="HTTPS · X-Mesh-Gateway-Key\n/mesh/inbound · civ-sync · heartbeat", color="#1d4ed8", penwidth=1.8];
+  cloud:mesh -> edge_:gw [label="/mesh/outbox\nalerts · dispatches · road blocks", color="#1d4ed8", style=dashed];
+  edge_:cam -> cloud:api [label="/ingest/sensor\n(only if the phone is unreachable)", style=dotted, color="#64748b"];
+  edge_:pwa -> cloud:api [label="HTTPS (queued offline)", color="#1d4ed8"];
+
+  cloud:intake -> data:pg [label="asyncpg · transactions", color="#15803d", penwidth=1.6];
+  cloud:router -> data:pg [label="tail events", color="#15803d", dir=back];
+  cloud:api -> data:storage [label="photos", color="#15803d"];
+  data:auth -> cloud:api [label="JWT", style=dashed, color="#15803d"];
+
+  front:wall -> cloud:api [label="REST · 1 s snapshot\napprove · cancel · ask · stop", color="#7c3aed", penwidth=1.6];
+  data:rt -> front:wall [label="websocket: refresh now", style=dashed, color="#7c3aed"];
+  front:cit -> edge_:pwa [style=invis];
+
+  cloud:llmag -> ext:llm [label="guarded calls", color="#dc2626"];
+  cloud:intake -> ext:hf [label="zero-shot", color="#dc2626", style=dashed];
+  cloud:solver -> ext:osrm [label="travel times", color="#0f766e"];
+  cloud:haz -> ext:wx [label="feeds", color="#0f766e"];
+  front:wall -> ext:map [label="tiles", style=dashed, color="#7c3aed"];
+}
