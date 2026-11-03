@@ -1,0 +1,44 @@
+{
+ "segments": 43564,
+ "rivers": [
+  "Indrayani",
+  "Kasarsai",
+  "Mula",
+  "Pavana"
+ ],
+ "river_points": 6026,
+ "hand_m": {
+  "count": 43564.0,
+  "mean": 27.48,
+  "std": 12.43,
+  "min": -4.73,
+  "5%": 10.35,
+  "25%": 17.42,
+  "50%": 25.7,
+  "75%": 36.46,
+  "95%": 49.33,
+  "max": 115.89
+ },
+ "sink_m": {
+  "count": 43564.0,
+  "mean": 0.95,
+  "std": 1.27,
+  "min": 0.0,
+  "50%": 0.41,
+  "90%": 2.7,
+  "99%": 5.13,
+  "max": 23.43
+ },
+ "dist_river_m": {
+  "count": 43564.0,
+  "mean": 1692.2,
+  "std": 1107.1,
+  "min": 0.2,
+  "5%": 234.1,
+  "50%": 1481.2,
+  "95%": 3760.9,
+  "max": 4708.1
+ },
+ "segments_within_3m_of_river_level": 42,
+ "dem": "Copernicus GLO-30 (surface model; road = lower-quartile sample)"
+}
