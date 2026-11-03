@@ -1,0 +1,797 @@
+t_min,t_replay,time_label,policy,subject,id,state,note,capacity,occupancy,reserved,unit,people,task,incident
+0.0,2026-07-05T13:30:00Z,REPLAY,current_status,unit,PC-AMB-06,available,start of window,,,,,,,
+0.0,2026-07-05T13:30:00Z,REPLAY,current_status,unit,PC-BOAT-01,available,start of window,,,,,,,
+0.0,2026-07-05T13:30:00Z,REPLAY,current_status,unit,PC-BOAT-02,available,start of window,,,,,,,
+0.0,2026-07-05T13:30:00Z,REPLAY,current_status,unit,PC-BUS-02,available,start of window,,,,,,,
+0.0,2026-07-05T13:30:00Z,REPLAY,current_status,unit,PC-FIRE-02,available,start of window,,,,,,,
+0.0,2026-07-05T13:30:00Z,REPLAY,current_status,unit,PC-FIRE-06,available,start of window,,,,,,,
+0.0,2026-07-05T13:30:00Z,REPLAY,current_status,unit,PC-POL-02,available,start of window,,,,,,,
+0.0,2026-07-05T13:30:00Z,REPLAY,current_status,unit,PC-POL-03,available,start of window,,,,,,,
+0.0,2026-07-05T13:30:00Z,REPLAY,current_status,unit,PC-PUMP-05,available,start of window,,,,,,,
+0.0,2026-07-05T13:30:00Z,REPLAY,current_status,unit,PC-TEAM-01,available,start of window,,,,,,,
+0.0,2026-07-05T13:30:00Z,REPLAY,current_status,unit,PC-TEAM-02,available,start of window,,,,,,,
+0.0,2026-07-05T13:30:00Z,REPLAY,current_status,unit,PC-TRUCK-01,available,start of window,,,,,,,
+0.0,2026-07-05T13:30:00Z,REPLAY,current_status,unit,PC-TANK-01,available,start of window,,,,,,,
+0.0,2026-07-05T13:30:00Z,REPLAY,current_status,unit,PC-TANK-02,available,start of window,,,,,,,
+0.0,2026-07-05T13:30:00Z,REPLAY,current_status,shelter,lf-pc-r1,open,,250.0,0.0,0.0,,,,
+0.0,2026-07-05T13:30:00Z,REPLAY,current_status,shelter,lf-pc-r2,open,,225.0,0.0,0.0,,,,
+0.0,2026-07-05T13:30:00Z,REPLAY,current_status,shelter,lf-pc-s1,open,,200.0,0.0,0.0,,,,
+0.0,2026-07-05T13:30:00Z,REPLAY,current_status,shelter,lf-pc-s2,open,,100.0,0.0,0.0,,,,
+0.0,2026-07-05T13:30:00Z,REPLAY,current_status,shelter,lf-pc-s3,open,,112.0,0.0,0.0,,,,
+0.0,2026-07-05T13:30:00Z,REPLAY,current_status,shelter,lf-pc-s4,open,,100.0,0.0,0.0,,,,
+0.0,2026-07-05T13:30:00Z,REPLAY,current_status,shelter,lf-pc-s5,open,,87.0,0.0,0.0,,,,
+0.0,2026-07-05T13:30:00Z,REPLAY,current_status,shelter,lf-pc-s6,open,,87.0,0.0,0.0,,,,
+0.0,2026-07-05T13:30:00Z,REPLAY,current_status,shelter,lf-pc-r2,reserved,,225.0,0.0,45.0,PC-TRUCK-01,45.0,,
+0.0,2026-07-05T13:30:00Z,REPLAY,current_status,unit,PC-TRUCK-01,en_route,,,,,,,I009:mass_transport:0,I009
+0.0,2026-07-05T13:30:00Z,REPLAY,current_status,unit,PC-BOAT-01,en_route,,,,,,,I009:water_rescue:0,I009
+0.0,2026-07-05T13:30:00Z,REPLAY,current_status,unit,PC-FIRE-02,en_route,,,,,,,I001:dewatering:0,I001
+0.0,2026-07-05T13:30:00Z,REPLAY,current_status,unit,PC-FIRE-06,en_route,,,,,,,I003:dewatering:0,I003
+0.0,2026-07-05T13:30:00Z,REPLAY,current_status,unit,PC-TEAM-02,en_route,,,,,,,I016:debris_clearance:0,I016
+0.0,2026-07-05T13:30:00Z,REPLAY,current_status,unit,PC-AMB-06,en_route,,,,,,,I011:field_assessment:0,I011
+0.0,2026-07-05T13:30:00Z,REPLAY,current_status,unit,PC-POL-03,en_route,,,,,,,I017:field_assessment:0,I017
+0.0,2026-07-05T13:30:00Z,REPLAY,current_status,unit,PC-POL-02,en_route,,,,,,,I024:field_assessment:0,I024
+0.0,2026-07-05T13:30:00Z,REPLAY,current_status,unit,PC-TEAM-01,en_route,,,,,,,I021:field_assessment:0,I021
+3.9,2026-07-05T13:33:53.496444321Z,REPLAY,current_status,unit,PC-POL-03,available,no passable road to the need (need returns to the pool),,,,,,,
+5.8,2026-07-05T13:35:45.920112833Z,REPLAY,current_status,unit,PC-AMB-06,available,no passable road to the need (need returns to the pool),,,,,,,
+7.6,2026-07-05T13:37:33.404074304Z,REPLAY,current_status,unit,PC-FIRE-02,on_site,,,,,,,I001:dewatering:0,I001
+9.1,2026-07-05T13:39:03.381441652Z,REPLAY,current_status,unit,PC-TRUCK-01,on_site,,,,,,,I009:mass_transport:0,I009
+10.0,2026-07-05T13:40:00Z,REPLAY,current_status,unit,PC-POL-02,en_route,,,,,,,I018:field_assessment:0,I018
+10.0,2026-07-05T13:40:00Z,REPLAY,current_status,unit,PC-BOAT-01,en_route,,,,,,,I041:field_assessment:0,I041
+10.0,2026-07-05T13:40:00Z,REPLAY,current_status,unit,PC-FIRE-06,en_route,,,,,,,I025:field_assessment:0,I025
+10.0,2026-07-05T13:40:00Z,REPLAY,current_status,unit,PC-TEAM-01,en_route,,,,,,,I039:field_assessment:0,I039
+11.7,2026-07-05T13:41:42.089595591Z,REPLAY,current_status,unit,PC-POL-02,on_site,,,,,,,I018:field_assessment:0,I018
+11.8,2026-07-05T13:41:49.414877500Z,REPLAY,current_status,unit,PC-TEAM-02,on_site,,,,,,,I016:debris_clearance:0,I016
+16.7,2026-07-05T13:46:42.089595591Z,REPLAY,current_status,unit,PC-POL-02,available,field_assessment finished at I018,,,,,,,
+17.6,2026-07-05T13:47:36.607561750Z,REPLAY,current_status,unit,PC-BOAT-01,on_site,,,,,,,I041:field_assessment:0,I041
+20.0,2026-07-05T13:50:00Z,REPLAY,current_status,unit,PC-FIRE-06,en_route,,,,,,,I041:dewatering:0,I041
+20.0,2026-07-05T13:50:00Z,REPLAY,current_status,unit,PC-TEAM-01,en_route,,,,,,,I017:field_assessment:0,I017
+20.0,2026-07-05T13:50:00Z,REPLAY,current_status,unit,PC-POL-02,en_route,,,,,,,I026:field_assessment:0,I026
+22.6,2026-07-05T13:52:36.607561750Z,REPLAY,current_status,unit,PC-BOAT-01,available,field_assessment finished at I041,,,,,,,
+30.0,2026-07-05T14:00:00Z,REPLAY,current_status,unit,PC-BOAT-02,en_route,,,,,,,I057:field_assessment:0,I057
+30.0,2026-07-05T14:00:00Z,REPLAY,current_status,unit,PC-BOAT-01,en_route,,,,,,,I042:field_assessment:0,I042
+33.0,2026-07-05T14:03:00Z,REPLAY,current_status,unit,PC-BOAT-01,available,no passable road to the need (need returns to the pool),,,,,,,
+32.8,2026-07-05T14:02:45.875087914Z,REPLAY,current_status,unit,PC-TEAM-01,on_site,,,,,,,I017:field_assessment:0,I017
+36.3,2026-07-05T14:06:15.561153424Z,REPLAY,current_status,unit,PC-POL-02,available,no passable road to the need (need returns to the pool),,,,,,,
+35.8,2026-07-05T14:05:47.678042477Z,REPLAY,current_status,unit,PC-BOAT-02,on_site,,,,,,,I057:field_assessment:0,I057
+37.8,2026-07-05T14:07:45.875087914Z,REPLAY,current_status,unit,PC-TEAM-01,available,field_assessment finished at I017,,,,,,,
+40.0,2026-07-05T14:10:00Z,REPLAY,current_status,unit,PC-BOAT-01,en_route,,,,,,,I006:field_assessment:0,I006
+40.0,2026-07-05T14:10:00Z,REPLAY,current_status,unit,PC-FIRE-06,en_route,,,,,,,I045:field_assessment:0,I045
+40.0,2026-07-05T14:10:00Z,REPLAY,current_status,unit,PC-TEAM-01,en_route,,,,,,,I026:field_assessment:0,I026
+40.0,2026-07-05T14:10:00Z,REPLAY,current_status,shelter,surge-lf-pc-sc1,opened,"school opened as surge shelter: Kendriya Vidyalaya No. 2, Dehu Road",500.0,0.0,0.0,,,,
+40.0,2026-07-05T14:10:00Z,REPLAY,current_status,shelter,surge-lf-pc-sc8,opened,"school opened as surge shelter: St Ann's School, Chikhli",350.0,0.0,0.0,,,,
+40.0,2026-07-05T14:10:00Z,REPLAY,current_status,shelter,surge-lf-pc-sc6,opened,"school opened as surge shelter: Hindustan Antibiotics School, Pimpri",450.0,0.0,0.0,,,,
+40.8,2026-07-05T14:10:47.678042477Z,REPLAY,current_status,unit,PC-BOAT-02,available,field_assessment finished at I057,,,,,,,
+45.0,2026-07-05T14:15:00Z,REPLAY,current_status,unit,AID-pun-redcross-amb-1,available,mutual aid arrived (Red Cross ambulances (Pune)),,,,,,,
+45.0,2026-07-05T14:15:00Z,REPLAY,current_status,unit,AID-pun-redcross-amb-2,available,mutual aid arrived (Red Cross ambulances (Pune)),,,,,,,
+45.0,2026-07-05T14:15:00Z,REPLAY,current_status,unit,AID-pun-redcross-amb-3,available,mutual aid arrived (Red Cross ambulances (Pune)),,,,,,,
+45.7,2026-07-05T14:15:43.379315292Z,REPLAY,current_status,unit,PC-BOAT-01,on_site,,,,,,,I006:field_assessment:0,I006
+50.0,2026-07-05T14:20:00Z,REPLAY,current_status,unit,AID-pun-vol-team-1,available,mutual aid arrived (Volunteer search teams),,,,,,,
+50.0,2026-07-05T14:20:00Z,REPLAY,current_status,unit,AID-pun-vol-team-2,available,mutual aid arrived (Volunteer search teams),,,,,,,
+50.0,2026-07-05T14:20:00Z,REPLAY,current_status,unit,AID-pun-vol-team-3,available,mutual aid arrived (Volunteer search teams),,,,,,,
+50.7,2026-07-05T14:20:43.379315292Z,REPLAY,current_status,unit,PC-BOAT-01,available,field_assessment finished at I006,,,,,,,
+51.8,2026-07-05T14:21:49.414877500Z,REPLAY,current_status,unit,PC-TEAM-02,available,debris_clearance finished at I016,,,,,,,
+55.7,2026-07-05T14:25:40.404389429Z,REPLAY,current_status,unit,PC-FIRE-06,on_site,,,,,,,I045:field_assessment:0,I045
+60.0,2026-07-05T14:30:00Z,REPLAY,current_status,unit,PC-BOAT-01,en_route,,,,,,,I060:field_assessment:0,I060
+60.0,2026-07-05T14:30:00Z,REPLAY,current_status,unit,PC-TEAM-02,en_route,,,,,,,I004:field_assessment:0,I004
+60.0,2026-07-05T14:30:00Z,REPLAY,current_status,unit,PC-TEAM-01,en_route,,,,,,,I038:field_assessment:0,I038
+60.0,2026-07-05T14:30:00Z,REPLAY,current_status,unit,AID-pun-vol-team-3,en_route,,,,,,,I062:field_assessment:0,I062
+60.0,2026-07-05T14:30:00Z,REPLAY,current_status,unit,AID-pun-vol-team-2,en_route,,,,,,,I027:field_assessment:0,I027
+60.0,2026-07-05T14:30:00Z,REPLAY,current_status,unit,AID-pun-vol-team-1,en_route,,,,,,,I036:field_assessment:0,I036
+60.0,2026-07-05T14:30:00Z,REPLAY,current_status,unit,AID-pun-pmc-pump-1,available,mutual aid arrived (PMC dewatering pumps),,,,,,,
+60.0,2026-07-05T14:30:00Z,REPLAY,current_status,unit,AID-pun-pmc-pump-2,available,mutual aid arrived (PMC dewatering pumps),,,,,,,
+60.7,2026-07-05T14:30:40.404389429Z,REPLAY,current_status,unit,PC-FIRE-06,available,field_assessment finished at I045,,,,,,,
+65.8,2026-07-05T14:35:45.691863045Z,REPLAY,current_status,unit,PC-BOAT-01,on_site,,,,,,,I060:field_assessment:0,I060
+67.6,2026-07-05T14:37:33.404074304Z,REPLAY,current_status,unit,PC-FIRE-02,available,dewatering finished at I001,,,,,,,
+69.2,2026-07-05T14:39:10.259541134Z,REPLAY,current_status,unit,PC-TEAM-02,on_site,,,,,,,I004:field_assessment:0,I004
+70.0,2026-07-05T14:40:00Z,REPLAY,current_status,unit,PC-FIRE-06,en_route,,,,,,,I045:dewatering:0,I045
+70.0,2026-07-05T14:40:00Z,REPLAY,current_status,unit,PC-FIRE-02,en_route,,,,,,,I017:dewatering:0,I017
+70.0,2026-07-05T14:40:00Z,REPLAY,current_status,unit,PC-TEAM-01,en_route,,,,,,,I026:field_assessment:0,I026
+70.0,2026-07-05T14:40:00Z,REPLAY,current_status,unit,AID-pun-vol-team-1,en_route,,,,,,,I046:field_assessment:0,I046
+70.0,2026-07-05T14:40:00Z,REPLAY,current_status,unit,AID-pun-vol-team-3,en_route,,,,,,,I048:field_assessment:0,I048
+70.8,2026-07-05T14:40:45.691863045Z,REPLAY,current_status,unit,PC-BOAT-01,available,field_assessment finished at I060,,,,,,,
+72.1,2026-07-05T14:42:06.443419125Z,REPLAY,current_status,unit,PC-FIRE-06,on_site,,,,,,,I045:dewatering:0,I045
+74.2,2026-07-05T14:44:10.259541134Z,REPLAY,current_status,unit,PC-TEAM-02,available,field_assessment finished at I004,,,,,,,
+77.8,2026-07-05T14:47:47.378401544Z,REPLAY,current_status,unit,PC-FIRE-02,available,no passable road to the need (need returns to the pool),,,,,,,
+79.9,2026-07-05T14:49:51.941981854Z,REPLAY,current_status,unit,AID-pun-vol-team-1,available,no passable road to the need (need returns to the pool),,,,,,,
+80.0,2026-07-05T14:50:00Z,REPLAY,current_status,unit,PC-BOAT-01,en_route,,,,,,,I082:field_assessment:0,I082
+80.0,2026-07-05T14:50:00Z,REPLAY,current_status,unit,PC-TEAM-01,en_route,,,,,,,I033:field_assessment:0,I033
+80.0,2026-07-05T14:50:00Z,REPLAY,current_status,unit,AID-pun-vol-team-2,en_route,,,,,,,I024:field_assessment:0,I024
+80.0,2026-07-05T14:50:00Z,REPLAY,current_status,unit,AID-pun-vol-team-3,en_route,,,,,,,I059:field_assessment:0,I059
+80.0,2026-07-05T14:50:00Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-1,available,mutual aid arrived (SDRF boats),,,,,,,
+80.0,2026-07-05T14:50:00Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-2,available,mutual aid arrived (SDRF boats),,,,,,,
+80.0,2026-07-05T14:50:00Z,REPLAY,current_status,unit,AID-pun-sdrf-team-1,available,mutual aid arrived (SDRF rescue teams),,,,,,,
+80.0,2026-07-05T14:50:00Z,REPLAY,current_status,unit,AID-pun-sdrf-team-2,available,mutual aid arrived (SDRF rescue teams),,,,,,,
+80.0,2026-07-05T14:50:00Z,REPLAY,current_status,unit,AID-pun-pvt-bus-1,available,mutual aid arrived (Requisitioned buses),,,,,,,
+80.0,2026-07-05T14:50:00Z,REPLAY,current_status,unit,AID-pun-pvt-bus-2,available,mutual aid arrived (Requisitioned buses),,,,,,,
+80.0,2026-07-05T14:50:00Z,REPLAY,current_status,unit,AID-pun-pvt-bus-3,available,mutual aid arrived (Requisitioned buses),,,,,,,
+80.0,2026-07-05T14:50:00Z,REPLAY,current_status,unit,AID-pun-pvt-bus-4,available,mutual aid arrived (Requisitioned buses),,,,,,,
+83.1,2026-07-05T14:53:06.433779659Z,REPLAY,current_status,unit,PC-TEAM-01,available,no passable road to the need (need returns to the pool),,,,,,,
+85.0,2026-07-05T14:55:00.406821518Z,REPLAY,current_status,shelter,lf-pc-r2,arrived,,225.0,45.0,0.0,PC-TRUCK-01,45.0,,
+85.0,2026-07-05T14:55:00.406821518Z,REPLAY,current_status,unit,PC-TRUCK-01,available,mass_transport finished at I009,,,,,,,
+85.6,2026-07-05T14:55:34.970931448Z,REPLAY,current_status,unit,PC-BOAT-01,on_site,,,,,,,I082:field_assessment:0,I082
+90.0,2026-07-05T15:00:00Z,REPLAY,current_status,shelter,lf-pc-r1,reserved,,250.0,0.0,45.0,PC-TRUCK-01,45.0,,
+90.0,2026-07-05T15:00:00Z,REPLAY,current_status,unit,PC-TRUCK-01,en_route,,,,,,,I018:mass_transport:1,I018
+90.0,2026-07-05T15:00:00Z,REPLAY,current_status,unit,PC-TEAM-01,en_route,,,,,,,I035:debris_clearance:0,I035
+90.0,2026-07-05T15:00:00Z,REPLAY,current_status,unit,AID-pun-vol-team-3,en_route,,,,,,,I011:debris_clearance:0,I011
+90.0,2026-07-05T15:00:00Z,REPLAY,current_status,unit,AID-pun-vol-team-1,en_route,,,,,,,I088:field_assessment:0,I088
+90.0,2026-07-05T15:00:00Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-1,en_route,,,,,,,I037:field_assessment:0,I037
+90.0,2026-07-05T15:00:00Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-2,en_route,,,,,,,I038:field_assessment:0,I038
+90.0,2026-07-05T15:00:00Z,REPLAY,current_status,unit,AID-pun-sdrf-team-1,en_route,,,,,,,I068:field_assessment:0,I068
+90.0,2026-07-05T15:00:00Z,REPLAY,current_status,unit,AID-pun-sdrf-team-2,en_route,,,,,,,I021:field_assessment:0,I021
+90.0,2026-07-05T15:00:00Z,REPLAY,current_status,unit,AID-pun-vol-team-2,en_route,,,,,,,I066:field_assessment:0,I066
+90.6,2026-07-05T15:00:34.970931448Z,REPLAY,current_status,unit,PC-BOAT-01,available,field_assessment finished at I082,,,,,,,
+92.5,2026-07-05T15:02:28.523623767Z,REPLAY,current_status,unit,AID-pun-vol-team-2,en_route,rerouted: crew found the road blocked,,,,,,I066:field_assessment:0,
+95.4,2026-07-05T15:05:21.578205368Z,REPLAY,current_status,unit,AID-pun-vol-team-2,en_route,rerouted: crew found the road blocked,,,,,,I066:field_assessment:0,
+100.0,2026-07-05T15:10:00Z,REPLAY,current_status,unit,AID-pun-sdrf-team-2,available,incident expired: unverified for 2 h with nothing new (likely stale or false),,,,,,,
+100.0,2026-07-05T15:10:00Z,REPLAY,current_status,shelter,lf-pc-s4,reserved,,100.0,0.0,45.0,PC-TRUCK-01,45.0,,
+100.0,2026-07-05T15:10:00Z,REPLAY,current_status,shelter,lf-pc-s4,released,,100.0,0.0,0.0,PC-TRUCK-01,,,
+100.0,2026-07-05T15:10:00Z,REPLAY,current_status,unit,PC-TRUCK-01,en_route,,,,,,,I017:mass_transport:1,I017
+100.0,2026-07-05T15:10:00Z,REPLAY,current_status,unit,AID-pun-vol-team-2,en_route,,,,,,,I020:debris_clearance:0,I020
+100.0,2026-07-05T15:10:00Z,REPLAY,current_status,unit,AID-pun-vol-team-1,en_route,,,,,,,I082:debris_clearance:0,I082
+100.0,2026-07-05T15:10:00Z,REPLAY,current_status,unit,PC-BOAT-01,en_route,,,,,,,I088:field_assessment:0,I088
+100.0,2026-07-05T15:10:00Z,REPLAY,current_status,unit,AID-pun-sdrf-team-1,en_route,,,,,,,I033:field_assessment:0,I033
+100.0,2026-07-05T15:10:00Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-2,en_route,,,,,,,I034:field_assessment:0,I034
+100.0,2026-07-05T15:10:00Z,REPLAY,current_status,unit,AID-pun-vol-team-3,en_route,,,,,,,I067:field_assessment:0,I067
+100.0,2026-07-05T15:10:00Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-1,en_route,,,,,,,I036:field_assessment:0,I036
+100.0,2026-07-05T15:10:00Z,REPLAY,current_status,unit,AID-pun-sdrf-team-2,en_route,,,,,,,I073:field_assessment:0,I073
+100.7,2026-07-05T15:10:40.629596653Z,REPLAY,current_status,unit,PC-TEAM-01,on_site,,,,,,,I035:debris_clearance:0,I035
+105.7,2026-07-05T15:15:42.632439934Z,REPLAY,current_status,unit,PC-BOAT-01,on_site,,,,,,,I088:field_assessment:0,I088
+106.1,2026-07-05T15:16:06.096102188Z,REPLAY,current_status,unit,AID-pun-vol-team-2,on_site,,,,,,,I020:debris_clearance:0,I020
+108.8,2026-07-05T15:18:48.923166467Z,REPLAY,current_status,unit,PC-TRUCK-01,en_route,rerouted: crew found the road blocked,,,,,,I017:mass_transport:1,
+109.1,2026-07-05T15:19:05.266290944Z,REPLAY,current_status,unit,AID-pun-vol-team-1,on_site,,,,,,,I082:debris_clearance:0,I082
+109.5,2026-07-05T15:19:30.282406546Z,REPLAY,current_status,unit,AID-pun-sdrf-team-1,on_site,,,,,,,I033:field_assessment:0,I033
+110.0,2026-07-05T15:20:00Z,REPLAY,current_status,unit,AID-pun-sdrf-team-2,available,incident expired: 'cleared' report after the last supporting report,,,,,,,
+110.0,2026-07-05T15:20:00Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-1,en_route,,,,,,,I066:water_rescue:0,I066
+110.0,2026-07-05T15:20:00Z,REPLAY,current_status,shelter,lf-pc-s4,reserved,,100.0,0.0,45.0,PC-TRUCK-01,45.0,,
+110.0,2026-07-05T15:20:00Z,REPLAY,current_status,shelter,lf-pc-s4,released,,100.0,0.0,0.0,PC-TRUCK-01,,,
+110.0,2026-07-05T15:20:00Z,REPLAY,current_status,unit,PC-TRUCK-01,en_route,,,,,,,I017:mass_transport:1,I017
+110.0,2026-07-05T15:20:00Z,REPLAY,current_status,unit,PC-POL-02,en_route,,,,,,,I096:field_assessment:0,I096
+110.0,2026-07-05T15:20:00Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-2,en_route,,,,,,,I094:field_assessment:0,I094
+110.0,2026-07-05T15:20:00Z,REPLAY,current_status,unit,AID-pun-sdrf-team-2,en_route,,,,,,,I038:field_assessment:0,I038
+110.7,2026-07-05T15:20:42.632439934Z,REPLAY,current_status,unit,PC-BOAT-01,available,field_assessment finished at I088,,,,,,,
+112.2,2026-07-05T15:22:09.925486604Z,REPLAY,current_status,unit,PC-POL-02,on_site,,,,,,,I096:field_assessment:0,I096
+114.5,2026-07-05T15:24:30.282406546Z,REPLAY,current_status,unit,AID-pun-sdrf-team-1,available,field_assessment finished at I033,,,,,,,
+117.2,2026-07-05T15:27:09.925486604Z,REPLAY,current_status,unit,PC-POL-02,available,field_assessment finished at I096,,,,,,,
+118.5,2026-07-05T15:28:32.904465631Z,REPLAY,current_status,unit,AID-pun-vol-team-3,on_site,,,,,,,I067:field_assessment:0,I067
+120.0,2026-07-05T15:30:00Z,REPLAY,current_status,unit,AID-pun-sdrf-team-2,available,incident expired: unverified for 2 h with nothing new (likely stale or false),,,,,,,
+120.0,2026-07-05T15:30:00Z,REPLAY,current_status,shelter,lf-pc-r1,reserved,,250.0,0.0,90.0,PC-TRUCK-01,45.0,,
+120.0,2026-07-05T15:30:00Z,REPLAY,current_status,shelter,lf-pc-r1,released,,250.0,0.0,45.0,PC-TRUCK-01,,,
+120.0,2026-07-05T15:30:00Z,REPLAY,current_status,unit,PC-TRUCK-01,en_route,,,,,,,I018:mass_transport:1,I018
+120.0,2026-07-05T15:30:00Z,REPLAY,current_status,unit,AID-pun-sdrf-team-1,en_route,,,,,,,I011:debris_clearance:0,I011
+120.0,2026-07-05T15:30:00Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-1,en_route,,,,,,,I069:field_assessment:0,I069
+120.0,2026-07-05T15:30:00Z,REPLAY,current_status,unit,AID-pun-sdrf-team-2,en_route,,,,,,,I076:field_assessment:0,I076
+120.0,2026-07-05T15:30:00Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-2,en_route,,,,,,,I099:field_assessment:0,I099
+123.5,2026-07-05T15:33:32.904465631Z,REPLAY,current_status,unit,AID-pun-vol-team-3,available,field_assessment finished at I067,,,,,,,
+130.0,2026-07-05T15:40:00Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-1,en_route,,,,,,,I066:water_rescue:0,I066
+130.0,2026-07-05T15:40:00Z,REPLAY,current_status,shelter,lf-pc-s4,reserved,,100.0,0.0,45.0,PC-TRUCK-01,45.0,,
+130.0,2026-07-05T15:40:00Z,REPLAY,current_status,shelter,lf-pc-s4,released,,100.0,0.0,0.0,PC-TRUCK-01,,,
+130.0,2026-07-05T15:40:00Z,REPLAY,current_status,unit,PC-TRUCK-01,en_route,,,,,,,I017:mass_transport:1,I017
+130.0,2026-07-05T15:40:00Z,REPLAY,current_status,unit,PC-FIRE-02,en_route,,,,,,,I103:field_assessment:0,I103
+130.0,2026-07-05T15:40:00Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-2,en_route,,,,,,,I107:field_assessment:0,I107
+130.0,2026-07-05T15:40:00Z,REPLAY,current_status,unit,AID-pun-vol-team-3,en_route,,,,,,,I070:field_assessment:0,I070
+130.0,2026-07-05T15:40:00Z,REPLAY,current_status,unit,AID-pun-sdrf-team-2,en_route,,,,,,,I108:field_assessment:0,I108
+130.0,2026-07-05T15:40:00Z,REPLAY,current_status,unit,AID-pun-sdrf-team-1,en_route,,,,,,,I097:field_assessment:0,I097
+132.1,2026-07-05T15:42:06.443419125Z,REPLAY,current_status,unit,PC-FIRE-06,available,dewatering finished at I045,,,,,,,
+134.1,2026-07-05T15:44:06.653490809Z,REPLAY,current_status,unit,PC-FIRE-02,on_site,,,,,,,I103:field_assessment:0,I103
+139.1,2026-07-05T15:49:06.653490809Z,REPLAY,current_status,unit,PC-FIRE-02,available,field_assessment finished at I103,,,,,,,
+140.0,2026-07-05T15:50:00Z,REPLAY,current_status,unit,PC-FIRE-02,en_route,,,,,,,I103:dewatering:0,I103
+140.0,2026-07-05T15:50:00Z,REPLAY,current_status,unit,PC-BOAT-02,en_route,,,,,,,I112:field_assessment:0,I112
+140.0,2026-07-05T15:50:00Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-1,en_route,,,,,,,I069:field_assessment:0,I069
+140.0,2026-07-05T15:50:00Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-2,en_route,,,,,,,I098:field_assessment:0,I098
+140.0,2026-07-05T15:50:00Z,REPLAY,current_status,unit,AID-pun-vol-team-3,en_route,,,,,,,I100:field_assessment:0,I100
+140.0,2026-07-05T15:50:00Z,REPLAY,current_status,unit,PC-FIRE-06,en_route,,,,,,,I086:field_assessment:0,I086
+140.0,2026-07-05T15:50:00Z,REPLAY,current_status,unit,AID-pun-sdrf-team-2,en_route,,,,,,,I063:field_assessment:0,I063
+140.7,2026-07-05T15:50:40.629596653Z,REPLAY,current_status,unit,PC-TEAM-01,available,debris_clearance finished at I035,,,,,,,
+144.1,2026-07-05T15:54:06.653490809Z,REPLAY,current_status,unit,PC-FIRE-02,on_site,,,,,,,I103:dewatering:0,I103
+144.8,2026-07-05T15:54:48.093125954Z,REPLAY,current_status,unit,PC-BOAT-02,on_site,,,,,,,I112:field_assessment:0,I112
+146.1,2026-07-05T15:56:06.096102188Z,REPLAY,current_status,unit,AID-pun-vol-team-2,available,debris_clearance finished at I020,,,,,,,
+146.9,2026-07-05T15:56:55.534942351Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-1,on_site,,,,,,,I069:field_assessment:0,I069
+149.1,2026-07-05T15:59:05.266290944Z,REPLAY,current_status,unit,AID-pun-vol-team-1,available,debris_clearance finished at I082,,,,,,,
+149.8,2026-07-05T15:59:48.093125954Z,REPLAY,current_status,unit,PC-BOAT-02,available,field_assessment finished at I112,,,,,,,
+150.0,2026-07-05T16:00:00Z,REPLAY,current_status,unit,AID-pun-vol-team-2,en_route,,,,,,,I009:water_rescue:0,I009
+150.0,2026-07-05T16:00:00Z,REPLAY,current_status,unit,AID-pun-vol-team-3,en_route,,,,,,,I066:water_rescue:0,I066
+150.0,2026-07-05T16:00:00Z,REPLAY,current_status,unit,PC-FIRE-06,en_route,,,,,,,I033:dewatering:0,I033
+150.0,2026-07-05T16:00:00Z,REPLAY,current_status,shelter,lf-pc-r2,reserved,,225.0,45.0,45.0,PC-TRUCK-01,45.0,,
+150.0,2026-07-05T16:00:00Z,REPLAY,current_status,shelter,lf-pc-r2,released,,225.0,45.0,0.0,PC-TRUCK-01,,,
+150.0,2026-07-05T16:00:00Z,REPLAY,current_status,unit,PC-TRUCK-01,en_route,,,,,,,I060:mass_transport:1,I060
+150.0,2026-07-05T16:00:00Z,REPLAY,current_status,unit,PC-TEAM-01,en_route,,,,,,,I068:field_assessment:0,I068
+150.0,2026-07-05T16:00:00Z,REPLAY,current_status,unit,AID-pun-sdrf-team-1,en_route,,,,,,,I092:field_assessment:0,I092
+150.0,2026-07-05T16:00:00Z,REPLAY,current_status,unit,AID-pun-sdrf-team-2,en_route,,,,,,,I091:field_assessment:0,I091
+150.0,2026-07-05T16:00:00Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-2,en_route,,,,,,,I083:field_assessment:0,I083
+151.9,2026-07-05T16:01:55.534942351Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-1,available,field_assessment finished at I069,,,,,,,
+153.9,2026-07-05T16:03:52.906358576Z,REPLAY,current_status,unit,AID-pun-vol-team-2,en_route,rerouted: crew found the road blocked,,,,,,I009:water_rescue:0,
+157.8,2026-07-05T16:07:50.237545637Z,REPLAY,current_status,unit,PC-FIRE-06,available,no passable road to the need (need returns to the pool),,,,,,,
+159.4,2026-07-05T16:09:24.902560150Z,REPLAY,current_status,unit,PC-TEAM-01,on_site,,,,,,,I068:field_assessment:0,I068
+160.0,2026-07-05T16:10:00Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-2,en_route,,,,,,,I102:water_rescue:0,I102
+160.0,2026-07-05T16:10:00Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-1,en_route,,,,,,,I066:water_rescue:0,I066
+160.0,2026-07-05T16:10:00Z,REPLAY,current_status,shelter,lf-pc-r1,reserved,,250.0,0.0,90.0,PC-TRUCK-01,45.0,,
+160.0,2026-07-05T16:10:00Z,REPLAY,current_status,shelter,lf-pc-r1,released,,250.0,0.0,45.0,PC-TRUCK-01,,,
+160.0,2026-07-05T16:10:00Z,REPLAY,current_status,unit,PC-TRUCK-01,en_route,,,,,,,I101:mass_transport:2,I101
+160.0,2026-07-05T16:10:00Z,REPLAY,current_status,unit,AID-pun-vol-team-3,en_route,,,,,,,I090:field_assessment:0,I090
+160.0,2026-07-05T16:10:00Z,REPLAY,current_status,unit,AID-pun-vol-team-2,en_route,,,,,,,I123:field_assessment:0,I123
+163.6,2026-07-05T16:13:37.340109590Z,REPLAY,current_status,unit,AID-pun-sdrf-team-1,on_site,,,,,,,I092:field_assessment:0,I092
+164.4,2026-07-05T16:14:24.902560150Z,REPLAY,current_status,unit,PC-TEAM-01,available,field_assessment finished at I068,,,,,,,
+164.7,2026-07-05T16:14:44.327152225Z,REPLAY,current_status,unit,AID-pun-sdrf-team-2,on_site,,,,,,,I091:field_assessment:0,I091
+168.5,2026-07-05T16:18:31.193834587Z,REPLAY,current_status,unit,AID-pun-vol-team-3,on_site,,,,,,,I090:field_assessment:0,I090
+168.6,2026-07-05T16:18:37.340109590Z,REPLAY,current_status,unit,AID-pun-sdrf-team-1,available,field_assessment finished at I092,,,,,,,
+169.7,2026-07-05T16:19:44.327152225Z,REPLAY,current_status,unit,AID-pun-sdrf-team-2,available,field_assessment finished at I091,,,,,,,
+170.0,2026-07-05T16:20:00Z,REPLAY,current_status,shelter,lf-pc-r1,reserved,,250.0,0.0,90.0,PC-TRUCK-01,45.0,,
+170.0,2026-07-05T16:20:00Z,REPLAY,current_status,shelter,lf-pc-r1,released,,250.0,0.0,45.0,PC-TRUCK-01,,,
+170.0,2026-07-05T16:20:00Z,REPLAY,current_status,unit,PC-TRUCK-01,en_route,,,,,,,I116:mass_transport:0,I116
+170.0,2026-07-05T16:20:00Z,REPLAY,current_status,unit,AID-pun-sdrf-team-1,en_route,,,,,,,I092:debris_clearance:0,I092
+170.0,2026-07-05T16:20:00Z,REPLAY,current_status,unit,AID-pun-vol-team-2,en_route,,,,,,,I040:debris_clearance:0,I040
+170.0,2026-07-05T16:20:00Z,REPLAY,current_status,unit,PC-TEAM-01,en_route,,,,,,,I131:field_assessment:0,I131
+170.0,2026-07-05T16:20:00Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-1,en_route,,,,,,,I100:field_assessment:0,I100
+170.0,2026-07-05T16:20:00Z,REPLAY,current_status,unit,AID-pun-sdrf-team-2,en_route,,,,,,,I084:field_assessment:0,I084
+170.0,2026-07-05T16:20:00Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-2,en_route,,,,,,,I125:field_assessment:0,I125
+173.5,2026-07-05T16:23:31.193834587Z,REPLAY,current_status,unit,AID-pun-vol-team-3,available,field_assessment finished at I090,,,,,,,
+174.0,2026-07-05T16:23:58.717732849Z,REPLAY,current_status,unit,AID-pun-sdrf-team-1,on_site,,,,,,,I092:debris_clearance:0,I092
+176.5,2026-07-05T16:26:27.449460577Z,REPLAY,current_status,unit,PC-TEAM-01,on_site,,,,,,,I131:field_assessment:0,I131
+180.0,2026-07-05T16:30:00Z,REPLAY,current_status,unit,AID-pun-vol-team-2,available,incident expired: 'cleared' report after the last supporting report,,,,,,,
+180.0,2026-07-05T16:30:00Z,REPLAY,current_status,shelter,lf-pc-r1,reserved,,250.0,0.0,90.0,PC-TRUCK-01,45.0,,
+180.0,2026-07-05T16:30:00Z,REPLAY,current_status,shelter,lf-pc-r1,released,,250.0,0.0,45.0,PC-TRUCK-01,,,
+180.0,2026-07-05T16:30:00Z,REPLAY,current_status,unit,PC-TRUCK-01,en_route,,,,,,,I113:mass_transport:2,I113
+180.0,2026-07-05T16:30:00Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-1,en_route,,,,,,,I066:water_rescue:0,I066
+180.0,2026-07-05T16:30:00Z,REPLAY,current_status,unit,AID-pun-sdrf-team-2,en_route,,,,,,,I081:field_assessment:0,I081
+180.0,2026-07-05T16:30:00Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-2,en_route,,,,,,,I136:field_assessment:0,I136
+180.0,2026-07-05T16:30:00Z,REPLAY,current_status,unit,AID-pun-vol-team-2,en_route,,,,,,,I120:field_assessment:0,I120
+180.0,2026-07-05T16:30:00Z,REPLAY,current_status,unit,AID-pun-vol-team-3,en_route,,,,,,,I095:field_assessment:0,I095
+180.0,2026-07-05T16:30:00Z,REPLAY,current_status,unit,AID-pun-ndrf-team-1,available,mutual aid arrived (NDRF 5th Bn rescue teams (Sudumbare)),,,,,,,
+180.0,2026-07-05T16:30:00Z,REPLAY,current_status,unit,AID-pun-ndrf-team-2,available,mutual aid arrived (NDRF 5th Bn rescue teams (Sudumbare)),,,,,,,
+180.0,2026-07-05T16:30:00Z,REPLAY,current_status,unit,AID-pun-ndrf-team-3,available,mutual aid arrived (NDRF 5th Bn rescue teams (Sudumbare)),,,,,,,
+180.0,2026-07-05T16:30:00Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-1,available,mutual aid arrived (NDRF 5th Bn boats (Sudumbare)),,,,,,,
+180.0,2026-07-05T16:30:00Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-2,available,mutual aid arrived (NDRF 5th Bn boats (Sudumbare)),,,,,,,
+180.0,2026-07-05T16:30:00Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-3,available,mutual aid arrived (NDRF 5th Bn boats (Sudumbare)),,,,,,,
+181.5,2026-07-05T16:31:27.449460577Z,REPLAY,current_status,unit,PC-TEAM-01,available,field_assessment finished at I131,,,,,,,
+186.6,2026-07-05T16:36:33.307425827Z,REPLAY,current_status,unit,AID-pun-sdrf-team-2,on_site,,,,,,,I081:field_assessment:0,I081
+187.1,2026-07-05T16:37:05.902173411Z,REPLAY,current_status,unit,PC-TRUCK-01,on_site,,,,,,,I113:mass_transport:2,I113
+190.0,2026-07-05T16:40:00Z,REPLAY,current_status,unit,AID-pun-vol-team-3,en_route,,,,,,,I071:debris_clearance:0,I071
+190.0,2026-07-05T16:40:00Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-1,en_route,,,,,,,I086:field_assessment:0,I086
+190.0,2026-07-05T16:40:00Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-2,en_route,,,,,,,I085:field_assessment:0,I085
+190.0,2026-07-05T16:40:00Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-3,en_route,,,,,,,I110:field_assessment:0,I110
+190.0,2026-07-05T16:40:00Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-1,en_route,,,,,,,I137:field_assessment:0,I137
+190.0,2026-07-05T16:40:00Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-2,en_route,,,,,,,I089:field_assessment:0,I089
+190.0,2026-07-05T16:40:00Z,REPLAY,current_status,unit,AID-pun-vol-team-2,en_route,,,,,,,I126:field_assessment:0,I126
+190.0,2026-07-05T16:40:00Z,REPLAY,current_status,unit,AID-pun-ndrf-team-3,en_route,,,,,,,I128:field_assessment:0,I128
+190.0,2026-07-05T16:40:00Z,REPLAY,current_status,unit,AID-pun-ndrf-team-1,en_route,,,,,,,I150:field_assessment:0,I150
+190.0,2026-07-05T16:40:00Z,REPLAY,current_status,unit,AID-pun-ndrf-team-2,en_route,,,,,,,I134:field_assessment:0,I134
+191.6,2026-07-05T16:41:33.307425827Z,REPLAY,current_status,unit,AID-pun-sdrf-team-2,available,field_assessment finished at I081,,,,,,,
+197.8,2026-07-05T16:47:50.357339555Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-1,en_route,rerouted: crew found the road blocked,,,,,,I086:field_assessment:0,
+200.0,2026-07-05T16:50:00Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-2,en_route,,,,,,,I098:field_assessment:0,I098
+200.0,2026-07-05T16:50:00Z,REPLAY,current_status,unit,AID-pun-sdrf-team-2,en_route,,,,,,,I099:field_assessment:0,I099
+200.0,2026-07-05T16:50:00Z,REPLAY,current_status,unit,PC-TEAM-01,en_route,,,,,,,I152:field_assessment:0,I152
+200.0,2026-07-05T16:50:00Z,REPLAY,current_status,unit,AID-pun-vol-team-2,en_route,,,,,,,I133:field_assessment:0,I133
+200.0,2026-07-05T16:50:00Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-1,en_route,,,,,,,I093:field_assessment:0,I093
+200.0,2026-07-05T16:50:00Z,REPLAY,current_status,unit,PC-TEAM-02,en_route,,,,,,,I160:field_assessment:0,I160
+200.0,2026-07-05T16:50:00Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-1,en_route,,,,,,,I155:field_assessment:0,I155
+200.0,2026-07-05T16:50:00Z,REPLAY,current_status,unit,AID-pun-ndrf-team-1,en_route,,,,,,,I139:field_assessment:0,I139
+200.0,2026-07-05T16:50:00Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-2,en_route,,,,,,,I140:field_assessment:0,I140
+200.0,2026-07-05T16:50:00Z,REPLAY,current_status,unit,AID-pun-ndrf-team-3,en_route,,,,,,,I130:field_assessment:0,I130
+204.1,2026-07-05T16:54:06.653490809Z,REPLAY,current_status,unit,PC-FIRE-02,available,dewatering finished at I103,,,,,,,
+207.5,2026-07-05T16:57:27.256578183Z,REPLAY,current_status,unit,AID-pun-sdrf-team-2,on_site,,,,,,,I099:field_assessment:0,I099
+208.8,2026-07-05T16:58:47.425661065Z,REPLAY,current_status,unit,PC-TEAM-01,on_site,,,,,,,I152:field_assessment:0,I152
+209.2,2026-07-05T16:59:11.630862307Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-2,on_site,,,,,,,I098:field_assessment:0,I098
+210.0,2026-07-05T17:00:00Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-1,en_route,rerouted: now reported closed,,,,,,I155:field_assessment:0,
+210.0,2026-07-05T17:00:00Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-1,en_route,,,,,,,I101:water_rescue:0,I101
+210.0,2026-07-05T17:00:00Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-2,en_route,,,,,,,I116:water_rescue:0,I116
+210.0,2026-07-05T17:00:00Z,REPLAY,current_status,unit,AID-pun-ndrf-team-2,en_route,,,,,,,I147:field_assessment:0,I147
+210.0,2026-07-05T17:00:00Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-1,en_route,,,,,,,I105:field_assessment:0,I105
+210.0,2026-07-05T17:00:00Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-3,en_route,,,,,,,I165:field_assessment:0,I165
+210.0,2026-07-05T17:00:00Z,REPLAY,current_status,unit,AID-pun-ndrf-team-3,en_route,,,,,,,I140:field_assessment:0,I140
+210.0,2026-07-05T17:00:00Z,REPLAY,current_status,unit,AID-pun-vol-team-2,en_route,,,,,,,I146:field_assessment:0,I146
+212.1,2026-07-05T17:02:05.902173411Z,REPLAY,current_status,unit,PC-TRUCK-01,available,mass_transport finished at I113,,,,,,,
+212.5,2026-07-05T17:02:27.256578183Z,REPLAY,current_status,unit,AID-pun-sdrf-team-2,available,field_assessment finished at I099,,,,,,,
+213.4,2026-07-05T17:03:24.934874705Z,REPLAY,current_status,unit,PC-TEAM-02,on_site,,,,,,,I160:field_assessment:0,I160
+213.8,2026-07-05T17:03:47.425661065Z,REPLAY,current_status,unit,PC-TEAM-01,available,field_assessment finished at I152,,,,,,,
+214.0,2026-07-05T17:03:58.717732849Z,REPLAY,current_status,unit,AID-pun-sdrf-team-1,available,debris_clearance finished at I092,,,,,,,
+214.0,2026-07-05T17:03:59.376556265Z,REPLAY,current_status,unit,AID-pun-vol-team-3,on_site,,,,,,,I071:debris_clearance:0,I071
+214.2,2026-07-05T17:04:11.630862307Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-2,available,field_assessment finished at I098,,,,,,,
+216.2,2026-07-05T17:06:12.532059530Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-1,on_site,,,,,,,I101:water_rescue:0,I101
+218.4,2026-07-05T17:08:24.934874705Z,REPLAY,current_status,unit,PC-TEAM-02,available,field_assessment finished at I160,,,,,,,
+220.0,2026-07-05T17:10:00Z,REPLAY,current_status,unit,PC-TEAM-02,en_route,,,,,,,I160:water_rescue:0,I160
+220.0,2026-07-05T17:10:00Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-2,en_route,,,,,,,I074:water_rescue:0,I074
+220.0,2026-07-05T17:10:00Z,REPLAY,current_status,shelter,lf-pc-s2,reserved,,100.0,0.0,45.0,PC-TRUCK-01,45.0,,
+220.0,2026-07-05T17:10:00Z,REPLAY,current_status,unit,PC-TRUCK-01,en_route,,,,,,,I103:mass_transport:0,I103
+220.0,2026-07-05T17:10:00Z,REPLAY,current_status,unit,AID-pun-sdrf-team-2,en_route,,,,,,,I119:debris_clearance:0,I119
+220.0,2026-07-05T17:10:00Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-3,en_route,,,,,,,I174:field_assessment:0,I174
+220.0,2026-07-05T17:10:00Z,REPLAY,current_status,unit,AID-pun-vol-team-2,en_route,,,,,,,I107:field_assessment:0,I107
+220.0,2026-07-05T17:10:00Z,REPLAY,current_status,unit,AID-pun-ndrf-team-3,en_route,,,,,,,I137:field_assessment:0,I137
+220.0,2026-07-05T17:10:00Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-2,en_route,,,,,,,I100:field_assessment:0,I100
+220.0,2026-07-05T17:10:00Z,REPLAY,current_status,unit,AID-pun-ndrf-team-1,en_route,,,,,,,I142:field_assessment:0,I142
+220.0,2026-07-05T17:10:00Z,REPLAY,current_status,unit,AID-pun-ndrf-team-2,en_route,,,,,,,I167:field_assessment:0,I167
+222.9,2026-07-05T17:12:52.374635755Z,REPLAY,current_status,unit,AID-pun-ndrf-team-3,en_route,rerouted: crew found the road blocked,,,,,,I137:field_assessment:0,
+227.1,2026-07-05T17:17:04.504406419Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-1,on_site,,,,,,,I105:field_assessment:0,I105
+227.2,2026-07-05T17:17:13.666761010Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-3,en_route,rerouted: crew found the road blocked,,,,,,I174:field_assessment:0,
+230.0,2026-07-05T17:20:00Z,REPLAY,current_status,shelter,lf-pc-s6,reserved,,87.0,0.0,45.0,PC-TRUCK-01,45.0,,
+230.0,2026-07-05T17:20:00Z,REPLAY,current_status,shelter,lf-pc-s6,released,,87.0,0.0,0.0,PC-TRUCK-01,,,
+230.0,2026-07-05T17:20:00Z,REPLAY,current_status,unit,PC-TRUCK-01,en_route,,,,,,,I102:mass_transport:1,I102
+230.0,2026-07-05T17:20:00Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-2,en_route,,,,,,,I116:water_rescue:0,I116
+230.0,2026-07-05T17:20:00Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-2,en_route,,,,,,,I127:water_rescue:0,I127
+230.0,2026-07-05T17:20:00Z,REPLAY,current_status,unit,PC-FIRE-06,en_route,,,,,,,I191:field_assessment:0,I191
+230.0,2026-07-05T17:20:00Z,REPLAY,current_status,unit,PC-TEAM-01,en_route,,,,,,,I180:field_assessment:0,I180
+230.0,2026-07-05T17:20:00Z,REPLAY,current_status,unit,AID-pun-ndrf-team-1,en_route,,,,,,,I139:field_assessment:0,I139
+230.0,2026-07-05T17:20:00Z,REPLAY,current_status,unit,AID-pun-ndrf-team-2,en_route,,,,,,,I171:field_assessment:0,I171
+230.0,2026-07-05T17:20:00Z,REPLAY,current_status,unit,AID-pun-vol-team-2,en_route,,,,,,,I183:field_assessment:0,I183
+230.0,2026-07-05T17:20:00Z,REPLAY,current_status,unit,AID-pun-sdrf-team-2,en_route,,,,,,,I133:field_assessment:0,I133
+230.0,2026-07-05T17:20:00Z,REPLAY,current_status,unit,AID-pun-ndrf-team-3,en_route,,,,,,,I120:field_assessment:0,I120
+230.0,2026-07-05T17:20:00Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-3,en_route,,,,,,,I164:field_assessment:0,I164
+232.1,2026-07-05T17:22:04.504406419Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-1,available,field_assessment finished at I105,,,,,,,
+232.4,2026-07-05T17:22:24.064530808Z,REPLAY,current_status,unit,PC-FIRE-06,on_site,,,,,,,I191:field_assessment:0,I191
+234.0,2026-07-05T17:23:59.156361717Z,REPLAY,current_status,unit,PC-TRUCK-01,available,no passable road to the need (need returns to the pool),,,,,,,
+233.4,2026-07-05T17:23:24.934874705Z,REPLAY,current_status,unit,PC-TEAM-02,on_site,,,,,,,I160:water_rescue:0,I160
+237.9,2026-07-05T17:27:51.382903111Z,REPLAY,current_status,unit,AID-pun-ndrf-team-3,available,no passable road to the need (need returns to the pool),,,,,,,
+237.4,2026-07-05T17:27:24.064530808Z,REPLAY,current_status,unit,PC-FIRE-06,available,field_assessment finished at I191,,,,,,,
+240.0,2026-07-05T17:30:00Z,REPLAY,current_status,unit,PC-FIRE-06,en_route,,,,,,,I191:water_rescue:0,I191
+240.0,2026-07-05T17:30:00Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-1,en_route,,,,,,,I149:water_rescue:0,I149
+240.0,2026-07-05T17:30:00Z,REPLAY,current_status,shelter,lf-pc-r1,reserved,,250.0,0.0,90.0,PC-TRUCK-01,45.0,,
+240.0,2026-07-05T17:30:00Z,REPLAY,current_status,unit,PC-TRUCK-01,en_route,,,,,,,I112:mass_transport:0,I112
+240.0,2026-07-05T17:30:00Z,REPLAY,current_status,unit,AID-pun-ndrf-team-2,en_route,,,,,,,I179:debris_clearance:0,I179
+240.0,2026-07-05T17:30:00Z,REPLAY,current_status,unit,AID-pun-vol-team-2,en_route,,,,,,,I181:field_assessment:0,I181
+240.0,2026-07-05T17:30:00Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-2,en_route,,,,,,,I107:field_assessment:0,I107
+240.0,2026-07-05T17:30:00Z,REPLAY,current_status,unit,AID-pun-sdrf-team-2,en_route,,,,,,,I168:field_assessment:0,I168
+240.0,2026-07-05T17:30:00Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-2,en_route,,,,,,,I176:field_assessment:0,I176
+240.0,2026-07-05T17:30:00Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-3,en_route,,,,,,,I120:field_assessment:0,I120
+240.0,2026-07-05T17:30:00Z,REPLAY,current_status,unit,AID-pun-ndrf-team-1,en_route,,,,,,,I142:field_assessment:0,I142
+241.4,2026-07-05T17:31:23.502338915Z,REPLAY,current_status,unit,PC-TEAM-01,on_site,,,,,,,I180:field_assessment:0,I180
+242.4,2026-07-05T17:32:24.064530808Z,REPLAY,current_status,unit,PC-FIRE-06,on_site,,,,,,,I191:water_rescue:0,I191
+246.4,2026-07-05T17:36:23.502338915Z,REPLAY,current_status,unit,PC-TEAM-01,available,field_assessment finished at I180,,,,,,,
+246.6,2026-07-05T17:36:34.949894963Z,REPLAY,current_status,unit,PC-TRUCK-01,on_site,,,,,,,I112:mass_transport:0,I112
+248.1,2026-07-05T17:38:03.518405043Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-1,en_route,rerouted: crew found the road blocked,,,,,,I149:water_rescue:0,
+250.0,2026-07-05T17:40:00Z,REPLAY,current_status,unit,AID-pun-ndrf-team-1,en_route,,,,,,,I108:water_rescue:0,I108
+250.0,2026-07-05T17:40:00Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-2,en_route,,,,,,,I145:water_rescue:0,I145
+250.0,2026-07-05T17:40:00Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-1,en_route,,,,,,,I074:water_rescue:0,I074
+250.0,2026-07-05T17:40:00Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-3,en_route,,,,,,,I154:field_assessment:0,I154
+250.0,2026-07-05T17:40:00Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-2,en_route,,,,,,,I188:field_assessment:0,I188
+250.0,2026-07-05T17:40:00Z,REPLAY,current_status,unit,AID-pun-sdrf-team-2,en_route,,,,,,,I182:field_assessment:0,I182
+250.0,2026-07-05T17:40:00Z,REPLAY,current_status,unit,AID-pun-vol-team-2,en_route,,,,,,,I173:field_assessment:0,I173
+250.0,2026-07-05T17:40:00Z,REPLAY,current_status,unit,AID-pun-ndrf-team-2,en_route,,,,,,,I124:field_assessment:0,I124
+254.0,2026-07-05T17:43:59.376556265Z,REPLAY,current_status,unit,AID-pun-vol-team-3,available,debris_clearance finished at I071,,,,,,,
+258.2,2026-07-05T17:48:10.288355083Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-3,on_site,,,,,,,I154:field_assessment:0,I154
+259.7,2026-07-05T17:49:44.458520612Z,REPLAY,current_status,unit,AID-pun-ndrf-team-1,en_route,rerouted: crew found the road blocked,,,,,,I108:water_rescue:0,
+260.0,2026-07-05T17:50:00Z,REPLAY,current_status,unit,AID-pun-ndrf-team-2,en_route,,,,,,,I074:water_rescue:0,I074
+260.0,2026-07-05T17:50:00Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-1,en_route,,,,,,,I186:field_assessment:0,I186
+260.0,2026-07-05T17:50:00Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-2,en_route,,,,,,,I147:field_assessment:0,I147
+260.0,2026-07-05T17:50:00Z,REPLAY,current_status,unit,AID-pun-vol-team-2,en_route,,,,,,,I157:field_assessment:0,I157
+260.0,2026-07-05T17:50:00Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-2,en_route,,,,,,,I193:field_assessment:0,I193
+260.0,2026-07-05T17:50:00Z,REPLAY,current_status,unit,AID-pun-sdrf-team-2,en_route,,,,,,,I212:field_assessment:0,I212
+260.0,2026-07-05T17:50:00Z,REPLAY,current_status,unit,AID-pun-vol-team-3,en_route,,,,,,,I176:field_assessment:0,I176
+261.0,2026-07-05T17:50:57.903481029Z,REPLAY,current_status,unit,AID-pun-ndrf-team-1,on_site,,,,,,,I108:water_rescue:0,I108
+261.2,2026-07-05T17:51:12.532059530Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-1,available,water_rescue finished at I101,,,,,,,
+263.2,2026-07-05T17:53:10.288355083Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-3,available,field_assessment finished at I154,,,,,,,
+266.9,2026-07-05T17:56:54.669075187Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-1,on_site,,,,,,,I186:field_assessment:0,I186
+268.7,2026-07-05T17:58:44.874480956Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-2,on_site,,,,,,,I147:field_assessment:0,I147
+270.0,2026-07-05T18:00:00Z,REPLAY,current_status,unit,AID-pun-vol-team-3,en_route,,,,,,,I150:field_assessment:0,I150
+270.0,2026-07-05T18:00:00Z,REPLAY,current_status,unit,AID-pun-vol-team-2,en_route,,,,,,,I193:field_assessment:0,I193
+270.0,2026-07-05T18:00:00Z,REPLAY,current_status,unit,AID-pun-ndrf-team-2,en_route,,,,,,,I181:field_assessment:0,I181
+270.0,2026-07-05T18:00:00Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-3,en_route,,,,,,,I109:field_assessment:0,I109
+270.0,2026-07-05T18:00:00Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-1,en_route,,,,,,,I162:field_assessment:0,I162
+270.0,2026-07-05T18:00:00Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-2,en_route,,,,,,,I198:field_assessment:0,I198
+270.0,2026-07-05T18:00:00Z,REPLAY,current_status,unit,AID-pun-sdrf-team-2,en_route,,,,,,,I217:field_assessment:0,I217
+270.3,2026-07-05T18:00:17.703246792Z,REPLAY,current_status,unit,AID-pun-sdrf-team-2,en_route,rerouted: crew found the road blocked,,,,,,I217:field_assessment:0,
+271.9,2026-07-05T18:01:54.669075187Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-1,available,field_assessment finished at I186,,,,,,,
+273.7,2026-07-05T18:03:44.874480956Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-2,available,field_assessment finished at I147,,,,,,,
+278.4,2026-07-05T18:08:24.934874705Z,REPLAY,current_status,unit,PC-TEAM-02,available,water_rescue finished at I160,,,,,,,
+278.6,2026-07-05T18:08:33.655138137Z,REPLAY,current_status,unit,AID-pun-vol-team-2,en_route,rerouted: crew found the road blocked,,,,,,I193:field_assessment:0,
+280.0,2026-07-05T18:10:00Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-1,en_route,,,,,,,I196:field_assessment:0,I196
+280.0,2026-07-05T18:10:00Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-1,en_route,,,,,,,I155:field_assessment:0,I155
+280.0,2026-07-05T18:10:00Z,REPLAY,current_status,unit,PC-BOAT-02,en_route,,,,,,,I229:field_assessment:0,I229
+280.0,2026-07-05T18:10:00Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-3,en_route,,,,,,,I164:field_assessment:0,I164
+280.0,2026-07-05T18:10:00Z,REPLAY,current_status,unit,PC-TEAM-02,en_route,,,,,,,I109:field_assessment:0,I109
+280.0,2026-07-05T18:10:00Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-2,en_route,,,,,,,I200:field_assessment:0,I200
+280.0,2026-07-05T18:10:00Z,REPLAY,current_status,unit,AID-pun-vol-team-3,en_route,,,,,,,I235:field_assessment:0,I235
+280.0,2026-07-05T18:10:00Z,REPLAY,current_status,unit,AID-pun-sdrf-team-2,en_route,,,,,,,I219:field_assessment:0,I219
+280.0,2026-07-05T18:10:00Z,REPLAY,current_status,unit,AID-pun-vol-team-2,en_route,,,,,,,I195:field_assessment:0,I195
+280.0,2026-07-05T18:10:00Z,REPLAY,current_status,unit,AID-pun-ndrf-team-2,en_route,,,,,,,I183:field_assessment:0,I183
+280.0,2026-07-05T18:10:00Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-2,en_route,,,,,,,I133:field_assessment:0,I133
+282.5,2026-07-05T18:12:30.420297657Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-1,on_site,,,,,,,I196:field_assessment:0,I196
+284.5,2026-07-05T18:14:29.767252444Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-1,on_site,,,,,,,I155:field_assessment:0,I155
+284.6,2026-07-05T18:14:38.787819713Z,REPLAY,current_status,unit,PC-BOAT-02,on_site,,,,,,,I229:field_assessment:0,I229
+285.1,2026-07-05T18:15:04.455086580Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-3,on_site,,,,,,,I164:field_assessment:0,I164
+285.4,2026-07-05T18:15:22.138671668Z,REPLAY,current_status,unit,AID-pun-vol-team-2,en_route,rerouted: crew found the road blocked,,,,,,I195:field_assessment:0,
+286.5,2026-07-05T18:16:27.972463919Z,REPLAY,current_status,unit,AID-pun-vol-team-3,en_route,rerouted: crew found the road blocked,,,,,,I235:field_assessment:0,
+286.6,2026-07-05T18:16:35.227211607Z,REPLAY,current_status,unit,AID-pun-ndrf-team-2,en_route,rerouted: crew found the road blocked,,,,,,I183:field_assessment:0,
+287.4,2026-07-05T18:17:24.064530808Z,REPLAY,current_status,unit,PC-FIRE-06,available,water_rescue finished at I191,,,,,,,
+287.5,2026-07-05T18:17:30.420297657Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-1,available,field_assessment finished at I196,,,,,,,
+289.5,2026-07-05T18:19:29.767252444Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-1,available,field_assessment finished at I155,,,,,,,
+289.6,2026-07-05T18:19:38.787819713Z,REPLAY,current_status,unit,PC-BOAT-02,available,field_assessment finished at I229,,,,,,,
+290.0,2026-07-05T18:20:00Z,REPLAY,current_status,unit,PC-BOAT-02,en_route,,,,,,,I229:water_rescue:0,I229
+290.0,2026-07-05T18:20:00Z,REPLAY,current_status,unit,AID-pun-vol-team-3,en_route,,,,,,,I204:water_rescue:0,I204
+290.0,2026-07-05T18:20:00Z,REPLAY,current_status,unit,AID-pun-ndrf-team-2,en_route,,,,,,,I243:field_assessment:0,I243
+290.0,2026-07-05T18:20:00Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-1,en_route,,,,,,,I226:field_assessment:0,I226
+290.0,2026-07-05T18:20:00Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-2,en_route,,,,,,,I171:field_assessment:0,I171
+290.0,2026-07-05T18:20:00Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-1,en_route,,,,,,,I139:field_assessment:0,I139
+290.0,2026-07-05T18:20:00Z,REPLAY,current_status,unit,AID-pun-sdrf-team-2,en_route,,,,,,,I195:field_assessment:0,I195
+290.0,2026-07-05T18:20:00Z,REPLAY,current_status,unit,AID-pun-vol-team-2,en_route,,,,,,,I208:field_assessment:0,I208
+290.0,2026-07-05T18:20:00Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-2,en_route,,,,,,,I163:field_assessment:0,I163
+290.1,2026-07-05T18:20:04.455086580Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-3,available,field_assessment finished at I164,,,,,,,
+290.9,2026-07-05T18:20:53.501365802Z,REPLAY,current_status,unit,PC-TEAM-02,on_site,,,,,,,I109:field_assessment:0,I109
+293.8,2026-07-05T18:23:48.420416098Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-1,en_route,rerouted: crew found the road blocked,,,,,,I139:field_assessment:0,
+294.6,2026-07-05T18:24:38.787819713Z,REPLAY,current_status,unit,PC-BOAT-02,on_site,,,,,,,I229:water_rescue:0,I229
+295.3,2026-07-05T18:25:20.434790356Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-1,en_route,rerouted: crew found the road blocked,,,,,,I139:field_assessment:0,
+295.9,2026-07-05T18:25:53.501365802Z,REPLAY,current_status,unit,PC-TEAM-02,available,field_assessment finished at I109,,,,,,,
+298.0,2026-07-05T18:27:57.191316596Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-1,en_route,rerouted: crew found the road blocked,,,,,,I139:field_assessment:0,
+299.6,2026-07-05T18:29:36.721195445Z,REPLAY,current_status,unit,AID-pun-vol-team-3,on_site,,,,,,,I204:water_rescue:0,I204
+300.0,2026-07-05T18:30:00Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-1,available,incident expired: unverified for 2 h with nothing new (likely stale or false),,,,,,,
+300.0,2026-07-05T18:30:00Z,REPLAY,current_status,unit,AID-pun-ndrf-team-2,en_route,,,,,,,I113:water_rescue:0,I113
+300.0,2026-07-05T18:30:00Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-3,en_route,,,,,,,I236:field_assessment:0,I236
+300.0,2026-07-05T18:30:00Z,REPLAY,current_status,unit,AID-pun-vol-team-2,en_route,,,,,,,I183:field_assessment:0,I183
+300.0,2026-07-05T18:30:00Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-2,en_route,,,,,,,I244:field_assessment:0,I244
+300.0,2026-07-05T18:30:00Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-1,en_route,,,,,,,I173:field_assessment:0,I173
+300.0,2026-07-05T18:30:00Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-2,en_route,,,,,,,I213:field_assessment:0,I213
+300.0,2026-07-05T18:30:00Z,REPLAY,current_status,unit,PC-TEAM-02,en_route,,,,,,,I217:field_assessment:0,I217
+300.0,2026-07-05T18:30:00Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-1,en_route,,,,,,,I205:field_assessment:0,I205
+300.0,2026-07-05T18:30:00Z,REPLAY,current_status,unit,AID-pun-sdrf-team-1,en_route,,,,,,,I148:field_assessment:0,I148
+305.9,2026-07-05T18:35:55.091364008Z,REPLAY,current_status,unit,AID-pun-sdrf-team-2,on_site,,,,,,,I195:field_assessment:0,I195
+306.0,2026-07-05T18:35:57.903481029Z,REPLAY,current_status,unit,AID-pun-ndrf-team-1,available,water_rescue finished at I108,,,,,,,
+310.0,2026-07-05T18:40:00Z,REPLAY,current_status,unit,AID-pun-sdrf-team-1,available,incident expired: unverified for 2 h with nothing new (likely stale or false),,,,,,,
+310.0,2026-07-05T18:40:00Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-1,en_route,,,,,,,I149:water_rescue:0,I149
+310.0,2026-07-05T18:40:00Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-2,en_route,,,,,,,I113:water_rescue:0,I113
+310.0,2026-07-05T18:40:00Z,REPLAY,current_status,unit,AID-pun-sdrf-team-1,en_route,,,,,,,I223:water_rescue:0,I223
+310.0,2026-07-05T18:40:00Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-1,en_route,,,,,,,I209:field_assessment:0,I209
+310.0,2026-07-05T18:40:00Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-3,en_route,,,,,,,I250:field_assessment:0,I250
+310.0,2026-07-05T18:40:00Z,REPLAY,current_status,unit,AID-pun-ndrf-team-2,en_route,,,,,,,I176:field_assessment:0,I176
+310.0,2026-07-05T18:40:00Z,REPLAY,current_status,unit,AID-pun-vol-team-2,en_route,,,,,,,I262:field_assessment:0,I262
+310.0,2026-07-05T18:40:00Z,REPLAY,current_status,unit,AID-pun-ndrf-team-1,en_route,,,,,,,I187:field_assessment:0,I187
+310.9,2026-07-05T18:40:55.091364008Z,REPLAY,current_status,unit,AID-pun-sdrf-team-2,available,field_assessment finished at I195,,,,,,,
+312.0,2026-07-05T18:42:00Z,REPLAY,current_status,unit,AID-pun-ndrf-team-1,en_route,rerouted: crew found the road blocked,,,,,,I187:field_assessment:0,
+320.0,2026-07-05T18:50:00Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-3,en_route,,,,,,,I248:water_rescue:0,I248
+320.0,2026-07-05T18:50:00Z,REPLAY,current_status,unit,AID-pun-sdrf-team-2,en_route,,,,,,,I271:field_assessment:0,I271
+320.0,2026-07-05T18:50:00Z,REPLAY,current_status,unit,PC-TEAM-01,en_route,,,,,,,I273:field_assessment:0,I273
+320.0,2026-07-05T18:50:00Z,REPLAY,current_status,unit,PC-TEAM-02,en_route,,,,,,,I225:field_assessment:0,I225
+320.0,2026-07-05T18:50:00Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-1,en_route,,,,,,,I269:field_assessment:0,I269
+320.0,2026-07-05T18:50:00Z,REPLAY,current_status,unit,AID-pun-ndrf-team-2,en_route,,,,,,,I181:field_assessment:0,I181
+320.0,2026-07-05T18:50:00Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-2,en_route,,,,,,,I192:field_assessment:0,I192
+320.0,2026-07-05T18:50:00Z,REPLAY,current_status,unit,AID-pun-vol-team-2,en_route,,,,,,,I219:field_assessment:0,I219
+320.0,2026-07-05T18:50:00Z,REPLAY,current_status,unit,AID-pun-ndrf-team-1,en_route,,,,,,,I267:field_assessment:0,I267
+320.1,2026-07-05T18:50:06.414505773Z,REPLAY,current_status,unit,AID-pun-ndrf-team-1,en_route,rerouted: crew found the road blocked,,,,,,I267:field_assessment:0,
+321.4,2026-07-05T18:51:21.142944257Z,REPLAY,current_status,unit,AID-pun-ndrf-team-1,en_route,rerouted: crew found the road blocked,,,,,,I267:field_assessment:0,
+321.7,2026-07-05T18:51:40.413410455Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-1,on_site,,,,,,,I149:water_rescue:0,I149
+326.2,2026-07-05T18:56:12.172428148Z,REPLAY,current_status,unit,AID-pun-ndrf-team-1,en_route,rerouted: crew found the road blocked,,,,,,I267:field_assessment:0,
+326.8,2026-07-05T18:56:48.576534577Z,REPLAY,current_status,unit,PC-TEAM-02,en_route,rerouted: crew found the road blocked,,,,,,I225:field_assessment:0,
+328.8,2026-07-05T18:58:48.576534577Z,REPLAY,current_status,unit,PC-TEAM-02,available,no passable road to the need (need returns to the pool),,,,,,,
+329.6,2026-07-05T18:59:37.872740362Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-2,on_site,,,,,,,I113:water_rescue:0,I113
+330.0,2026-07-05T19:00:00Z,REPLAY,current_status,unit,PC-POL-02,en_route,,,,,,,I280:field_assessment:0,I280
+330.0,2026-07-05T19:00:00Z,REPLAY,current_status,unit,AID-pun-ndrf-team-3,en_route,,,,,,,I281:field_assessment:0,I281
+330.0,2026-07-05T19:00:00Z,REPLAY,current_status,unit,PC-TEAM-02,en_route,,,,,,,I231:field_assessment:0,I231
+330.0,2026-07-05T19:00:00Z,REPLAY,current_status,unit,AID-pun-ndrf-team-1,en_route,,,,,,,I257:field_assessment:0,I257
+330.0,2026-07-05T19:00:00Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-3,en_route,,,,,,,I250:field_assessment:0,I250
+330.0,2026-07-05T19:00:00Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-1,en_route,,,,,,,I226:field_assessment:0,I226
+330.0,2026-07-05T19:00:00Z,REPLAY,current_status,unit,AID-pun-vol-team-2,en_route,,,,,,,I188:field_assessment:0,I188
+330.0,2026-07-05T19:00:00Z,REPLAY,current_status,unit,AID-pun-ndrf-team-2,en_route,,,,,,,I216:field_assessment:0,I216
+330.0,2026-07-05T19:00:00Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-2,en_route,,,,,,,I198:field_assessment:0,I198
+332.1,2026-07-05T19:02:04.810406711Z,REPLAY,current_status,unit,AID-pun-sdrf-team-2,on_site,,,,,,,I271:field_assessment:0,I271
+333.0,2026-07-05T19:03:01.911570826Z,REPLAY,current_status,unit,PC-TEAM-01,on_site,,,,,,,I273:field_assessment:0,I273
+333.4,2026-07-05T19:03:26.608215978Z,REPLAY,current_status,unit,PC-POL-02,on_site,,,,,,,I280:field_assessment:0,I280
+337.1,2026-07-05T19:07:04.810406711Z,REPLAY,current_status,unit,AID-pun-sdrf-team-2,available,field_assessment finished at I271,,,,,,,
+338.0,2026-07-05T19:08:01.911570826Z,REPLAY,current_status,unit,PC-TEAM-01,available,field_assessment finished at I273,,,,,,,
+338.4,2026-07-05T19:08:26.608215978Z,REPLAY,current_status,unit,PC-POL-02,available,field_assessment finished at I280,,,,,,,
+339.5,2026-07-05T19:09:32.376000Z,REPLAY,current_status,unit,AID-pun-ndrf-team-2,en_route,rerouted: crew found the road blocked,,,,,,I216:field_assessment:0,
+339.6,2026-07-05T19:09:38.787819713Z,REPLAY,current_status,unit,PC-BOAT-02,available,water_rescue finished at I229,,,,,,,
+339.9,2026-07-05T19:09:53.932515977Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-2,en_route,rerouted: crew found the road blocked,,,,,,I198:field_assessment:0,
+340.0,2026-07-05T19:10:00Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-1,en_route,,,,,,,I197:field_assessment:0,I197
+340.0,2026-07-05T19:10:00Z,REPLAY,current_status,unit,PC-BOAT-01,en_route,,,,,,,I292:field_assessment:0,I292
+340.0,2026-07-05T19:10:00Z,REPLAY,current_status,unit,AID-pun-vol-team-2,en_route,,,,,,,I255:field_assessment:0,I255
+340.0,2026-07-05T19:10:00Z,REPLAY,current_status,unit,PC-TEAM-02,en_route,,,,,,,I274:field_assessment:0,I274
+340.0,2026-07-05T19:10:00Z,REPLAY,current_status,unit,AID-pun-ndrf-team-2,en_route,,,,,,,I293:field_assessment:0,I293
+340.0,2026-07-05T19:10:00Z,REPLAY,current_status,unit,AID-pun-ndrf-team-1,en_route,,,,,,,I241:field_assessment:0,I241
+340.0,2026-07-05T19:10:00Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-3,en_route,,,,,,,I268:field_assessment:0,I268
+340.0,2026-07-05T19:10:00Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-2,en_route,,,,,,,I234:field_assessment:0,I234
+341.0,2026-07-05T19:11:00Z,REPLAY,current_status,unit,AID-pun-ndrf-team-2,available,no passable road to the need (need returns to the pool),,,,,,,
+341.4,2026-07-05T19:11:23.495702721Z,REPLAY,current_status,unit,AID-pun-ndrf-team-3,on_site,,,,,,,I281:field_assessment:0,I281
+341.6,2026-07-05T19:11:36.188012444Z,REPLAY,current_status,unit,AID-pun-ndrf-team-1,en_route,rerouted: crew found the road blocked,,,,,,I241:field_assessment:0,
+342.2,2026-07-05T19:12:10.572344595Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-1,on_site,,,,,,,I197:field_assessment:0,I197
+344.1,2026-07-05T19:14:05.933810027Z,REPLAY,current_status,unit,AID-pun-ndrf-team-1,en_route,rerouted: crew found the road blocked,,,,,,I241:field_assessment:0,
+344.6,2026-07-05T19:14:36.721195445Z,REPLAY,current_status,unit,AID-pun-vol-team-3,available,water_rescue finished at I204,,,,,,,
+346.0,2026-07-05T19:16:00.267263930Z,REPLAY,current_status,unit,PC-BOAT-01,on_site,,,,,,,I292:field_assessment:0,I292
+346.4,2026-07-05T19:16:23.495702721Z,REPLAY,current_status,unit,AID-pun-ndrf-team-3,available,field_assessment finished at I281,,,,,,,
+347.2,2026-07-05T19:17:10.572344595Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-1,available,field_assessment finished at I197,,,,,,,
+348.2,2026-07-05T19:18:12.010893547Z,REPLAY,current_status,unit,AID-pun-vol-team-2,on_site,,,,,,,I255:field_assessment:0,I255
+350.0,2026-07-05T19:20:00Z,REPLAY,current_status,shelter,lf-pc-s2,reserved,,100.0,0.0,90.0,AID-pun-pvt-bus-2,45.0,,
+350.0,2026-07-05T19:20:00Z,REPLAY,current_status,unit,AID-pun-pvt-bus-2,en_route,,,,,,,I247:mass_transport:2,I247
+350.0,2026-07-05T19:20:00Z,REPLAY,current_status,shelter,lf-pc-s5,reserved,,87.0,0.0,45.0,AID-pun-pvt-bus-3,45.0,,
+350.0,2026-07-05T19:20:00Z,REPLAY,current_status,unit,AID-pun-pvt-bus-3,en_route,,,,,,,I247:mass_transport:1,I247
+350.0,2026-07-05T19:20:00Z,REPLAY,current_status,shelter,lf-pc-s1,reserved,,200.0,0.0,45.0,AID-pun-pvt-bus-4,45.0,,
+350.0,2026-07-05T19:20:00Z,REPLAY,current_status,unit,AID-pun-pvt-bus-4,en_route,,,,,,,I247:mass_transport:0,I247
+350.0,2026-07-05T19:20:00Z,REPLAY,current_status,unit,AID-pun-ndrf-team-2,en_route,,,,,,,I266:water_rescue:0,I266
+350.0,2026-07-05T19:20:00Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-3,en_route,,,,,,,I102:water_rescue:0,I102
+350.0,2026-07-05T19:20:00Z,REPLAY,current_status,unit,AID-pun-ndrf-team-3,en_route,,,,,,,I308:field_assessment:0,I308
+350.0,2026-07-05T19:20:00Z,REPLAY,current_status,unit,PC-TEAM-02,en_route,,,,,,,I231:field_assessment:0,I231
+350.0,2026-07-05T19:20:00Z,REPLAY,current_status,unit,AID-pun-vol-team-1,en_route,,,,,,,I303:field_assessment:0,I303
+350.0,2026-07-05T19:20:00Z,REPLAY,current_status,unit,AID-pun-vol-team-3,en_route,,,,,,,I307:field_assessment:0,I307
+350.0,2026-07-05T19:20:00Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-1,en_route,,,,,,,I290:field_assessment:0,I290
+350.0,2026-07-05T19:20:00Z,REPLAY,current_status,unit,AID-pun-ndrf-team-1,en_route,,,,,,,I283:field_assessment:0,I283
+350.0,2026-07-05T19:20:00Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-2,en_route,,,,,,,I254:field_assessment:0,I254
+351.0,2026-07-05T19:21:00.267263930Z,REPLAY,current_status,unit,PC-BOAT-01,available,field_assessment finished at I292,,,,,,,
+351.9,2026-07-05T19:21:55.987986072Z,REPLAY,current_status,unit,AID-pun-ndrf-team-1,en_route,rerouted: crew found the road blocked,,,,,,I283:field_assessment:0,
+353.2,2026-07-05T19:23:12.010893547Z,REPLAY,current_status,unit,AID-pun-vol-team-2,available,field_assessment finished at I255,,,,,,,
+355.2,2026-07-05T19:25:10.782399067Z,REPLAY,current_status,unit,AID-pun-pvt-bus-2,on_site,,,,,,,I247:mass_transport:2,I247
+355.2,2026-07-05T19:25:10.782399067Z,REPLAY,current_status,unit,AID-pun-pvt-bus-3,on_site,,,,,,,I247:mass_transport:1,I247
+355.2,2026-07-05T19:25:10.782399067Z,REPLAY,current_status,unit,AID-pun-pvt-bus-4,on_site,,,,,,,I247:mass_transport:0,I247
+358.3,2026-07-05T19:28:16.122286065Z,REPLAY,current_status,unit,AID-pun-ndrf-team-3,on_site,,,,,,,I308:field_assessment:0,I308
+360.0,2026-07-05T19:30:00Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-3,en_route,,,,,,,I248:water_rescue:0,I248
+360.0,2026-07-05T19:30:00Z,REPLAY,current_status,unit,AID-pun-ndrf-team-2,en_route,,,,,,,I243:field_assessment:0,I243
+360.0,2026-07-05T19:30:00Z,REPLAY,current_status,unit,PC-BOAT-01,en_route,,,,,,,I303:field_assessment:0,I303
+360.0,2026-07-05T19:30:00Z,REPLAY,current_status,unit,PC-TEAM-02,en_route,,,,,,,I274:field_assessment:0,I274
+360.0,2026-07-05T19:30:00Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-2,en_route,,,,,,,I117:field_assessment:0,I117
+360.0,2026-07-05T19:30:00Z,REPLAY,current_status,unit,AID-pun-vol-team-3,en_route,,,,,,,I277:field_assessment:0,I277
+360.0,2026-07-05T19:30:00Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-1,en_route,,,,,,,I252:field_assessment:0,I252
+360.0,2026-07-05T19:30:00Z,REPLAY,current_status,unit,AID-pun-ndrf-team-1,en_route,,,,,,,I268:field_assessment:0,I268
+360.0,2026-07-05T19:30:00Z,REPLAY,current_status,unit,AID-pun-vol-team-2,en_route,,,,,,,I210:field_assessment:0,I210
+360.0,2026-07-05T19:30:00Z,REPLAY,current_status,unit,AID-pun-vol-team-1,available,need covered by a closer unit,,,,,,,
+361.3,2026-07-05T19:31:18.849398275Z,REPLAY,current_status,unit,AID-pun-ndrf-team-2,on_site,,,,,,,I243:field_assessment:0,I243
+363.3,2026-07-05T19:33:16.122286065Z,REPLAY,current_status,unit,AID-pun-ndrf-team-3,available,field_assessment finished at I308,,,,,,,
+365.7,2026-07-05T19:35:44.727909395Z,REPLAY,current_status,unit,PC-BOAT-01,on_site,,,,,,,I303:field_assessment:0,I303
+366.3,2026-07-05T19:36:18.849398275Z,REPLAY,current_status,unit,AID-pun-ndrf-team-2,available,field_assessment finished at I243,,,,,,,
+366.7,2026-07-05T19:36:40.413410455Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-1,available,water_rescue finished at I149,,,,,,,
+370.4,2026-07-05T19:40:23.330228868Z,REPLAY,current_status,unit,AID-pun-ndrf-team-1,available,no passable road to the need (need returns to the pool),,,,,,,
+370.0,2026-07-05T19:40:00Z,REPLAY,current_status,unit,AID-pun-ndrf-team-3,en_route,,,,,,,I308:water_rescue:0,I308
+370.0,2026-07-05T19:40:00Z,REPLAY,current_status,unit,AID-pun-ndrf-team-2,en_route,,,,,,,I266:water_rescue:0,I266
+370.0,2026-07-05T19:40:00Z,REPLAY,current_status,unit,AID-pun-vol-team-3,en_route,,,,,,,I123:debris_clearance:0,I123
+370.0,2026-07-05T19:40:00Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-1,en_route,,,,,,,I333:field_assessment:0,I333
+370.0,2026-07-05T19:40:00Z,REPLAY,current_status,unit,AID-pun-ndrf-team-1,en_route,,,,,,,I316:field_assessment:0,I316
+370.0,2026-07-05T19:40:00Z,REPLAY,current_status,unit,PC-TEAM-02,en_route,,,,,,,I192:field_assessment:0,I192
+370.0,2026-07-05T19:40:00Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-3,en_route,,,,,,,I302:field_assessment:0,I302
+370.0,2026-07-05T19:40:00Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-1,en_route,,,,,,,I289:field_assessment:0,I289
+370.0,2026-07-05T19:40:00Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-2,en_route,,,,,,,I259:field_assessment:0,I259
+370.0,2026-07-05T19:40:00Z,REPLAY,current_status,unit,AID-pun-vol-team-2,en_route,,,,,,,I283:field_assessment:0,I283
+370.0,2026-07-05T19:40:00Z,REPLAY,current_status,unit,AID-pun-sdrf-team-1,en_route,,,,,,,I321:field_assessment:0,I321
+370.7,2026-07-05T19:40:44.727909395Z,REPLAY,current_status,unit,PC-BOAT-01,available,field_assessment finished at I303,,,,,,,
+372.0,2026-07-05T19:42:00Z,REPLAY,current_status,unit,AID-pun-ndrf-team-1,en_route,rerouted: crew found the road blocked,,,,,,I316:field_assessment:0,
+374.6,2026-07-05T19:44:37.872740362Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-2,available,water_rescue finished at I113,,,,,,,
+376.9,2026-07-05T19:46:51.500735848Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-1,on_site,,,,,,,I333:field_assessment:0,I333
+378.3,2026-07-05T19:48:16.122286065Z,REPLAY,current_status,unit,AID-pun-ndrf-team-3,on_site,,,,,,,I308:water_rescue:0,I308
+380.0,2026-07-05T19:50:00Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-3,en_route,,,,,,,I102:water_rescue:0,I102
+380.0,2026-07-05T19:50:00Z,REPLAY,current_status,unit,AID-pun-vol-team-2,en_route,,,,,,,I270:debris_clearance:0,I270
+380.0,2026-07-05T19:50:00Z,REPLAY,current_status,unit,PC-TEAM-02,en_route,,,,,,,I274:field_assessment:0,I274
+380.0,2026-07-05T19:50:00Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-2,en_route,,,,,,,I326:field_assessment:0,I326
+380.0,2026-07-05T19:50:00Z,REPLAY,current_status,unit,AID-pun-vol-team-3,en_route,,,,,,,I295:field_assessment:0,I295
+380.0,2026-07-05T19:50:00Z,REPLAY,current_status,unit,AID-pun-sdrf-team-1,en_route,,,,,,,I296:field_assessment:0,I296
+380.0,2026-07-05T19:50:00Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-2,en_route,,,,,,,I183:field_assessment:0,I183
+380.0,2026-07-05T19:50:00Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-1,en_route,,,,,,,I277:field_assessment:0,I277
+380.9,2026-07-05T19:50:53.267188255Z,REPLAY,current_status,unit,AID-pun-ndrf-team-1,on_site,,,,,,,I316:field_assessment:0,I316
+381.1,2026-07-05T19:51:07.437781753Z,REPLAY,current_status,unit,AID-pun-ndrf-team-2,on_site,,,,,,,I266:water_rescue:0,I266
+381.9,2026-07-05T19:51:51.500735848Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-1,available,field_assessment finished at I333,,,,,,,
+382.0,2026-07-05T19:52:02.567671893Z,REPLAY,current_status,unit,AID-pun-sdrf-team-1,en_route,rerouted: crew found the road blocked,,,,,,I296:field_assessment:0,
+384.6,2026-07-05T19:54:35.518844581Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-2,en_route,rerouted: crew found the road blocked,,,,,,I183:field_assessment:0,
+385.1,2026-07-05T19:55:06.417311018Z,REPLAY,current_status,unit,AID-pun-sdrf-team-1,en_route,rerouted: crew found the road blocked,,,,,,I296:field_assessment:0,
+385.9,2026-07-05T19:55:53.267188255Z,REPLAY,current_status,unit,AID-pun-ndrf-team-1,available,field_assessment finished at I316,,,,,,,
+390.0,2026-07-05T20:00:00Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-2,en_route,,,,,,,I297:water_rescue:0,I297
+390.0,2026-07-05T20:00:00Z,REPLAY,current_status,unit,AID-pun-vol-team-3,en_route,,,,,,,I123:debris_clearance:0,I123
+390.0,2026-07-05T20:00:00Z,REPLAY,current_status,unit,AID-pun-vol-team-2,en_route,,,,,,,I306:field_assessment:0,I306
+390.0,2026-07-05T20:00:00Z,REPLAY,current_status,unit,AID-pun-ndrf-team-1,en_route,,,,,,,I208:field_assessment:0,I208
+390.0,2026-07-05T20:00:00Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-2,en_route,,,,,,,I329:field_assessment:0,I329
+390.0,2026-07-05T20:00:00Z,REPLAY,current_status,unit,AID-pun-sdrf-team-1,en_route,,,,,,,I340:field_assessment:0,I340
+390.0,2026-07-05T20:00:00Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-3,en_route,,,,,,,I353:field_assessment:0,I353
+390.0,2026-07-05T20:00:00Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-1,en_route,,,,,,,I282:field_assessment:0,I282
+390.0,2026-07-05T20:00:00Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-1,en_route,,,,,,,I245:field_assessment:0,I245
+391.7,2026-07-05T20:01:43.615033497Z,REPLAY,current_status,unit,PC-TEAM-02,on_site,,,,,,,I274:field_assessment:0,I274
+394.9,2026-07-05T20:04:53.834483291Z,REPLAY,current_status,unit,AID-pun-vol-team-2,en_route,rerouted: crew found the road blocked,,,,,,I306:field_assessment:0,
+396.7,2026-07-05T20:06:43.615033497Z,REPLAY,current_status,unit,PC-TEAM-02,available,field_assessment finished at I274,,,,,,,
+397.3,2026-07-05T20:07:16.373304085Z,REPLAY,current_status,unit,AID-pun-sdrf-team-1,en_route,rerouted: crew found the road blocked,,,,,,I340:field_assessment:0,
+398.4,2026-07-05T20:08:24.622633321Z,REPLAY,current_status,unit,AID-pun-ndrf-team-1,on_site,,,,,,,I208:field_assessment:0,I208
+400.0,2026-07-05T20:10:00Z,REPLAY,current_status,unit,AID-pun-sdrf-team-1,en_route,,,,,,,I288:field_assessment:0,I288
+400.0,2026-07-05T20:10:00Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-2,en_route,,,,,,,I345:field_assessment:0,I345
+400.0,2026-07-05T20:10:00Z,REPLAY,current_status,unit,PC-TEAM-02,en_route,,,,,,,I192:field_assessment:0,I192
+400.0,2026-07-05T20:10:00Z,REPLAY,current_status,unit,AID-pun-vol-team-2,en_route,,,,,,,I357:field_assessment:0,I357
+400.0,2026-07-05T20:10:00Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-1,en_route,,,,,,,I312:field_assessment:0,I312
+400.0,2026-07-05T20:10:00Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-2,en_route,,,,,,,I335:field_assessment:0,I335
+400.0,2026-07-05T20:10:00Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-1,en_route,,,,,,,I283:field_assessment:0,I283
+400.0,2026-07-05T20:10:00Z,REPLAY,current_status,unit,AID-pun-vol-team-3,en_route,,,,,,,I367:field_assessment:0,I367
+400.0,2026-07-05T20:10:00Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-3,en_route,,,,,,,I304:field_assessment:0,I304
+403.4,2026-07-05T20:13:24.622633321Z,REPLAY,current_status,unit,AID-pun-ndrf-team-1,available,field_assessment finished at I208,,,,,,,
+407.4,2026-07-05T20:17:25.030936507Z,REPLAY,current_status,unit,AID-pun-sdrf-team-1,on_site,,,,,,,I288:field_assessment:0,I288
+410.0,2026-07-05T20:20:00Z,REPLAY,current_status,unit,AID-pun-ndrf-team-1,en_route,,,,,,,I257:water_rescue:0,I257
+410.0,2026-07-05T20:20:00Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-3,en_route,,,,,,,I353:field_assessment:0,I353
+410.0,2026-07-05T20:20:00Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-1,en_route,,,,,,,I331:field_assessment:0,I331
+410.0,2026-07-05T20:20:00Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-2,en_route,,,,,,,I371:field_assessment:0,I371
+410.0,2026-07-05T20:20:00Z,REPLAY,current_status,unit,AID-pun-vol-team-3,en_route,,,,,,,I344:field_assessment:0,I344
+410.0,2026-07-05T20:20:00Z,REPLAY,current_status,unit,AID-pun-vol-team-2,en_route,,,,,,,I249:field_assessment:0,I249
+410.0,2026-07-05T20:20:00Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-1,en_route,,,,,,,I291:field_assessment:0,I291
+410.0,2026-07-05T20:20:00Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-2,en_route,,,,,,,I313:field_assessment:0,I313
+410.2,2026-07-05T20:20:10.782399067Z,REPLAY,current_status,shelter,lf-pc-s2,arrived,,100.0,45.0,45.0,AID-pun-pvt-bus-2,45.0,,
+410.2,2026-07-05T20:20:10.782399067Z,REPLAY,current_status,unit,AID-pun-pvt-bus-2,available,mass_transport finished at I247,,,,,,,
+410.2,2026-07-05T20:20:10.782399067Z,REPLAY,current_status,shelter,lf-pc-s5,arrived,,87.0,45.0,0.0,AID-pun-pvt-bus-3,45.0,,
+410.2,2026-07-05T20:20:10.782399067Z,REPLAY,current_status,unit,AID-pun-pvt-bus-3,available,mass_transport finished at I247,,,,,,,
+410.2,2026-07-05T20:20:10.782399067Z,REPLAY,current_status,shelter,lf-pc-s1,arrived,,200.0,45.0,0.0,AID-pun-pvt-bus-4,45.0,,
+410.2,2026-07-05T20:20:10.782399067Z,REPLAY,current_status,unit,AID-pun-pvt-bus-4,available,mass_transport finished at I247,,,,,,,
+412.0,2026-07-05T20:22:00Z,REPLAY,current_status,unit,AID-pun-ndrf-team-1,on_site,,,,,,,I257:water_rescue:0,I257
+412.3,2026-07-05T20:22:19.060266206Z,REPLAY,current_status,unit,PC-TEAM-02,on_site,,,,,,,I192:field_assessment:0,I192
+412.4,2026-07-05T20:22:25.030936507Z,REPLAY,current_status,unit,AID-pun-sdrf-team-1,available,field_assessment finished at I288,,,,,,,
+413.2,2026-07-05T20:23:13.623943638Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-1,en_route,rerouted: crew found the road blocked,,,,,,I291:field_assessment:0,
+417.3,2026-07-05T20:27:19.060266206Z,REPLAY,current_status,unit,PC-TEAM-02,available,field_assessment finished at I192,,,,,,,
+420.0,2026-07-05T20:30:00Z,REPLAY,current_status,unit,AID-pun-vol-team-3,en_route,,,,,,,I315:debris_clearance:0,I315
+420.0,2026-07-05T20:30:00Z,REPLAY,current_status,unit,PC-TEAM-02,en_route,,,,,,,I370:field_assessment:0,I370
+420.0,2026-07-05T20:30:00Z,REPLAY,current_status,unit,AID-pun-vol-team-2,en_route,,,,,,,I356:field_assessment:0,I356
+420.0,2026-07-05T20:30:00Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-1,en_route,,,,,,,I376:field_assessment:0,I376
+420.0,2026-07-05T20:30:00Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-2,en_route,,,,,,,I372:field_assessment:0,I372
+420.0,2026-07-05T20:30:00Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-2,en_route,,,,,,,I295:field_assessment:0,I295
+420.0,2026-07-05T20:30:00Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-3,en_route,,,,,,,I322:field_assessment:0,I322
+420.0,2026-07-05T20:30:00Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-1,en_route,,,,,,,I347:field_assessment:0,I347
+420.0,2026-07-05T20:30:00Z,REPLAY,current_status,unit,AID-pun-sdrf-team-1,en_route,,,,,,,I366:field_assessment:0,I366
+423.3,2026-07-05T20:33:16.122286065Z,REPLAY,current_status,unit,AID-pun-ndrf-team-3,available,water_rescue finished at I308,,,,,,,
+426.1,2026-07-05T20:36:07.437781753Z,REPLAY,current_status,unit,AID-pun-ndrf-team-2,available,water_rescue finished at I266,,,,,,,
+428.4,2026-07-05T20:38:24.254347006Z,REPLAY,current_status,unit,AID-pun-vol-team-3,en_route,rerouted: crew found the road blocked,,,,,,I315:debris_clearance:0,
+430.4,2026-07-05T20:40:25.228507585Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-1,available,no passable road to the need (need returns to the pool),,,,,,,
+429.8,2026-07-05T20:39:45.441168357Z,REPLAY,current_status,unit,PC-TEAM-02,on_site,,,,,,,I370:field_assessment:0,I370
+430.0,2026-07-05T20:40:00Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-2,en_route,,,,,,,I249:field_assessment:0,I249
+430.0,2026-07-05T20:40:00Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-1,en_route,,,,,,,I358:field_assessment:0,I358
+430.0,2026-07-05T20:40:00Z,REPLAY,current_status,unit,AID-pun-ndrf-team-2,en_route,,,,,,,I354:field_assessment:0,I354
+430.0,2026-07-05T20:40:00Z,REPLAY,current_status,unit,AID-pun-ndrf-team-3,en_route,,,,,,,I325:field_assessment:0,I325
+430.0,2026-07-05T20:40:00Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-2,en_route,,,,,,,I388:field_assessment:0,I388
+430.0,2026-07-05T20:40:00Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-3,en_route,,,,,,,I302:field_assessment:0,I302
+430.0,2026-07-05T20:40:00Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-1,en_route,,,,,,,I307:field_assessment:0,I307
+430.0,2026-07-05T20:40:00Z,REPLAY,current_status,unit,AID-pun-vol-team-3,en_route,,,,,,,I384:field_assessment:0,I384
+430.0,2026-07-05T20:40:00Z,REPLAY,current_status,unit,AID-pun-sdrf-team-1,en_route,,,,,,,I323:field_assessment:0,I323
+433.1,2026-07-05T20:43:03.708218410Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-2,on_site,,,,,,,I249:field_assessment:0,I249
+434.8,2026-07-05T20:44:45.441168357Z,REPLAY,current_status,unit,PC-TEAM-02,available,field_assessment finished at I370,,,,,,,
+434.9,2026-07-05T20:44:51.704633118Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-1,on_site,,,,,,,I358:field_assessment:0,I358
+435.4,2026-07-05T20:45:24.819326356Z,REPLAY,current_status,unit,AID-pun-vol-team-2,on_site,,,,,,,I356:field_assessment:0,I356
+438.1,2026-07-05T20:48:03.708218410Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-2,available,field_assessment finished at I249,,,,,,,
+439.9,2026-07-05T20:49:51.704633118Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-1,available,field_assessment finished at I358,,,,,,,
+440.0,2026-07-05T20:50:00Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-2,en_route,,,,,,,I329:field_assessment:0,I329
+440.0,2026-07-05T20:50:00Z,REPLAY,current_status,unit,AID-pun-sdrf-team-1,en_route,,,,,,,I383:field_assessment:0,I383
+440.0,2026-07-05T20:50:00Z,REPLAY,current_status,unit,AID-pun-vol-team-3,en_route,,,,,,,I369:field_assessment:0,I369
+440.0,2026-07-05T20:50:00Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-3,en_route,,,,,,,I389:field_assessment:0,I389
+440.0,2026-07-05T20:50:00Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-1,en_route,,,,,,,I311:field_assessment:0,I311
+440.0,2026-07-05T20:50:00Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-2,en_route,,,,,,,I393:field_assessment:0,I393
+440.4,2026-07-05T20:50:24.819326356Z,REPLAY,current_status,unit,AID-pun-vol-team-2,available,field_assessment finished at I356,,,,,,,
+442.5,2026-07-05T20:52:31.990333116Z,REPLAY,current_status,unit,AID-pun-sdrf-team-1,en_route,rerouted: crew found the road blocked,,,,,,I383:field_assessment:0,
+443.2,2026-07-05T20:53:10.783160497Z,REPLAY,current_status,unit,AID-pun-ndrf-team-2,on_site,,,,,,,I354:field_assessment:0,I354
+443.4,2026-07-05T20:53:25.314133731Z,REPLAY,current_status,unit,AID-pun-ndrf-team-3,on_site,,,,,,,I325:field_assessment:0,I325
+448.0,2026-07-05T20:57:59.554437654Z,REPLAY,current_status,unit,AID-pun-vol-team-3,available,no passable road to the need (need returns to the pool),,,,,,,
+447.0,2026-07-05T20:57:00.065745949Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-2,on_site,,,,,,,I329:field_assessment:0,I329
+448.2,2026-07-05T20:58:10.783160497Z,REPLAY,current_status,unit,AID-pun-ndrf-team-2,available,field_assessment finished at I354,,,,,,,
+448.4,2026-07-05T20:58:25.314133731Z,REPLAY,current_status,unit,AID-pun-ndrf-team-3,available,field_assessment finished at I325,,,,,,,
+450.0,2026-07-05T21:00:00Z,REPLAY,current_status,unit,AID-pun-sdrf-team-2,en_route,,,,,,,I414:water_rescue:0,I414
+450.0,2026-07-05T21:00:00Z,REPLAY,current_status,unit,AID-pun-vol-team-2,en_route,,,,,,,I337:water_rescue:0,I337
+450.0,2026-07-05T21:00:00Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-2,en_route,,,,,,,I401:field_assessment:0,I401
+450.0,2026-07-05T21:00:00Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-3,en_route,,,,,,,I321:field_assessment:0,I321
+450.0,2026-07-05T21:00:00Z,REPLAY,current_status,unit,AID-pun-sdrf-team-1,en_route,,,,,,,I317:field_assessment:0,I317
+450.0,2026-07-05T21:00:00Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-1,en_route,,,,,,,I390:field_assessment:0,I390
+452.0,2026-07-05T21:02:00.065745949Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-2,available,field_assessment finished at I329,,,,,,,
+457.0,2026-07-05T21:07:00Z,REPLAY,current_status,unit,AID-pun-ndrf-team-1,available,water_rescue finished at I257,,,,,,,
+458.4,2026-07-05T21:08:22.219996244Z,REPLAY,current_status,unit,AID-pun-sdrf-team-2,on_site,,,,,,,I414:water_rescue:0,I414
+459.8,2026-07-05T21:09:50.150716674Z,REPLAY,current_status,unit,AID-pun-sdrf-team-1,available,no passable road to the need (need returns to the pool),,,,,,,
+460.0,2026-07-05T21:10:00Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-1,en_route,,,,,,,I328:field_assessment:0,I328
+460.0,2026-07-05T21:10:00Z,REPLAY,current_status,unit,PC-BOAT-01,en_route,,,,,,,I420:field_assessment:0,I420
+460.0,2026-07-05T21:10:00Z,REPLAY,current_status,unit,AID-pun-vol-team-2,en_route,,,,,,,I407:field_assessment:0,I407
+460.0,2026-07-05T21:10:00Z,REPLAY,current_status,unit,AID-pun-sdrf-team-1,en_route,,,,,,,I416:field_assessment:0,I416
+460.0,2026-07-05T21:10:00Z,REPLAY,current_status,unit,AID-pun-ndrf-team-2,en_route,,,,,,,I419:field_assessment:0,I419
+460.0,2026-07-05T21:10:00Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-3,en_route,,,,,,,I137:field_assessment:0,I137
+460.0,2026-07-05T21:10:00Z,REPLAY,current_status,unit,AID-pun-ndrf-team-1,en_route,,,,,,,I363:field_assessment:0,I363
+460.0,2026-07-05T21:10:00Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-2,en_route,,,,,,,I351:field_assessment:0,I351
+462.7,2026-07-05T21:12:44.658093624Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-3,available,no passable road to the need (need returns to the pool),,,,,,,
+462.4,2026-07-05T21:12:21.246070856Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-1,on_site,,,,,,,I328:field_assessment:0,I328
+462.8,2026-07-05T21:12:50.225698759Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-2,on_site,,,,,,,I401:field_assessment:0,I401
+465.9,2026-07-05T21:15:52.722145830Z,REPLAY,current_status,unit,PC-BOAT-01,on_site,,,,,,,I420:field_assessment:0,I420
+466.2,2026-07-05T21:16:12.204832617Z,REPLAY,current_status,unit,AID-pun-vol-team-2,on_site,,,,,,,I407:field_assessment:0,I407
+467.4,2026-07-05T21:17:21.246070856Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-1,available,field_assessment finished at I328,,,,,,,
+467.8,2026-07-05T21:17:50.225698759Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-2,available,field_assessment finished at I401,,,,,,,
+469.2,2026-07-05T21:19:10.184576540Z,REPLAY,current_status,unit,AID-pun-sdrf-team-1,on_site,,,,,,,I416:field_assessment:0,I416
+469.5,2026-07-05T21:19:27.311867306Z,REPLAY,current_status,unit,AID-pun-ndrf-team-2,on_site,,,,,,,I419:field_assessment:0,I419
+470.0,2026-07-05T21:20:00Z,REPLAY,current_status,unit,AID-pun-ndrf-team-1,en_route,,,,,,,I208:water_rescue:0,I208
+470.0,2026-07-05T21:20:00Z,REPLAY,current_status,unit,AID-pun-vol-team-1,en_route,,,,,,,I420:water_rescue:0,I420
+470.0,2026-07-05T21:20:00Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-2,en_route,,,,,,,I318:field_assessment:0,I318
+470.0,2026-07-05T21:20:00Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-1,en_route,,,,,,,I347:field_assessment:0,I347
+470.0,2026-07-05T21:20:00Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-2,en_route,,,,,,,I411:field_assessment:0,I411
+470.9,2026-07-05T21:20:52.722145830Z,REPLAY,current_status,unit,PC-BOAT-01,available,field_assessment finished at I420,,,,,,,
+471.2,2026-07-05T21:21:12.204832617Z,REPLAY,current_status,unit,AID-pun-vol-team-2,available,field_assessment finished at I407,,,,,,,
+474.2,2026-07-05T21:24:10.184576540Z,REPLAY,current_status,unit,AID-pun-sdrf-team-1,available,field_assessment finished at I416,,,,,,,
+474.5,2026-07-05T21:24:27.311867306Z,REPLAY,current_status,unit,AID-pun-ndrf-team-2,available,field_assessment finished at I419,,,,,,,
+474.8,2026-07-05T21:24:46.796420640Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-2,on_site,,,,,,,I318:field_assessment:0,I318
+476.2,2026-07-05T21:26:14.004703016Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-2,en_route,rerouted: crew found the road blocked,,,,,,I411:field_assessment:0,
+476.4,2026-07-05T21:26:24.622633321Z,REPLAY,current_status,unit,AID-pun-ndrf-team-1,on_site,,,,,,,I208:water_rescue:0,I208
+479.8,2026-07-05T21:29:46.796420640Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-2,available,field_assessment finished at I318,,,,,,,
+480.0,2026-07-05T21:30:00Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-2,en_route,,,,,,,I318:water_rescue:0,I318
+480.0,2026-07-05T21:30:00Z,REPLAY,current_status,unit,PC-BOAT-01,en_route,,,,,,,I420:water_rescue:0,I420
+480.0,2026-07-05T21:30:00Z,REPLAY,current_status,unit,AID-pun-ndrf-team-2,en_route,,,,,,,I419:water_rescue:0,I419
+480.0,2026-07-05T21:30:00Z,REPLAY,current_status,unit,PC-BOAT-02,en_route,,,,,,,I436:field_assessment:0,I436
+480.0,2026-07-05T21:30:00Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-2,en_route,,,,,,,I361:field_assessment:0,I361
+480.0,2026-07-05T21:30:00Z,REPLAY,current_status,unit,AID-pun-vol-team-2,en_route,,,,,,,I378:field_assessment:0,I378
+480.0,2026-07-05T21:30:00Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-1,en_route,,,,,,,I355:field_assessment:0,I355
+480.0,2026-07-05T21:30:00Z,REPLAY,current_status,unit,AID-pun-vol-team-1,available,need covered by a closer unit,,,,,,,
+484.8,2026-07-05T21:34:46.796420640Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-2,on_site,,,,,,,I318:water_rescue:0,I318
+485.7,2026-07-05T21:35:42.227719614Z,REPLAY,current_status,unit,PC-BOAT-02,on_site,,,,,,,I436:field_assessment:0,I436
+485.9,2026-07-05T21:35:52.722145830Z,REPLAY,current_status,unit,PC-BOAT-01,on_site,,,,,,,I420:water_rescue:0,I420
+486.3,2026-07-05T21:36:15.318811622Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-2,on_site,,,,,,,I361:field_assessment:0,I361
+489.4,2026-07-05T21:39:22.611965872Z,REPLAY,current_status,unit,AID-pun-vol-team-2,on_site,,,,,,,I378:field_assessment:0,I378
+489.5,2026-07-05T21:39:27.311867306Z,REPLAY,current_status,unit,AID-pun-ndrf-team-2,on_site,,,,,,,I419:water_rescue:0,I419
+490.0,2026-07-05T21:40:00Z,REPLAY,current_status,unit,AID-pun-vol-team-1,en_route,,,,,,,I448:field_assessment:0,I448
+490.0,2026-07-05T21:40:00Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-1,en_route,,,,,,,I429:field_assessment:0,I429
+490.7,2026-07-05T21:40:42.227719614Z,REPLAY,current_status,unit,PC-BOAT-02,available,field_assessment finished at I436,,,,,,,
+491.3,2026-07-05T21:41:15.318811622Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-2,available,field_assessment finished at I361,,,,,,,
+494.2,2026-07-05T21:44:09.471058322Z,REPLAY,current_status,unit,AID-pun-vol-team-1,on_site,,,,,,,I448:field_assessment:0,I448
+494.4,2026-07-05T21:44:22.611965872Z,REPLAY,current_status,unit,AID-pun-vol-team-2,available,field_assessment finished at I378,,,,,,,
+499.2,2026-07-05T21:49:09.471058322Z,REPLAY,current_status,unit,AID-pun-vol-team-1,available,field_assessment finished at I448,,,,,,,
+500.0,2026-07-05T21:50:00Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-1,en_route,,,,,,,I431:field_assessment:0,I431
+500.0,2026-07-05T21:50:00Z,REPLAY,current_status,unit,PC-BOAT-02,en_route,,,,,,,I453:field_assessment:0,I453
+500.0,2026-07-05T21:50:00Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-2,en_route,,,,,,,I376:field_assessment:0,I376
+500.0,2026-07-05T21:50:00Z,REPLAY,current_status,unit,AID-pun-vol-team-2,en_route,,,,,,,I394:field_assessment:0,I394
+502.3,2026-07-05T21:52:15.541651653Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-1,on_site,,,,,,,I431:field_assessment:0,I431
+503.4,2026-07-05T21:53:22.219996244Z,REPLAY,current_status,unit,AID-pun-sdrf-team-2,available,water_rescue finished at I414,,,,,,,
+506.1,2026-07-05T21:56:05.346841252Z,REPLAY,current_status,unit,PC-BOAT-02,on_site,,,,,,,I453:field_assessment:0,I453
+507.3,2026-07-05T21:57:15.541651653Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-1,available,field_assessment finished at I431,,,,,,,
+508.4,2026-07-05T21:58:21.195716081Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-2,available,no passable road to the need (need returns to the pool),,,,,,,
+510.0,2026-07-05T22:00:00Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-2,en_route,,,,,,,I450:field_assessment:0,I450
+510.0,2026-07-05T22:00:00Z,REPLAY,current_status,unit,AID-pun-vol-team-2,en_route,,,,,,,I393:field_assessment:0,I393
+510.0,2026-07-05T22:00:00Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-1,en_route,,,,,,,I375:field_assessment:0,I375
+511.1,2026-07-05T22:01:05.346841252Z,REPLAY,current_status,unit,PC-BOAT-02,available,field_assessment finished at I453,,,,,,,
+512.5,2026-07-05T22:02:29.360196557Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-2,on_site,,,,,,,I450:field_assessment:0,I450
+515.8,2026-07-05T22:05:47.935055878Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-1,en_route,rerouted: crew found the road blocked,,,,,,I375:field_assessment:0,
+517.5,2026-07-05T22:07:29.360196557Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-2,available,field_assessment finished at I450,,,,,,,
+520.0,2026-07-05T22:10:00Z,REPLAY,current_status,unit,AID-pun-vol-team-1,en_route,,,,,,,I468:field_assessment:0,I468
+520.0,2026-07-05T22:10:00Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-2,en_route,,,,,,,I388:field_assessment:0,I388
+520.0,2026-07-05T22:10:00Z,REPLAY,current_status,unit,AID-pun-vol-team-2,en_route,,,,,,,I408:field_assessment:0,I408
+520.0,2026-07-05T22:10:00Z,REPLAY,current_status,unit,PC-TEAM-01,en_route,,,,,,,I469:field_assessment:0,I469
+520.0,2026-07-05T22:10:00Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-1,en_route,,,,,,,I387:field_assessment:0,I387
+520.7,2026-07-05T22:10:42.808990336Z,REPLAY,current_status,shelter,lf-pc-r1,arrived,,250.0,45.0,45.0,PC-TRUCK-01,45.0,,
+520.7,2026-07-05T22:10:42.808990336Z,REPLAY,current_status,unit,PC-TRUCK-01,available,mass_transport finished at I112,,,,,,,
+521.4,2026-07-05T22:11:24.622633321Z,REPLAY,current_status,unit,AID-pun-ndrf-team-1,available,water_rescue finished at I208,,,,,,,
+523.3,2026-07-05T22:13:18.591331374Z,REPLAY,current_status,unit,AID-pun-vol-team-1,on_site,,,,,,,I468:field_assessment:0,I468
+525.5,2026-07-05T22:15:27.221105313Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-2,on_site,,,,,,,I388:field_assessment:0,I388
+526.3,2026-07-05T22:16:18.075477374Z,REPLAY,current_status,unit,AID-pun-vol-team-2,en_route,rerouted: crew found the road blocked,,,,,,I408:field_assessment:0,
+528.3,2026-07-05T22:18:18.591331374Z,REPLAY,current_status,unit,AID-pun-vol-team-1,available,field_assessment finished at I468,,,,,,,
+529.6,2026-07-05T22:19:33.100386450Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-1,en_route,rerouted: crew found the road blocked,,,,,,I387:field_assessment:0,
+529.8,2026-07-05T22:19:45.137058130Z,REPLAY,current_status,unit,PC-TEAM-01,on_site,,,,,,,I469:field_assessment:0,I469
+529.8,2026-07-05T22:19:46.796420640Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-2,available,water_rescue finished at I318,,,,,,,
+530.0,2026-07-05T22:20:00Z,REPLAY,current_status,shelter,lf-pc-r1,reserved,,250.0,45.0,90.0,PC-TRUCK-01,45.0,,
+530.0,2026-07-05T22:20:00Z,REPLAY,current_status,unit,PC-TRUCK-01,en_route,,,,,,,I229:mass_transport:0,I229
+530.0,2026-07-05T22:20:00Z,REPLAY,current_status,unit,AID-pun-vol-team-2,en_route,,,,,,,I393:field_assessment:0,I393
+530.0,2026-07-05T22:20:00Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-1,en_route,,,,,,,I417:field_assessment:0,I417
+530.5,2026-07-05T22:20:27.221105313Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-2,available,field_assessment finished at I388,,,,,,,
+530.9,2026-07-05T22:20:52.722145830Z,REPLAY,current_status,unit,PC-BOAT-01,available,water_rescue finished at I420,,,,,,,
+532.8,2026-07-05T22:22:48.394702004Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-1,en_route,rerouted: crew found the road blocked,,,,,,I417:field_assessment:0,
+534.5,2026-07-05T22:24:27.311867306Z,REPLAY,current_status,unit,AID-pun-ndrf-team-2,available,water_rescue finished at I419,,,,,,,
+534.8,2026-07-05T22:24:45.137058130Z,REPLAY,current_status,unit,PC-TEAM-01,available,field_assessment finished at I469,,,,,,,
+537.3,2026-07-05T22:27:17.575639426Z,REPLAY,current_status,unit,PC-TRUCK-01,on_site,,,,,,,I229:mass_transport:0,I229
+540.0,2026-07-05T22:30:00Z,REPLAY,current_status,unit,AID-pun-vol-team-2,available,incident expired: unverified for 2 h with nothing new (likely stale or false),,,,,,,
+540.0,2026-07-05T22:30:00Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-2,en_route,,,,,,,I388:water_rescue:0,I388
+540.0,2026-07-05T22:30:00Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-1,en_route,,,,,,,I438:water_rescue:0,I438
+540.0,2026-07-05T22:30:00Z,REPLAY,current_status,unit,AID-pun-ndrf-team-2,en_route,,,,,,,I464:field_assessment:0,I464
+540.0,2026-07-05T22:30:00Z,REPLAY,current_status,unit,AID-pun-vol-team-2,en_route,,,,,,,I412:field_assessment:0,I412
+545.5,2026-07-05T22:35:27.221105313Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-2,on_site,,,,,,,I388:water_rescue:0,I388
+550.0,2026-07-05T22:40:00Z,REPLAY,current_status,unit,AID-pun-vol-team-2,en_route,,,,,,,I421:field_assessment:0,I421
+550.0,2026-07-05T22:40:00Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-1,en_route,,,,,,,I442:field_assessment:0,I442
+554.4,2026-07-05T22:44:22.547757060Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-1,available,no passable road to the need (need returns to the pool),,,,,,,
+553.7,2026-07-05T22:43:42.843042083Z,REPLAY,current_status,unit,AID-pun-ndrf-team-2,on_site,,,,,,,I464:field_assessment:0,I464
+553.9,2026-07-05T22:43:54.452238204Z,REPLAY,current_status,unit,AID-pun-vol-team-2,on_site,,,,,,,I421:field_assessment:0,I421
+558.7,2026-07-05T22:48:42.843042083Z,REPLAY,current_status,unit,AID-pun-ndrf-team-2,available,field_assessment finished at I464,,,,,,,
+558.9,2026-07-05T22:48:54.452238204Z,REPLAY,current_status,unit,AID-pun-vol-team-2,available,field_assessment finished at I421,,,,,,,
+560.0,2026-07-05T22:50:00Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-1,en_route,,,,,,,I431:water_rescue:0,I431
+560.0,2026-07-05T22:50:00Z,REPLAY,current_status,unit,AID-pun-vol-team-2,en_route,,,,,,,I447:field_assessment:0,I447
+562.3,2026-07-05T22:52:17.575639426Z,REPLAY,current_status,shelter,lf-pc-r1,arrived,,250.0,90.0,45.0,PC-TRUCK-01,45.0,,
+562.3,2026-07-05T22:52:17.575639426Z,REPLAY,current_status,unit,PC-TRUCK-01,available,mass_transport finished at I229,,,,,,,
+564.7,2026-07-05T22:54:39.713143377Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-1,on_site,,,,,,,I431:water_rescue:0,I431
+567.8,2026-07-05T22:57:46.110004187Z,REPLAY,current_status,unit,AID-pun-vol-team-2,en_route,rerouted: crew found the road blocked,,,,,,I447:field_assessment:0,
+570.0,2026-07-05T23:00:00Z,REPLAY,current_status,shelter,lf-pc-r1,reserved,,250.0,90.0,90.0,PC-TRUCK-01,45.0,,
+570.0,2026-07-05T23:00:00Z,REPLAY,current_status,unit,PC-TRUCK-01,en_route,,,,,,,I112:mass_transport:0,I112
+570.0,2026-07-05T23:00:00Z,REPLAY,current_status,unit,AID-pun-vol-team-2,en_route,,,,,,,I474:field_assessment:0,I474
+578.1,2026-07-05T23:08:08.765180710Z,REPLAY,current_status,unit,AID-pun-vol-team-2,available,no passable road to the need (need returns to the pool),,,,,,,
+577.6,2026-07-05T23:07:36.186251909Z,REPLAY,current_status,unit,PC-TRUCK-01,on_site,,,,,,,I112:mass_transport:0,I112
+580.0,2026-07-05T23:10:00Z,REPLAY,current_status,unit,AID-pun-vol-team-2,en_route,,,,,,,I170:field_assessment:0,I170
+590.0,2026-07-05T23:20:00Z,REPLAY,current_status,unit,AID-pun-vol-team-2,available,incident expired: unverified for 2 h with nothing new (likely stale or false),,,,,,,
+590.0,2026-07-05T23:20:00Z,REPLAY,current_status,unit,AID-pun-vol-team-2,en_route,,,,,,,I225:water_rescue:0,I225
+590.0,2026-07-05T23:20:00Z,REPLAY,current_status,unit,AID-pun-ndrf-team-2,en_route,,,,,,,I483:field_assessment:0,I483
+590.5,2026-07-05T23:20:27.221105313Z,REPLAY,current_status,unit,AID-pun-ndrf-boat-2,available,water_rescue finished at I388,,,,,,,
+592.0,2026-07-05T23:22:00Z,REPLAY,current_status,unit,AID-pun-ndrf-team-2,en_route,rerouted: crew found the road blocked,,,,,,I483:field_assessment:0,
+599.4,2026-07-05T23:29:24.411942653Z,REPLAY,current_status,unit,AID-pun-ndrf-team-2,on_site,,,,,,,I483:field_assessment:0,I483
+602.6,2026-07-05T23:32:36.186251909Z,REPLAY,current_status,shelter,lf-pc-r1,arrived,,250.0,135.0,45.0,PC-TRUCK-01,45.0,,
+602.6,2026-07-05T23:32:36.186251909Z,REPLAY,current_status,unit,PC-TRUCK-01,available,mass_transport finished at I112,,,,,,,
+603.7,2026-07-05T23:33:40.781250888Z,REPLAY,current_status,unit,AID-pun-vol-team-2,on_site,,,,,,,I225:water_rescue:0,I225
+604.4,2026-07-05T23:34:24.411942653Z,REPLAY,current_status,unit,AID-pun-ndrf-team-2,available,field_assessment finished at I483,,,,,,,
+609.7,2026-07-05T23:39:39.713143377Z,REPLAY,current_status,unit,AID-pun-sdrf-boat-1,available,water_rescue finished at I431,,,,,,,
+610.0,2026-07-05T23:40:00Z,REPLAY,current_status,shelter,lf-pc-r1,reserved,,250.0,135.0,90.0,PC-TRUCK-01,45.0,,
+610.0,2026-07-05T23:40:00Z,REPLAY,current_status,unit,PC-TRUCK-01,en_route,,,,,,,I229:mass_transport:0,I229
+617.3,2026-07-05T23:47:17.575639426Z,REPLAY,current_status,unit,PC-TRUCK-01,on_site,,,,,,,I229:mass_transport:0,I229
+642.3,2026-07-06T00:12:17.575639426Z,REPLAY,current_status,shelter,lf-pc-r1,arrived,,250.0,180.0,45.0,PC-TRUCK-01,45.0,,
+642.3,2026-07-06T00:12:17.575639426Z,REPLAY,current_status,unit,PC-TRUCK-01,available,mass_transport finished at I229,,,,,,,
+648.7,2026-07-06T00:18:40.781250888Z,REPLAY,current_status,unit,AID-pun-vol-team-2,available,water_rescue finished at I225,,,,,,,
+650.0,2026-07-06T00:20:00Z,REPLAY,current_status,shelter,lf-pc-s6,reserved,,87.0,0.0,45.0,PC-TRUCK-01,45.0,,
+650.0,2026-07-06T00:20:00Z,REPLAY,current_status,unit,PC-TRUCK-01,en_route,,,,,,,I229:mass_transport:0,I229
+650.0,2026-07-06T00:20:00Z,REPLAY,current_status,unit,AID-pun-vol-team-2,en_route,,,,,,,I489:field_assessment:0,I489
+657.3,2026-07-06T00:27:17.575639426Z,REPLAY,current_status,unit,PC-TRUCK-01,on_site,,,,,,,I229:mass_transport:0,I229
+660.0,2026-07-06T00:30:00Z,REPLAY,current_status,unit,PC-BOAT-01,en_route,,,,,,,I501:field_assessment:0,I501
+662.7,2026-07-06T00:32:42.420467425Z,REPLAY,current_status,unit,AID-pun-vol-team-2,on_site,,,,,,,I489:field_assessment:0,I489
+664.3,2026-07-06T00:34:16.977870361Z,REPLAY,current_status,unit,PC-BOAT-01,on_site,,,,,,,I501:field_assessment:0,I501
+667.7,2026-07-06T00:37:42.420467425Z,REPLAY,current_status,unit,AID-pun-vol-team-2,available,field_assessment finished at I489,,,,,,,
+669.3,2026-07-06T00:39:16.977870361Z,REPLAY,current_status,unit,PC-BOAT-01,available,field_assessment finished at I501,,,,,,,
