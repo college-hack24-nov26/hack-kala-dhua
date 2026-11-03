@@ -1,0 +1,38 @@
+// Indradhanu — Dynamic Replanning Cycle
+// Render: dot -Tsvg 06-dynamic-replanning.dot -o 06-dynamic-replanning.svg   (or -Tpng)
+digraph G {
+  label=<<font point-size="20"><b>Indradhanu — Dynamic Replanning Cycle</b></font>>;
+  rankdir=TB;
+  graph [fontname="Helvetica", fontsize=12, bgcolor="white", pad=0.4, nodesep=0.35, ranksep=0.55,
+         newrank=true, compound=true, labelloc=t, labeljust=l];
+  node  [fontname="Helvetica", shape=plain];
+  edge  [fontname="Helvetica", fontsize=9, color="#475569", fontcolor="#334155", arrowsize=0.7, penwidth=1.2];
+  subgraph cluster_trig {
+    label=<<b>Anything that changes the world</b>>; fontsize=13; style="rounded"; color="#CBD5E1"; bgcolor="#FFFFFF"; margin=14;
+    t_new [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#9A5B13" bgcolor="white"><tr><td bgcolor="#9A5B13" align="left"><font color="white"><b>New incident</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• citizen SOS, camera alarm<br align="left"/></font></td></tr></table>>];
+    t_block [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#1D6B47" bgcolor="white"><tr><td bgcolor="#1D6B47" align="left"><font color="white"><b>Road blocked</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• crew report, mesh or app<br align="left"/></font></td></tr></table>>];
+    t_unit [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#1D6B47" bgcolor="white"><tr><td bgcolor="#1D6B47" align="left"><font color="white"><b>Unit unavailable</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• breakdown, crew status<br align="left"/></font></td></tr></table>>];
+    t_off [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#9A5B13" bgcolor="white"><tr><td bgcolor="#9A5B13" align="left"><font color="white"><b>Officer override</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• cancel, hold, pin, forbid<br align="left"/></font></td></tr></table>>];
+    t_haz [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#5B6470" bgcolor="white"><tr><td bgcolor="#5B6470" align="left"><font color="white"><b>Hazard update</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• risk or forecast change<br align="left"/></font></td></tr></table>>];
+    { rank=same; t_new; t_block; t_unit; t_off; t_haz; }
+  }
+  router [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#374151" bgcolor="white"><tr><td bgcolor="#374151" align="left"><font color="white"><b>Event Router (always on)</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• resumes the incident&#x27;s graph thread<br align="left"/>• debounce per ward<br align="left"/></font></td></tr></table>>];
+  tri [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#1F4E79" bgcolor="white"><tr><td bgcolor="#1F4E79" align="left"><font color="white"><b>TRIAGE → NEEDS</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• what changed, what is needed now<br align="left"/></font></td></tr></table>>];
+  opt [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#0E5E6F" bgcolor="white"><tr><td bgcolor="#0E5E6F" align="left"><font color="white"><b>OPTIMISATION (CP-SAT, ≤ 4 s)</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• keep units unless a switch pays<br align="left"/>• route around blocks<br align="left"/></font></td></tr></table>>];
+  val [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#0E5E6F" bgcolor="white"><tr><td bgcolor="#0E5E6F" align="left"><font color="white"><b>VALIDATION</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• simulate the new plan<br align="left"/></font></td></tr></table>>];
+  d [shape=diamond, style="filled", fillcolor="#FEF2F2", color="#B42318", penwidth=1.4, fontname="Helvetica-Bold", fontsize=11, margin="0.05,0.02", label="valid?"];
+  rep [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#0E5E6F" bgcolor="white"><tr><td bgcolor="#0E5E6F" align="left"><font color="white"><b>REPLAN</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• adjust constraints<br align="left"/></font></td></tr></table>>];
+  gate [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#7A2E2E" bgcolor="white"><tr><td bgcolor="#7A2E2E" align="left"><font color="white"><b>POLICY GATE / HUMAN</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• auto, or officer approves<br align="left"/></font></td></tr></table>>];
+  diff [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#0E5E6F" bgcolor="white"><tr><td bgcolor="#0E5E6F" align="left"><font color="white"><b>Plan diff</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• kept · reassigned · new · released · uncovered<br align="left"/></font></td></tr></table>>];
+  disp [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#1D6B47" bgcolor="white"><tr><td bgcolor="#1D6B47" align="left"><font color="white"><b>DISPATCH</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• crews over app and mesh<br align="left"/></font></td></tr></table>>];
+  obs [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#1D6B47" bgcolor="white"><tr><td bgcolor="#1D6B47" align="left"><font color="white"><b>OBSERVE</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• crews report back: on site, done, blocked<br align="left"/></font></td></tr></table>>];
+  t_new -> router;
+  t_block -> router;
+  t_unit -> router;
+  t_off -> router;
+  t_haz -> router;
+  router -> tri -> opt -> val -> d;
+  d -> rep [label=" FAIL", color="#B42318", penwidth=2, fontcolor="#B42318"]; rep -> opt [color="#B42318", penwidth=2, fontcolor="#B42318", constraint=false];
+  d -> gate [label=" PASS"]; gate -> diff -> disp -> obs;
+  obs -> router [label=" loop: the plan keeps adapting", color="#B42318", penwidth=2, fontcolor="#B42318", constraint=false];
+}
