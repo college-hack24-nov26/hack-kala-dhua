@@ -1,0 +1,79 @@
+{
+ "vallabhnagar_segments": 7,
+ "pimple_nilakh_segments": 412,
+ "realizations": [
+  {
+   "r": 0,
+   "vallabhnagar_max_depth_m": 2.48,
+   "vallabhnagar_hours_ge_30cm": 24.0,
+   "pimple_nilakh_segments_ge_30cm": 3
+  },
+  {
+   "r": 1,
+   "vallabhnagar_max_depth_m": 2.48,
+   "vallabhnagar_hours_ge_30cm": 24.0,
+   "pimple_nilakh_segments_ge_30cm": 3
+  },
+  {
+   "r": 2,
+   "vallabhnagar_max_depth_m": 2.39,
+   "vallabhnagar_hours_ge_30cm": 24.0,
+   "pimple_nilakh_segments_ge_30cm": 0
+  }
+ ],
+ "vallabhnagar_flooded_in": "3/3",
+ "pimple_nilakh_flooded_in": "2/3",
+ "top_storms": [
+  {
+   "storm_id": "20200804-21",
+   "tier": "major",
+   "segments_depth_ge_0_3": 6155.0,
+   "rank": 1
+  },
+  {
+   "storm_id": "20170919-01",
+   "tier": "major",
+   "segments_depth_ge_0_3": 3549.0,
+   "rank": 2
+  },
+  {
+   "storm_id": "20160915-14",
+   "tier": "major",
+   "segments_depth_ge_0_3": 3123.0,
+   "rank": 3
+  },
+  {
+   "storm_id": "20260704-23",
+   "tier": "major",
+   "segments_depth_ge_0_3": 2650.0,
+   "rank": 4
+  },
+  {
+   "storm_id": "20240925-00",
+   "tier": "major",
+   "segments_depth_ge_0_3": 2277.0,
+   "rank": 5
+  },
+  {
+   "storm_id": "20250618-09",
+   "tier": "major",
+   "segments_depth_ge_0_3": 1023.0,
+   "rank": 6
+  },
+  {
+   "storm_id": "20190803-04",
+   "tier": "major",
+   "segments_depth_ge_0_3": 789.0,
+   "rank": 7
+  },
+  {
+   "storm_id": "20200702-22",
+   "tier": "major",
+   "segments_depth_ge_0_3": 631.0,
+   "rank": 8
+  }
+ ],
+ "moderate_median_rank": 35.0,
+ "major_median_rank": 13.5,
+ "storms": 78
+}

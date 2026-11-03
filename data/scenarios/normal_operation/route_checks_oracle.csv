@@ -1,0 +1,38 @@
+t_min,t_replay,time_label,policy,unit,leg,what,planned_min,actual_min,invalid,reroutes,arrived
+39.8,2023-05-17T07:39:45.135164085Z,REPLAY,oracle,PC-AMB-06,1,I001:medical_transport:0,17.7,17.8,False,0,True
+49.8,2023-05-17T07:49:45.135164085Z,REPLAY,oracle,PC-AMB-06,1b,to hospital,,11.2,False,0,True
+42.7,2023-05-17T07:42:39.835095443Z,REPLAY,oracle,PC-POL-03,1,I001:traffic_control:0,20.6,20.7,False,0,True
+45.9,2023-05-17T07:45:56.350281451Z,REPLAY,oracle,PC-POL-02,1,I002:field_assessment:0,3.9,3.9,False,0,True
+107.9,2023-05-17T08:47:51.900073853Z,REPLAY,oracle,PC-POL-01,1,I003:field_assessment:0,5.9,5.9,False,0,True
+156.9,2023-05-17T09:36:53.471439163Z,REPLAY,oracle,PC-AMB-01,1,I004:field_assessment:0,4.9,4.9,False,0,True
+169.7,2023-05-17T09:49:41.339314474Z,REPLAY,oracle,PC-TEAM-01,1,I004:debris_clearance:0,7.7,7.7,False,0,True
+227.3,2023-05-17T10:47:18.171372906Z,REPLAY,oracle,PC-POL-04,1,I005:field_assessment:0,5.3,5.3,False,0,True
+237.4,2023-05-17T10:57:22.165774889Z,REPLAY,oracle,PC-AMB-03,1,I005:medical_transport:0,5.4,5.4,False,0,True
+247.4,2023-05-17T11:07:22.165774889Z,REPLAY,oracle,PC-AMB-03,1b,to hospital,,5.0,False,0,True
+239.5,2023-05-17T10:59:31.965507800Z,REPLAY,oracle,PC-POL-02,2,I005:traffic_control:0,7.5,7.5,False,0,True
+272.0,2023-05-17T11:32:00Z,REPLAY,oracle,PC-POL-04,2,I006:field_assessment:0,0.0,0.0,False,0,True
+287.9,2023-05-17T11:47:54.568492667Z,REPLAY,oracle,PC-TEAM-03,1,I007:field_assessment:0,5.9,5.9,False,0,True
+297.1,2023-05-17T11:57:05.348907243Z,REPLAY,oracle,PC-POL-01,2,I007:traffic_control:0,5.1,5.1,False,0,True
+297.6,2023-05-17T11:57:35.212785283Z,REPLAY,oracle,PC-AMB-04,1,I007:medical_transport:0,5.6,5.6,False,0,True
+307.6,2023-05-17T12:07:35.212785283Z,REPLAY,oracle,PC-AMB-04,1b,to hospital,,6.4,False,0,True
+353.0,2023-05-17T12:53:00.737989369Z,REPLAY,oracle,PC-TEAM-03,2,I009:field_assessment:0,1.0,1.0,False,0,True
+353.7,2023-05-17T12:53:41.362121735Z,REPLAY,oracle,PC-POL-03,2,I008:field_assessment:0,1.7,1.7,False,0,True
+362.7,2023-05-17T13:02:41.477460747Z,REPLAY,oracle,PC-POL-01,3,I009:traffic_control:0,0.7,0.7,False,0,True
+367.3,2023-05-17T13:07:18.550388317Z,REPLAY,oracle,PC-AMB-01,2,I009:medical_transport:0,5.3,5.3,False,0,True
+377.3,2023-05-17T13:17:18.550388317Z,REPLAY,oracle,PC-AMB-01,2b,to hospital,,6.4,False,0,True
+380.3,2023-05-17T13:20:17.079574119Z,REPLAY,oracle,PC-POL-03,3,I010:field_assessment:0,8.3,8.3,False,0,True
+419.8,2023-05-17T13:59:45.401968556Z,REPLAY,oracle,PC-POL-03,4,I011:traffic_control:0,7.8,7.8,False,0,True
+420.8,2023-05-17T14:00:49.088246320Z,REPLAY,oracle,PC-AMB-06,2,I011:medical_transport:0,8.8,8.8,False,0,True
+430.8,2023-05-17T14:10:49.088246320Z,REPLAY,oracle,PC-AMB-06,2b,to hospital,,8.5,False,0,True
+472.2,2023-05-17T14:52:13.936913461Z,REPLAY,oracle,PC-POL-03,5,I012:field_assessment:0,0.2,0.2,False,0,True
+485.5,2023-05-17T15:05:30.414584241Z,REPLAY,oracle,PC-POL-01,4,I013:field_assessment:0,3.5,3.5,False,0,True
+492.4,2023-05-17T15:12:26.909802402Z,REPLAY,oracle,PC-POL-03,6,I014:field_assessment:0,0.4,0.4,False,0,True
+502.4,2023-05-17T15:22:26.909802402Z,REPLAY,oracle,PC-POL-03,7,I014:traffic_control:0,0.4,0.4,False,0,True
+505.4,2023-05-17T15:25:24.115050883Z,REPLAY,oracle,PC-JCB-01,1,I013:debris_clearance:0,13.4,13.4,False,0,True
+511.1,2023-05-17T15:31:08.804738302Z,REPLAY,oracle,PC-AMB-06,3,I014:medical_transport:0,9.1,9.1,False,0,True
+521.1,2023-05-17T15:41:08.804738302Z,REPLAY,oracle,PC-AMB-06,3b,to hospital,,9.1,False,0,True
+657.1,2023-05-17T17:57:03.961132609Z,REPLAY,oracle,PC-FIRE-07,1,I015:field_assessment:0,5.1,5.1,False,0,True
+688.5,2023-05-17T18:28:32.606125803Z,REPLAY,oracle,PC-JCB-01,2,I015:debris_clearance:0,26.5,26.5,False,0,True
+707.3,2023-05-17T18:47:17.717698138Z,REPLAY,oracle,PC-AMB-02,1,I016:field_assessment:0,5.3,5.3,False,0,True
+718.4,2023-05-17T18:58:21.882681173Z,REPLAY,oracle,PC-AMB-01,3,I016:medical_transport:0,6.4,6.4,False,0,True
+728.4,2023-05-17T19:08:21.882681173Z,REPLAY,oracle,PC-AMB-01,3b,to hospital,,5.6,False,0,True
