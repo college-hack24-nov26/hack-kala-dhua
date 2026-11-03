@@ -1,0 +1,134 @@
+t_min,t_replay,time_label,policy,subject,id,state,note,capacity,occupancy,reserved,task,incident
+0.0,2023-05-17T07:00:00Z,REPLAY,oracle,unit,PC-AMB-01,available,start of window,,,,,
+0.0,2023-05-17T07:00:00Z,REPLAY,oracle,unit,PC-AMB-02,available,start of window,,,,,
+0.0,2023-05-17T07:00:00Z,REPLAY,oracle,unit,PC-AMB-03,available,start of window,,,,,
+0.0,2023-05-17T07:00:00Z,REPLAY,oracle,unit,PC-AMB-04,available,start of window,,,,,
+0.0,2023-05-17T07:00:00Z,REPLAY,oracle,unit,PC-AMB-05,available,start of window,,,,,
+0.0,2023-05-17T07:00:00Z,REPLAY,oracle,unit,PC-AMB-06,available,start of window,,,,,
+0.0,2023-05-17T07:00:00Z,REPLAY,oracle,unit,PC-BOAT-01,available,start of window,,,,,
+0.0,2023-05-17T07:00:00Z,REPLAY,oracle,unit,PC-BOAT-02,available,start of window,,,,,
+0.0,2023-05-17T07:00:00Z,REPLAY,oracle,unit,PC-BOAT-03,available,start of window,,,,,
+0.0,2023-05-17T07:00:00Z,REPLAY,oracle,unit,PC-BUS-01,available,start of window,,,,,
+0.0,2023-05-17T07:00:00Z,REPLAY,oracle,unit,PC-BUS-02,available,start of window,,,,,
+0.0,2023-05-17T07:00:00Z,REPLAY,oracle,unit,PC-FIRE-01,available,start of window,,,,,
+0.0,2023-05-17T07:00:00Z,REPLAY,oracle,unit,PC-FIRE-02,available,start of window,,,,,
+0.0,2023-05-17T07:00:00Z,REPLAY,oracle,unit,PC-FIRE-03,available,start of window,,,,,
+0.0,2023-05-17T07:00:00Z,REPLAY,oracle,unit,PC-FIRE-04,available,start of window,,,,,
+0.0,2023-05-17T07:00:00Z,REPLAY,oracle,unit,PC-FIRE-05,available,start of window,,,,,
+0.0,2023-05-17T07:00:00Z,REPLAY,oracle,unit,PC-FIRE-06,available,start of window,,,,,
+0.0,2023-05-17T07:00:00Z,REPLAY,oracle,unit,PC-FIRE-07,available,start of window,,,,,
+0.0,2023-05-17T07:00:00Z,REPLAY,oracle,unit,PC-JCB-01,available,start of window,,,,,
+0.0,2023-05-17T07:00:00Z,REPLAY,oracle,unit,PC-JCB-02,available,start of window,,,,,
+0.0,2023-05-17T07:00:00Z,REPLAY,oracle,unit,PC-POL-01,available,start of window,,,,,
+0.0,2023-05-17T07:00:00Z,REPLAY,oracle,unit,PC-POL-02,available,start of window,,,,,
+0.0,2023-05-17T07:00:00Z,REPLAY,oracle,unit,PC-POL-03,available,start of window,,,,,
+0.0,2023-05-17T07:00:00Z,REPLAY,oracle,unit,PC-POL-04,available,start of window,,,,,
+0.0,2023-05-17T07:00:00Z,REPLAY,oracle,unit,PC-PUMP-01,available,start of window,,,,,
+0.0,2023-05-17T07:00:00Z,REPLAY,oracle,unit,PC-PUMP-02,available,start of window,,,,,
+0.0,2023-05-17T07:00:00Z,REPLAY,oracle,unit,PC-PUMP-03,available,start of window,,,,,
+0.0,2023-05-17T07:00:00Z,REPLAY,oracle,unit,PC-PUMP-04,available,start of window,,,,,
+0.0,2023-05-17T07:00:00Z,REPLAY,oracle,unit,PC-PUMP-05,available,start of window,,,,,
+0.0,2023-05-17T07:00:00Z,REPLAY,oracle,unit,PC-TEAM-01,available,start of window,,,,,
+0.0,2023-05-17T07:00:00Z,REPLAY,oracle,unit,PC-TEAM-02,available,start of window,,,,,
+0.0,2023-05-17T07:00:00Z,REPLAY,oracle,unit,PC-TEAM-03,available,start of window,,,,,
+0.0,2023-05-17T07:00:00Z,REPLAY,oracle,unit,PC-TRUCK-01,available,start of window,,,,,
+0.0,2023-05-17T07:00:00Z,REPLAY,oracle,unit,PC-TRUCK-02,available,start of window,,,,,
+0.0,2023-05-17T07:00:00Z,REPLAY,oracle,unit,PC-TANK-01,available,start of window,,,,,
+0.0,2023-05-17T07:00:00Z,REPLAY,oracle,unit,PC-TANK-02,available,start of window,,,,,
+0.0,2023-05-17T07:00:00Z,REPLAY,oracle,shelter,lf-pc-r1,open,,1000.0,0.0,0.0,,
+0.0,2023-05-17T07:00:00Z,REPLAY,oracle,shelter,lf-pc-r2,open,,900.0,0.0,0.0,,
+0.0,2023-05-17T07:00:00Z,REPLAY,oracle,shelter,lf-pc-s1,open,,800.0,0.0,0.0,,
+0.0,2023-05-17T07:00:00Z,REPLAY,oracle,shelter,lf-pc-s2,open,,400.0,0.0,0.0,,
+0.0,2023-05-17T07:00:00Z,REPLAY,oracle,shelter,lf-pc-s3,open,,450.0,0.0,0.0,,
+0.0,2023-05-17T07:00:00Z,REPLAY,oracle,shelter,lf-pc-s4,open,,400.0,0.0,0.0,,
+0.0,2023-05-17T07:00:00Z,REPLAY,oracle,shelter,lf-pc-s5,open,,350.0,0.0,0.0,,
+0.0,2023-05-17T07:00:00Z,REPLAY,oracle,shelter,lf-pc-s6,open,,350.0,0.0,0.0,,
+20.0,2023-05-17T07:20:00Z,REPLAY,oracle,unit,PC-AMB-06,en_route,,,,,I001:medical_transport:0,I001
+20.0,2023-05-17T07:20:00Z,REPLAY,oracle,unit,PC-POL-03,en_route,,,,,I001:traffic_control:0,I001
+39.8,2023-05-17T07:39:45.135164085Z,REPLAY,oracle,unit,PC-AMB-06,on_site,,,,,I001:medical_transport:0,I001
+40.0,2023-05-17T07:40:00Z,REPLAY,oracle,unit,PC-POL-02,en_route,,,,,I002:field_assessment:0,I002
+42.7,2023-05-17T07:42:39.835095443Z,REPLAY,oracle,unit,PC-POL-03,on_site,,,,,I001:traffic_control:0,I001
+45.9,2023-05-17T07:45:56.350281451Z,REPLAY,oracle,unit,PC-POL-02,on_site,,,,,I002:field_assessment:0,I002
+50.9,2023-05-17T07:50:56.350281451Z,REPLAY,oracle,unit,PC-POL-02,available,field_assessment finished at I002,,,,,
+70.9,2023-05-17T08:10:54.577627388Z,REPLAY,oracle,unit,PC-AMB-06,available,medical_transport finished at I001,,,,,
+87.7,2023-05-17T08:27:39.835095443Z,REPLAY,oracle,unit,PC-POL-03,available,traffic_control finished at I001,,,,,
+100.0,2023-05-17T08:40:00Z,REPLAY,oracle,unit,PC-POL-01,en_route,,,,,I003:field_assessment:0,I003
+107.9,2023-05-17T08:47:51.900073853Z,REPLAY,oracle,unit,PC-POL-01,on_site,,,,,I003:field_assessment:0,I003
+112.9,2023-05-17T08:52:51.900073853Z,REPLAY,oracle,unit,PC-POL-01,available,field_assessment finished at I003,,,,,
+150.0,2023-05-17T09:30:00Z,REPLAY,oracle,unit,PC-AMB-01,en_route,,,,,I004:field_assessment:0,I004
+156.9,2023-05-17T09:36:53.471439163Z,REPLAY,oracle,unit,PC-AMB-01,on_site,,,,,I004:field_assessment:0,I004
+160.0,2023-05-17T09:40:00Z,REPLAY,oracle,unit,PC-TEAM-01,en_route,,,,,I004:debris_clearance:0,I004
+161.9,2023-05-17T09:41:53.471439163Z,REPLAY,oracle,unit,PC-AMB-01,available,field_assessment finished at I004,,,,,
+169.7,2023-05-17T09:49:41.339314474Z,REPLAY,oracle,unit,PC-TEAM-01,on_site,,,,,I004:debris_clearance:0,I004
+209.7,2023-05-17T10:29:41.339314474Z,REPLAY,oracle,unit,PC-TEAM-01,available,debris_clearance finished at I004,,,,,
+220.0,2023-05-17T10:40:00Z,REPLAY,oracle,unit,PC-POL-04,en_route,,,,,I005:field_assessment:0,I005
+227.3,2023-05-17T10:47:18.171372906Z,REPLAY,oracle,unit,PC-POL-04,on_site,,,,,I005:field_assessment:0,I005
+230.0,2023-05-17T10:50:00Z,REPLAY,oracle,unit,PC-AMB-03,en_route,,,,,I005:medical_transport:0,I005
+230.0,2023-05-17T10:50:00Z,REPLAY,oracle,unit,PC-POL-02,en_route,,,,,I005:traffic_control:0,I005
+232.3,2023-05-17T10:52:18.171372906Z,REPLAY,oracle,unit,PC-POL-04,available,field_assessment finished at I005,,,,,
+237.4,2023-05-17T10:57:22.165774889Z,REPLAY,oracle,unit,PC-AMB-03,on_site,,,,,I005:medical_transport:0,I005
+239.5,2023-05-17T10:59:31.965507800Z,REPLAY,oracle,unit,PC-POL-02,on_site,,,,,I005:traffic_control:0,I005
+262.3,2023-05-17T11:22:20.537306324Z,REPLAY,oracle,unit,PC-AMB-03,available,medical_transport finished at I005,,,,,
+270.0,2023-05-17T11:30:00Z,REPLAY,oracle,unit,PC-POL-04,en_route,,,,,I006:field_assessment:0,I006
+272.0,2023-05-17T11:32:00Z,REPLAY,oracle,unit,PC-POL-04,on_site,,,,,I006:field_assessment:0,I006
+277.0,2023-05-17T11:37:00Z,REPLAY,oracle,unit,PC-POL-04,available,field_assessment finished at I006,,,,,
+280.0,2023-05-17T11:40:00Z,REPLAY,oracle,unit,PC-TEAM-03,en_route,,,,,I007:field_assessment:0,I007
+284.5,2023-05-17T11:44:31.965507800Z,REPLAY,oracle,unit,PC-POL-02,available,traffic_control finished at I005,,,,,
+287.9,2023-05-17T11:47:54.568492667Z,REPLAY,oracle,unit,PC-TEAM-03,on_site,,,,,I007:field_assessment:0,I007
+290.0,2023-05-17T11:50:00Z,REPLAY,oracle,unit,PC-POL-01,en_route,,,,,I007:traffic_control:0,I007
+290.0,2023-05-17T11:50:00Z,REPLAY,oracle,unit,PC-AMB-04,en_route,,,,,I007:medical_transport:0,I007
+292.9,2023-05-17T11:52:54.568492667Z,REPLAY,oracle,unit,PC-TEAM-03,available,field_assessment finished at I007,,,,,
+297.1,2023-05-17T11:57:05.348907243Z,REPLAY,oracle,unit,PC-POL-01,on_site,,,,,I007:traffic_control:0,I007
+297.6,2023-05-17T11:57:35.212785283Z,REPLAY,oracle,unit,PC-AMB-04,on_site,,,,,I007:medical_transport:0,I007
+324.0,2023-05-17T12:24:00.901983312Z,REPLAY,oracle,unit,PC-AMB-04,available,medical_transport finished at I007,,,,,
+342.1,2023-05-17T12:42:05.348907243Z,REPLAY,oracle,unit,PC-POL-01,available,traffic_control finished at I007,,,,,
+350.0,2023-05-17T12:50:00Z,REPLAY,oracle,unit,PC-POL-03,en_route,,,,,I008:field_assessment:0,I008
+350.0,2023-05-17T12:50:00Z,REPLAY,oracle,unit,PC-TEAM-03,en_route,,,,,I009:field_assessment:0,I009
+353.0,2023-05-17T12:53:00.737989369Z,REPLAY,oracle,unit,PC-TEAM-03,on_site,,,,,I009:field_assessment:0,I009
+353.7,2023-05-17T12:53:41.362121735Z,REPLAY,oracle,unit,PC-POL-03,on_site,,,,,I008:field_assessment:0,I008
+358.0,2023-05-17T12:58:00.737989369Z,REPLAY,oracle,unit,PC-TEAM-03,available,field_assessment finished at I009,,,,,
+358.7,2023-05-17T12:58:41.362121735Z,REPLAY,oracle,unit,PC-POL-03,available,field_assessment finished at I008,,,,,
+360.0,2023-05-17T13:00:00Z,REPLAY,oracle,unit,PC-POL-01,en_route,,,,,I009:traffic_control:0,I009
+360.0,2023-05-17T13:00:00Z,REPLAY,oracle,unit,PC-AMB-01,en_route,,,,,I009:medical_transport:0,I009
+362.7,2023-05-17T13:02:41.477460747Z,REPLAY,oracle,unit,PC-POL-01,on_site,,,,,I009:traffic_control:0,I009
+367.3,2023-05-17T13:07:18.550388317Z,REPLAY,oracle,unit,PC-AMB-01,on_site,,,,,I009:medical_transport:0,I009
+370.0,2023-05-17T13:10:00Z,REPLAY,oracle,unit,PC-POL-03,en_route,,,,,I010:field_assessment:0,I010
+380.3,2023-05-17T13:20:17.079574119Z,REPLAY,oracle,unit,PC-POL-03,on_site,,,,,I010:field_assessment:0,I010
+385.3,2023-05-17T13:25:17.079574119Z,REPLAY,oracle,unit,PC-POL-03,available,field_assessment finished at I010,,,,,
+393.7,2023-05-17T13:33:41.919839203Z,REPLAY,oracle,unit,PC-AMB-01,available,medical_transport finished at I009,,,,,
+407.7,2023-05-17T13:47:41.477460747Z,REPLAY,oracle,unit,PC-POL-01,available,traffic_control finished at I009,,,,,
+410.0,2023-05-17T13:50:00Z,REPLAY,oracle,unit,PC-POL-03,en_route,,,,,I011:traffic_control:0,I011
+410.0,2023-05-17T13:50:00Z,REPLAY,oracle,unit,PC-AMB-06,en_route,,,,,I011:medical_transport:0,I011
+419.8,2023-05-17T13:59:45.401968556Z,REPLAY,oracle,unit,PC-POL-03,on_site,,,,,I011:traffic_control:0,I011
+420.8,2023-05-17T14:00:49.088246320Z,REPLAY,oracle,unit,PC-AMB-06,on_site,,,,,I011:medical_transport:0,I011
+449.3,2023-05-17T14:29:17.295613180Z,REPLAY,oracle,unit,PC-AMB-06,available,medical_transport finished at I011,,,,,
+464.8,2023-05-17T14:44:45.401968556Z,REPLAY,oracle,unit,PC-POL-03,available,traffic_control finished at I011,,,,,
+470.0,2023-05-17T14:50:00Z,REPLAY,oracle,unit,PC-POL-03,en_route,,,,,I012:field_assessment:0,I012
+472.2,2023-05-17T14:52:13.936913461Z,REPLAY,oracle,unit,PC-POL-03,on_site,,,,,I012:field_assessment:0,I012
+477.2,2023-05-17T14:57:13.936913461Z,REPLAY,oracle,unit,PC-POL-03,available,field_assessment finished at I012,,,,,
+480.0,2023-05-17T15:00:00Z,REPLAY,oracle,unit,PC-POL-01,en_route,,,,,I013:field_assessment:0,I013
+485.5,2023-05-17T15:05:30.414584241Z,REPLAY,oracle,unit,PC-POL-01,on_site,,,,,I013:field_assessment:0,I013
+490.0,2023-05-17T15:10:00Z,REPLAY,oracle,unit,PC-JCB-01,en_route,,,,,I013:debris_clearance:0,I013
+490.0,2023-05-17T15:10:00Z,REPLAY,oracle,unit,PC-POL-03,en_route,,,,,I014:field_assessment:0,I014
+490.5,2023-05-17T15:10:30.414584241Z,REPLAY,oracle,unit,PC-POL-01,available,field_assessment finished at I013,,,,,
+492.4,2023-05-17T15:12:26.909802402Z,REPLAY,oracle,unit,PC-POL-03,on_site,,,,,I014:field_assessment:0,I014
+497.4,2023-05-17T15:17:26.909802402Z,REPLAY,oracle,unit,PC-POL-03,available,field_assessment finished at I014,,,,,
+500.0,2023-05-17T15:20:00Z,REPLAY,oracle,unit,PC-POL-03,en_route,,,,,I014:traffic_control:0,I014
+500.0,2023-05-17T15:20:00Z,REPLAY,oracle,unit,PC-AMB-06,en_route,,,,,I014:medical_transport:0,I014
+502.4,2023-05-17T15:22:26.909802402Z,REPLAY,oracle,unit,PC-POL-03,on_site,,,,,I014:traffic_control:0,I014
+505.4,2023-05-17T15:25:24.115050883Z,REPLAY,oracle,unit,PC-JCB-01,on_site,,,,,I013:debris_clearance:0,I013
+511.1,2023-05-17T15:31:08.804738302Z,REPLAY,oracle,unit,PC-AMB-06,on_site,,,,,I014:medical_transport:0,I014
+540.2,2023-05-17T16:00:12.507678048Z,REPLAY,oracle,unit,PC-AMB-06,available,medical_transport finished at I014,,,,,
+545.4,2023-05-17T16:05:24.115050883Z,REPLAY,oracle,unit,PC-JCB-01,available,debris_clearance finished at I013,,,,,
+547.4,2023-05-17T16:07:26.909802402Z,REPLAY,oracle,unit,PC-POL-03,available,traffic_control finished at I014,,,,,
+650.0,2023-05-17T17:50:00Z,REPLAY,oracle,unit,PC-FIRE-07,en_route,,,,,I015:field_assessment:0,I015
+657.1,2023-05-17T17:57:03.961132609Z,REPLAY,oracle,unit,PC-FIRE-07,on_site,,,,,I015:field_assessment:0,I015
+660.0,2023-05-17T18:00:00Z,REPLAY,oracle,unit,PC-JCB-01,en_route,,,,,I015:debris_clearance:0,I015
+662.1,2023-05-17T18:02:03.961132609Z,REPLAY,oracle,unit,PC-FIRE-07,available,field_assessment finished at I015,,,,,
+688.5,2023-05-17T18:28:32.606125803Z,REPLAY,oracle,unit,PC-JCB-01,on_site,,,,,I015:debris_clearance:0,I015
+700.0,2023-05-17T18:40:00Z,REPLAY,oracle,unit,PC-AMB-02,en_route,,,,,I016:field_assessment:0,I016
+707.3,2023-05-17T18:47:17.717698138Z,REPLAY,oracle,unit,PC-AMB-02,on_site,,,,,I016:field_assessment:0,I016
+710.0,2023-05-17T18:50:00Z,REPLAY,oracle,unit,PC-AMB-01,en_route,,,,,I016:medical_transport:0,I016
+710.0,2023-05-17T18:50:00Z,REPLAY,oracle,unit,PC-POL-01,en_route,,,,,I016:traffic_control:0,I016
+712.3,2023-05-17T18:52:17.717698138Z,REPLAY,oracle,unit,PC-AMB-02,available,field_assessment finished at I016,,,,,
+718.4,2023-05-17T18:58:21.882681173Z,REPLAY,oracle,unit,PC-AMB-01,on_site,,,,,I016:medical_transport:0,I016
