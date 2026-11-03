@@ -1,0 +1,43 @@
+From cfa6ed536a5cd55313db6d856044309fa6cfed89 Mon Sep 17 00:00:00 2001
+From: Ayush Pathak <ayushpathak12345678@gmail.com>
+Date: Mon, 2 Nov 2026 16:26:50 +0000
+Subject: [PATCH] external_resource_update: draw DisruptionOps routes;
+ replace=true drops units it no longer lists
+
+---
+ swarm_ops/engine.py | 12 +++++++++++-
+ 1 file changed, 11 insertions(+), 1 deletion(-)
+
+diff --git a/swarm_ops/engine.py b/swarm_ops/engine.py
+index 6da67a6..819b4d0 100644
+--- a/swarm_ops/engine.py
++++ b/swarm_ops/engine.py
+@@ -2332,6 +2332,13 @@ class OperationsSimulation:
+                 self.external_ground=True
+                 self.nodes.orchestrator.set_enabled(False,"DisruptionOps ground state is authoritative (external_resource_update)")
+                 mapping={entry.get("external_id"):entry.get("local_id") for entry in payload.get("incidents",[]) if entry.get("external_id")}
++                if payload.get("replace") is True:
++                    # The payload is DisruptionOps' whole ground picture: units it no longer lists have left the map.
++                    listed={entry.get("id") for entry in payload.get("resources",[]) if entry.get("id")}
++                    for gone in [r for r in self.resources if r["id"] not in listed]:
++                        for incident in self.incidents:
++                            if gone["id"] in incident.get("resource_ids",[]):incident["resource_ids"].remove(gone["id"])
++                        self.resources.remove(gone)
+                 for entry in payload.get("incidents",[]):
+                     incident=self._find_incident(entry.get("local_id"))
+                     if incident and (entry.get("status") in ("resolved","closed") or entry.get("resolved") is True):
+@@ -2348,7 +2355,10 @@ class OperationsSimulation:
+                     resource["position"]=(resource["position"]+[0])[:3]
+                     external_incident=entry.get("incident_id")
+                     resource["incident_id"]=mapping.get(external_incident,external_incident)
+-                    resource["route"]=[]
++                    # DisruptionOps' own road route (local metres), drawn by the viewer; never driven here.
++                    route=entry.get("route") if isinstance(entry.get("route"),list) else []
++                    resource["route"]=[[float(p[0]),float(p[1]),0.0] for p in route[:200]
++                                       if isinstance(p,list) and len(p)>=2 and all(isinstance(v,(int,float)) and not isinstance(v,bool) and math.isfinite(v) for v in p[:2])]
+                     incident=self._find_incident(resource["incident_id"])
+                     if incident and identifier not in incident["resource_ids"]:
+                         incident["resource_ids"].append(identifier)
+-- 
+2.43.0
+
