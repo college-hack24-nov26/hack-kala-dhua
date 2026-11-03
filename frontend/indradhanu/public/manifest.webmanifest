@@ -1,0 +1,38 @@
+{
+  "name": "Indradhanu — Disaster Relief",
+  "short_name": "Indradhanu",
+  "description": "Report what you can see, and find out where to go. Works with no signal.",
+  "id": "/citizen",
+  "start_url": "/citizen",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0b1220",
+  "theme_color": "#0b1220",
+  "categories": ["utilities", "navigation"],
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/icon-maskable.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    {
+      "name": "Report a hazard",
+      "short_name": "Report",
+      "description": "Say or type what you can see",
+      "url": "/citizen?action=report"
+    },
+    {
+      "name": "Where should I go",
+      "short_name": "Guide",
+      "description": "Nearest shelter, hospital, food or water",
+      "url": "/citizen?action=guide"
+    },
+    {
+      "name": "Field crew",
+      "short_name": "Field",
+      "description": "My units and tasks",
+      "url": "/field"
+    }
+  ]
+}
