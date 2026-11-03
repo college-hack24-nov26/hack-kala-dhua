@@ -1,0 +1,143 @@
+{
+ "scenario": "confirmed_closure",
+ "title": "Confirmed closure: a bridge is closed mid-response",
+ "story": "September 2025 storm. Three hours in, the authority closes the most-used river bridge (official notice 10 minutes later). The closure is binding in every policy; units whose remaining route crosses it are rerouted, everyone else keeps their commitment.",
+ "data": {
+  "storm_id": "20250927-18",
+  "realization": 0,
+  "split": "test",
+  "inputs": "REPLAY: historical ERA5 rain and GloFAS river discharge for this window; roads, hazards, people and reports simulated (ml.sim). Not live data.",
+  "window_start_replay": "2025-09-28T11:00:00Z",
+  "window_end_replay": "2025-09-28T21:00:00Z",
+  "hours": 10,
+  "plan_every_min": 10
+ },
+ "model": "pass-20261010-1049",
+ "fleet_on_shift": 36,
+ "fleet_off_shift": [],
+ "shelter_places": 4650,
+ "injected": {
+  "bridge_closure": {
+   "seg": 41075,
+   "t_s": 72000.0,
+   "lon": 73.7923679,
+   "lat": 18.6266601,
+   "t_replay": "2025-09-28T14:00:00Z",
+   "notice_after_min": 10
+  }
+ },
+ "policies": {
+  "current_status": {
+   "policy": "current_status",
+   "incidents": 118,
+   "incidents_real": 84,
+   "incidents_false_or_stale": 34,
+   "confirmed": 67,
+   "dismissed_by_assessor": 26,
+   "expired": 14,
+   "dispatches": 229,
+   "crews_sent_to_false_reports": 0,
+   "legs_driven": 220,
+   "invalid_routes": 64,
+   "invalid_route_rate": 0.2877,
+   "reroutes_before_reaching_a_closure": 4,
+   "response_p50_min": 21.4,
+   "response_p90_min": 58.8,
+   "life_safety_response_p50_min": 41.2,
+   "real_incidents_reached": 72,
+   "real_incidents_unreached_at_end": 12,
+   "unmet_need_decisions": 3467,
+   "unmet_by_reason": {
+    "No unit able to provide mass transport could reach this ward within 45": 2965,
+    "No unit able to provide field assessment could reach this ward within ": 257,
+    "No unit able to provide dewatering could reach this ward within 45 min": 130,
+    "No unit able to provide water rescue could reach this ward within 45 m": 39,
+    "No unit able to provide search rescue could reach this ward within 45 ": 27,
+    "No unit able to provide debris clearance could reach this ward within ": 26,
+    "No unit able to provide medical transport could reach this ward within": 17,
+    "No unit able to provide traffic control could reach this ward within 4": 6
+   },
+   "people_sheltered": 225,
+   "shelter_peak_occupancy": 0.338,
+   "surge_max_level": 0,
+   "aid_units_arrived": 0,
+   "checks": {
+    "unit_double_assignment": 0,
+    "shelter_overflow": 0
+   }
+  },
+  "predicted": {
+   "policy": "predicted",
+   "incidents": 121,
+   "incidents_real": 87,
+   "incidents_false_or_stale": 34,
+   "confirmed": 81,
+   "dismissed_by_assessor": 34,
+   "expired": 4,
+   "dispatches": 282,
+   "crews_sent_to_false_reports": 1,
+   "legs_driven": 245,
+   "invalid_routes": 23,
+   "invalid_route_rate": 0.1009,
+   "reroutes_before_reaching_a_closure": 6,
+   "response_p50_min": 19.5,
+   "response_p90_min": 53.7,
+   "life_safety_response_p50_min": 34.0,
+   "real_incidents_reached": 86,
+   "real_incidents_unreached_at_end": 1,
+   "unmet_need_decisions": 3192,
+   "unmet_by_reason": {
+    "No unit able to provide mass transport could reach this ward within 45": 3034,
+    "No unit able to provide dewatering could reach this ward within 45 min": 75,
+    "No unit able to provide field assessment could reach this ward within ": 51,
+    "No unit able to provide water rescue could reach this ward within 45 m": 19,
+    "No unit able to provide traffic control could reach this ward within 4": 7,
+    "No unit able to provide debris clearance could reach this ward within ": 6
+   },
+   "people_sheltered": 495,
+   "shelter_peak_occupancy": 0.675,
+   "surge_max_level": 0,
+   "aid_units_arrived": 0,
+   "checks": {
+    "unit_double_assignment": 0,
+    "shelter_overflow": 0
+   },
+   "route_predictions_auc": 1.0,
+   "route_predictions": 23,
+   "route_predictions_positive": 5
+  },
+  "oracle": {
+   "policy": "oracle",
+   "incidents": 119,
+   "incidents_real": 85,
+   "incidents_false_or_stale": 34,
+   "confirmed": 79,
+   "dismissed_by_assessor": 35,
+   "expired": 4,
+   "dispatches": 240,
+   "crews_sent_to_false_reports": 0,
+   "legs_driven": 221,
+   "invalid_routes": 0,
+   "invalid_route_rate": 0.0,
+   "reroutes_before_reaching_a_closure": 0,
+   "response_p50_min": 15.0,
+   "response_p90_min": 25.3,
+   "life_safety_response_p50_min": 33.2,
+   "real_incidents_reached": 84,
+   "real_incidents_unreached_at_end": 1,
+   "unmet_need_decisions": 3261,
+   "unmet_by_reason": {
+    "No unit able to provide mass transport could reach this ward within 45": 3251,
+    "No unit able to provide dewatering could reach this ward within 45 min": 10
+   },
+   "people_sheltered": 270,
+   "shelter_peak_occupancy": 0.45,
+   "surge_max_level": 0,
+   "aid_units_arrived": 0,
+   "checks": {
+    "unit_double_assignment": 0,
+    "shelter_overflow": 0
+   }
+  }
+ }
+}
