@@ -1,0 +1,108 @@
+# Indradhanu at 20k req/s: the shape, not a promise about any one cloud.
+#
+#   ingress ─► api (HPA 4..40, 1 uvicorn worker per pod, 1 vCPU)
+#                 │  accepts, validates, enqueues ─► redis (streams, cache, limits, budget)
+#                 └─ reads ─► pgbouncer/Supavisor ─► Postgres (+ read replica for dashboards)
+#              worker (HPA on queue depth 2..30) drains redis streams in batches ─► Postgres
+#              event router: runs inside the api pods; only the lease holder acts
+#
+# Capacity math and the measurements behind it: docs/PRODUCTION_HARDENING.md.
+apiVersion: apps/v1
+kind: Deployment
+metadata: {name: indradhanu-api, labels: {app: indradhanu-api}}
+spec:
+  replicas: 4
+  selector: {matchLabels: {app: indradhanu-api}}
+  template:
+    metadata: {labels: {app: indradhanu-api}}
+    spec:
+      containers:
+        - name: api
+          image: ghcr.io/officialayush23/indradhanu-api:latest
+          ports: [{containerPort: 8000}]
+          envFrom: [{secretRef: {name: indradhanu-env}}]
+          env:
+            - {name: INDRADHANU_ENV, value: production}
+            - {name: WEB_CONCURRENCY, value: "1"}
+            - {name: ACCESS_LOG_SAMPLE, value: "0.02"}
+            - {name: INGEST_WORKERS, value: "0"}     # the worker deployment drains
+            - {name: DB_POOL_MAX, value: "8"}         # pods x pool must stay under the pooler limit
+          resources:
+            requests: {cpu: "1", memory: 512Mi}
+            limits: {cpu: "1", memory: 1Gi}
+          readinessProbe: {httpGet: {path: /health/live, port: 8000}, periodSeconds: 5}
+          livenessProbe: {httpGet: {path: /health/live, port: 8000}, periodSeconds: 10}
+      terminationGracePeriodSeconds: 30
+---
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata: {name: indradhanu-api}
+spec:
+  scaleTargetRef: {apiVersion: apps/v1, kind: Deployment, name: indradhanu-api}
+  minReplicas: 4
+  maxReplicas: 40
+  metrics:
+    - type: Resource
+      resource: {name: cpu, target: {type: Utilization, averageUtilization: 60}}
+  behavior:
+    scaleUp: {stabilizationWindowSeconds: 0, policies: [{type: Percent, value: 100, periodSeconds: 15}]}
+    scaleDown: {stabilizationWindowSeconds: 300}
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata: {name: indradhanu-worker, labels: {app: indradhanu-worker}}
+spec:
+  replicas: 2
+  selector: {matchLabels: {app: indradhanu-worker}}
+  template:
+    metadata: {labels: {app: indradhanu-worker}}
+    spec:
+      containers:
+        - name: worker
+          image: ghcr.io/officialayush23/indradhanu-api:latest
+          command: ["python", "-m", "app.worker", "--workers", "8"]
+          envFrom: [{secretRef: {name: indradhanu-env}}]
+          env:
+            - {name: INDRADHANU_ENV, value: production}
+            - {name: INGEST_BATCH_SIZE, value: "1000"}
+            - {name: DB_POOL_MAX, value: "10"}
+          resources:
+            requests: {cpu: "1", memory: 512Mi}
+            limits: {cpu: "2", memory: 1Gi}
+      terminationGracePeriodSeconds: 40
+---
+# Scale workers on backlog, not CPU: KEDA reads the Redis stream length.
+apiVersion: keda.sh/v1alpha1
+kind: ScaledObject
+metadata: {name: indradhanu-worker}
+spec:
+  scaleTargetRef: {name: indradhanu-worker}
+  minReplicaCount: 2
+  maxReplicaCount: 30
+  triggers:
+    - type: redis-streams
+      metadata: {address: indradhanu-redis:6379, stream: "ingest:bulk", consumerGroup: ingest-workers, pendingEntriesCount: "20000"}
+    - type: redis-streams
+      metadata: {address: indradhanu-redis:6379, stream: "ingest:critical", consumerGroup: ingest-workers, pendingEntriesCount: "500"}
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata: {name: indradhanu-redis}
+spec:
+  replicas: 1
+  selector: {matchLabels: {app: indradhanu-redis}}
+  template:
+    metadata: {labels: {app: indradhanu-redis}}
+    spec:
+      containers:
+        - name: redis
+          image: redis:7.2-alpine
+          args: ["--appendonly", "yes", "--maxmemory", "1gb", "--maxmemory-policy", "noeviction"]
+          ports: [{containerPort: 6379}]
+---
+apiVersion: v1
+kind: Service
+metadata: {name: indradhanu-redis}
+spec:
+  selector: {app: indradhanu-redis}
+  ports: [{port: 6379}]
