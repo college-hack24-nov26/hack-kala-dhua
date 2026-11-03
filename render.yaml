@@ -1,0 +1,187 @@
+# Render blueprint for the Indradhanu API.
+#
+# Backend only. The frontend stays on Vercel — there is a vercel.json in
+# frontend/indradhanu already, and putting a Vite static site on Render buys
+# nothing except a second dashboard to forget about.
+#
+# Commit this at the repository ROOT (next to backend/ and frontend/), then in
+# Render: New → Blueprint → pick this repo. Everything marked `sync: false`
+# below is a secret Render will prompt you for on first deploy; nothing secret
+# is written into this file, which is why it can live in a public repo.
+
+services:
+  - type: web
+    name: indradhanu-api
+    runtime: docker
+    # Singapore is the closest Render region to the Supabase project, which is
+    # in ap-northeast-2 (Seoul). Every request in this API makes several
+    # database round trips, so the region pair matters more than it looks:
+    # Oregon to Seoul adds roughly 180ms to each one of them.
+    region: singapore
+    plan: starter
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: ./backend
+    # Liveness, not readiness. `/health` touches the database and would take
+    # the service out of rotation over a transient Supabase blip; /health/live
+    # answers whether this process is alive, which is the question Render is
+    # actually asking.
+    healthCheckPath: /health/live
+    autoDeployTrigger: commit
+
+    envVars:
+      # ---- environment -------------------------------------------------
+      - key: INDRADHANU_ENV
+        value: production
+      - key: LOG_LEVEL
+        value: INFO
+      # Every origin that may call this API, comma separated, each with its
+      # scheme and no trailing slash. A mismatch here is invisible server-side:
+      # the API answers normally and the browser discards the response, so it
+      # presents as "the deployed frontend shows no data" rather than as an
+      # error in these logs.
+      # The value is compared to the browser's Origin header, which is scheme +
+      # host + port and nothing else. A trailing slash or a pair of quotes makes
+      # it never match. The API normalises both away now, and logs the origins
+      # it resolved under `event=cors` at startup: read that line before
+      # believing this variable is set correctly.
+      - key: CORS_ORIGINS
+        sync: false
+      # Vercel gives every preview deploy its own hostname, so they cannot be
+      # enumerated above. This regex is matched against the whole Origin header.
+      # Anchor it: an unanchored pattern matches a substring, and
+      # `distro-ruddy.vercel.app.attacker.com` is a substring match.
+      - key: CORS_ORIGIN_REGEX
+        sync: false
+      # Where the PWA is served. The BiChat phone app opens this + /citizen for
+      # residents and + /field for crews and staff (GET /api/v1/auth/client-config).
+      - key: PUBLIC_APP_URL
+        value: https://distro-ruddy.vercel.app
+
+      # DEV_AUTH_ROLE is deliberately absent. It treats unauthenticated
+      # requests as a named role, and the settings validator refuses to start
+      # when it is set outside development. Do not add it here to "just get the
+      # demo working" — it turns the whole console into an open endpoint.
+
+      # ---- database ----------------------------------------------------
+      # Use the TRANSACTION POOLER as the API DSN, not the direct connection.
+      # Supabase's direct host resolves to IPv6 only, and Render's outbound
+      # network is IPv4, so the direct string fails at connect with a bare
+      # "Network is unreachable" that reads like the database is down. The
+      # pooler is IPv4 and is what `settings.dsn` prefers already.
+      - key: SUPABASE_TRANSACTION_POOLER
+        sync: false
+      # Only used by migrations and seeding, which need DDL and advisory locks
+      # that pgbouncer in transaction mode cannot do. Safe to leave unset on
+      # the running service if you run migrations from your laptop.
+      - key: SUPABASE_DIRECT_CONNECTION_STRING
+        sync: false
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_ANON_PUBLIC_KEY
+        sync: false
+      - key: SUPABASE_SERVICE_ROLE_KEY
+        sync: false
+      - key: SUPABASE_JWT_KEY
+        sync: false
+      # The pooler has a connection ceiling shared by everything that talks to
+      # it. One worker per container and a small pool, scaled with replicas, is
+      # what keeps several instances from exhausting it between them.
+      - key: DB_POOL_MIN
+        value: "2"
+      - key: DB_POOL_MAX
+        value: "10"
+
+      # ---- llm ---------------------------------------------------------
+      # Every model call has a deterministic fallback, so a missing or
+      # rate-limited key degrades the prose and changes no number. The service
+      # starts and works without any of this.
+      - key: LLM_PROVIDER
+        value: gemini
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: GEMINI_MODEL
+        value: gemini-2.0-flash
+      # Bedrock, if you switch LLM_PROVIDER to it.
+      - key: AWS_REGION
+        value: ap-south-1
+      - key: AWS_API_KEY_BEDROCK_FOR_XAI
+        sync: false
+      - key: BEDROCK_MODEL_ID
+        sync: false
+
+      # ---- routing -----------------------------------------------------
+      # Mapbox is the preferred router: it returns turn instructions with real
+      # street names, and the public OSRM demo server refuses the Matrix sizes
+      # the allocator asks for. Without a token the chain falls back to OSRM
+      # and then to straight lines, and the API says which engine it used.
+      - key: MAPBOX_TOKEN
+        sync: false
+      - key: OSRM_URL
+        value: https://router.project-osrm.org
+
+      # ---- drone swarm + map matcher -----------------------------------
+      # drone-1: two-way swarm link (disruptionops.swarm.v2). mapp-s: drone
+      # frame -> coordinates; an accepted fix inside the swarm map tasks an
+      # assess drone there (SWARM_LOCALIZE_TASK).
+      - key: SWARM_AGENCY
+        value: "1"
+      - key: SWARM_WS_URL
+        value: wss://drone-1-oj8n.onrender.com/ops/ws
+      - key: SWARM_INTEGRATION_TOKEN
+        sync: false
+      - key: SWARM_LINK_AUTO
+        value: "1"
+      - key: SWARM_TAKE_COMMAND
+        value: "1"
+      # DisruptionOps owns ground units: its real PC-* units, positions and
+      # assignments are pushed into the swarm; a drone's need for a unit is
+      # filed into the planner instead of being assigned in the swarm.
+      - key: SWARM_GROUND
+        value: disruptionops
+      - key: MAP_FINDER_URL
+        value: https://mapp-s.onrender.com
+      - key: SWARM_LOCALIZE_TASK
+        value: "1"
+
+      # ---- speech and vision -------------------------------------------
+      # Sarvam backs voice reports. Without it the voice button fails and
+      # typing still works.
+      - key: SARVAM_AI_API_KEY
+        sync: false
+      # Hugging Face backs the report classifier when its keyword pass is not
+      # confident. Without it the keyword pass decides alone.
+      - key: HF_API_TOKEN
+        sync: false
+      # Empty means photos are accepted and not looked at, which is a fine
+      # state to ship in. See docs/VLM_CONTRACT.md.
+      - key: VLM_URL
+        sync: false
+      - key: VLM_API_KEY
+        sync: false
+
+      # ---- offline mesh ------------------------------------------------
+      # Gateway phones / the bridge script / camera nodes send the first as
+      # X-Mesh-Gateway-Key; unset disables the mesh endpoints. The second
+      # signs IDX1 packets. See docs/OFFLINE_MESH.md.
+      - key: MESH_GATEWAY_KEY
+        sync: false
+      - key: MESH_HMAC_KEY
+        sync: false
+
+      # ---- upstream feeds ----------------------------------------------
+      - key: OPEN_METEO_FORECAST_URL
+        value: https://api.open-meteo.com/v1/forecast
+      - key: OPEN_METEO_FLOOD_URL
+        value: https://flood-api.open-meteo.com/v1/flood
+      - key: OPEN_METEO_AIR_URL
+        value: https://air-quality-api.open-meteo.com/v1/air-quality
+      - key: NASA_FIRMS_KEY
+        sync: false
+      - key: DATA_GOV_IN_KEY
+        sync: false
+      # A cold Render instance and a dozen upstream feeds is the one place this
+      # times out in practice. 12s per feed, cached for 15 minutes.
+      - key: FEED_TIMEOUT_SECONDS
+        value: "12"
+      - key: FEED_CACHE_TTL_SECONDS
+        value: "900"

@@ -1,0 +1,16 @@
+
+# regenerable: simulator runs (python -m ml.sim.run) and the raw DEM tile (python -m ml.fetch.dem)
+data/sim/runs/
+data/raw/dem/
+__pycache__/
+data/train/
+data/relearn/demo_runs/
+.venv/
+backend/.venv/
+
+# local virtual environments
+req/
+backend/ml/Scripts/
+backend/ml/Lib/
+backend/ml/Include/
+backend/ml/pyvenv.cfg
