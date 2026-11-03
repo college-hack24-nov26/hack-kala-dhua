@@ -1,0 +1,56 @@
+{
+ "model": "/home/claude/w/models/passability/pass-20261010-1049",
+ "splits": [
+  "test"
+ ],
+ "trips": 1576,
+ "to_flooded_places": 884,
+ "current_status": {
+  "invalid_route_rate": 0.1206,
+  "mean_replans": 0.188,
+  "ended_on_foot": 0.0901,
+  "not_reached": 0.0254,
+  "arrival_p50_min": 18.64,
+  "arrival_p90_min": 32.36,
+  "delay_vs_oracle_mean_min": 5.56,
+  "delay_vs_oracle_p90_min": 2.71
+ },
+ "predicted": {
+  "invalid_route_rate": 0.0368,
+  "mean_replans": 0.047,
+  "ended_on_foot": 0.0438,
+  "not_reached": 0.0235,
+  "arrival_p50_min": 18.3,
+  "arrival_p90_min": 29.45,
+  "delay_vs_oracle_mean_min": 1.13,
+  "delay_vs_oracle_p90_min": 1.53
+ },
+ "oracle": {
+  "invalid_route_rate": 0.0,
+  "mean_replans": 0.0,
+  "ended_on_foot": 0.0336,
+  "not_reached": 0.0228,
+  "arrival_p50_min": 17.88,
+  "arrival_p90_min": 28.86
+ },
+ "minutes_saved_by_prediction": {
+  "mean": 4.55,
+  "p90": 0.02,
+  "share_faster": 0.082,
+  "share_slower": 0.039
+ },
+ "to_flooded_places_only": {
+  "current_status": {
+   "invalid_route_rate": 0.1505,
+   "arrival_p90_min": 32.45
+  },
+  "predicted": {
+   "invalid_route_rate": 0.0588,
+   "arrival_p90_min": 30.66
+  },
+  "oracle": {
+   "invalid_route_rate": 0.0,
+   "arrival_p90_min": 29.93
+  }
+ }
+}
