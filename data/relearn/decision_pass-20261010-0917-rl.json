@@ -1,0 +1,148 @@
+{
+ "champion": "pass-20261010-0817",
+ "gates": {
+  "min_examples": 300,
+  "min_positives": 30,
+  "real_weight": 5.0,
+  "half_life_days": 180,
+  "recent_share": 0.3,
+  "frozen_auc_tolerance": 0.005,
+  "frozen_ece_tolerance": 0.005,
+  "min_brier_gain": 0.02,
+  "recall_tolerance": 0.02,
+  "psi_alert": 0.25,
+  "ece_alert": 0.05
+ },
+ "check": {
+  "examples": 12620,
+  "positives": 103,
+  "reasons": [
+   "input drift (PSI > 0.25): stage_frac, sensor_val"
+  ],
+  "champion_on_real": {
+   "brier": 0.0046,
+   "ece": 0.0046,
+   "roc_auc": 0.9685
+  },
+  "psi": {
+   "rain_3h": 0.115,
+   "rain_fc": 0.138,
+   "stage_frac": 1.053,
+   "freeboard_m": 0.067,
+   "flood_150_3h": 0.0,
+   "traffic_level": 0.021,
+   "sensor_val": 0.83,
+   "hand_m": 0.035,
+   "pond_m": 0.111,
+   "horizon_min": 0.016
+  },
+  "action": "retrain"
+ },
+ "challenger": "pass-20261010-0917-rl",
+ "seconds": 496,
+ "train_info": {
+  "best_iterations": [
+   527,
+   516,
+   517
+  ],
+  "train_rows": 364942,
+  "tune_rows": 40528
+ },
+ "real_used": {
+  "train_tune": 8834,
+  "recent_holdout": 3786
+ },
+ "results": {
+  "champion": {
+   "frozen_test": {
+    "n": 150000,
+    "positives": 16821,
+    "brier_natural": 0.0035,
+    "ece_natural": 0.0013,
+    "precision": 0.1559,
+    "recall": 0.9383,
+    "missed_closure_rate": 0.0617,
+    "false_closure_rate": 0.0269,
+    "roc_auc": 0.9781,
+    "pr_auc": 0.8675,
+    "log_loss": 0.1642
+   },
+   "recent_real": {
+    "n": 3786,
+    "positives": 21,
+    "brier_natural": 0.0026,
+    "ece_natural": 0.0026,
+    "precision": 0.36,
+    "recall": 0.8571,
+    "missed_closure_rate": 0.1429,
+    "false_closure_rate": 0.0085,
+    "roc_auc": 0.9789,
+    "pr_auc": 0.6966,
+    "log_loss": 0.0168
+   },
+   "recent_underpasses": {
+    "n": 24,
+    "positives": 2,
+    "brier_natural": 0.0077,
+    "ece_natural": 0.0362,
+    "precision": 0.25,
+    "recall": 1.0,
+    "missed_closure_rate": 0.0,
+    "false_closure_rate": 0.2727,
+    "roc_auc": 1.0,
+    "pr_auc": 1.0,
+    "log_loss": 0.0409
+   }
+  },
+  "challenger": {
+   "frozen_test": {
+    "n": 150000,
+    "positives": 16821,
+    "brier_natural": 0.0036,
+    "ece_natural": 0.0009,
+    "precision": 0.1174,
+    "recall": 0.9249,
+    "missed_closure_rate": 0.0751,
+    "false_closure_rate": 0.0369,
+    "roc_auc": 0.9771,
+    "pr_auc": 0.8666,
+    "log_loss": 0.1588
+   },
+   "recent_real": {
+    "n": 3786,
+    "positives": 21,
+    "brier_natural": 0.0024,
+    "ece_natural": 0.0015,
+    "precision": 0.2466,
+    "recall": 0.8571,
+    "missed_closure_rate": 0.1429,
+    "false_closure_rate": 0.0146,
+    "roc_auc": 0.986,
+    "pr_auc": 0.6764,
+    "log_loss": 0.0148
+   },
+   "recent_underpasses": {
+    "n": 24,
+    "positives": 2,
+    "brier_natural": 0.0085,
+    "ece_natural": 0.0368,
+    "precision": 0.2222,
+    "recall": 1.0,
+    "missed_closure_rate": 0.0,
+    "false_closure_rate": 0.3182,
+    "roc_auc": 1.0,
+    "pr_auc": 1.0,
+    "log_loss": 0.0423
+   }
+  }
+ },
+ "gate_results": {
+  "better_on_recent_real": true,
+  "catches_closures": true,
+  "frozen_auc_ok": true,
+  "frozen_ece_ok": true,
+  "underpasses_ok": true
+ },
+ "outcome": "promoted"
+}

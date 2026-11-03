@@ -1,0 +1,28 @@
+{
+ "bbox_wsen": [
+  73.715,
+  18.585,
+  73.845,
+  18.712
+ ],
+ "fetched_at": "2026-10-10T06:28:05.982107+00:00",
+ "source": "OpenStreetMap via Overpass API",
+ "licence": "ODbL 1.0",
+ "files": {
+  "roads": {
+   "elements": 125417,
+   "query": "[out:json][timeout:300];\n(\n  way[\"highway\"][\"area\"!=\"yes\"](18.585,73.715,18.712,73.845);\n  node[\"highway\"~\"^(traffic_signals|crossing|stop|give_way)$\"](18.585,73.715,18.712,73.845);\n  node[\"barrier\"](18.585,73.715,18.712,73.845);\n);\nout body;\n>;\nout skel qt;",
+   "osm_base": "2026-10-10T06:26:40Z"
+  },
+  "water": {
+   "elements": 5719,
+   "query": "[out:json][timeout:300];\n(\n  way[\"waterway\"~\"^(river|stream|canal|drain|ditch|riverbank)$\"](18.585,73.715,18.712,73.845);\n  way[\"natural\"=\"water\"](18.585,73.715,18.712,73.845);\n  relation[\"natural\"=\"water\"](18.585,73.715,18.712,73.845);\n);\nout body;\n>;\nout skel qt;",
+   "osm_base": "2026-10-10T06:27:43Z"
+  },
+  "context": {
+   "elements": 6786,
+   "query": "[out:json][timeout:300];\n(\n  way[\"landuse\"~\"^(residential|military|industrial)$\"](18.585,73.715,18.712,73.845);\n  relation[\"landuse\"~\"^(residential|military)$\"](18.585,73.715,18.712,73.845);\n  node[\"place\"~\"^(suburb|neighbourhood|village|hamlet|quarter)$\"](18.585,73.715,18.712,73.845);\n  way[\"power\"=\"line\"](18.585,73.715,18.712,73.845);\n  node[\"amenity\"~\"^(hospital|fire_station|police|school|community_centre)$\"](18.585,73.715,18.712,73.845);\n  way[\"amenity\"~\"^(hospital|fire_station|police|school|community_centre)$\"](18.585,73.715,18.712,73.845);\n  way[\"natural\"=\"tree_row\"](18.585,73.715,18.712,73.845);\n  node[\"aeroway\"](18.585,73.715,18.712,73.845);\n  way[\"military\"](18.585,73.715,18.712,73.845);\n);\nout body center;\n>;\nout skel qt;",
+   "osm_base": "2026-10-10T06:27:43Z"
+  }
+ }
+}
