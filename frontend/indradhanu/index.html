@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <!-- Two installable apps on one origin: the citizen manifest is the
+         default and /field swaps the link at runtime. -->
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <meta name="theme-color" content="#f6f7f9" />
+    <!-- The standard name first; the apple- prefixed one is deprecated but
+         still what older iOS reads, so both are present. -->
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Indradhanu" />
+    <link rel="apple-touch-icon" href="/icon-192.png" />
+    <meta name="description" content="Report what you can see, and find out where to go. Works with no signal." />
+    <title>Indradhanu</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
