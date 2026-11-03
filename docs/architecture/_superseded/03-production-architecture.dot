@@ -1,0 +1,110 @@
+// Indradhanu — Production End-State (on-prem, offline-first)
+// Render: dot -Tsvg 03-production-architecture.dot -o 03-production-architecture.svg   (or -Tpng)
+digraph G {
+  label=<<font point-size="20"><b>Indradhanu — Production End-State (on-prem, offline-first)</b></font>>;
+  rankdir=TB;
+  graph [fontname="Helvetica", fontsize=12, bgcolor="white", pad=0.4, nodesep=0.35, ranksep=0.55,
+         newrank=true, compound=true, labelloc=t, labeljust=l];
+  node  [fontname="Helvetica", shape=plain];
+  edge  [fontname="Helvetica", fontsize=9, color="#475569", fontcolor="#334155", arrowsize=0.7, penwidth=1.2];
+  graph [ranksep=0.8, nodesep=0.4];
+  subgraph cluster_edge {
+    label=<<b>District edge — offline-first (keeps working if the link drops)</b>>; fontsize=13; style="rounded"; color="#16A34A"; bgcolor="#F0FDF4"; margin=14;
+    e_cam [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#1D6B47" bgcolor="white"><tr><td bgcolor="#1D6B47" align="left"><font color="white"><b>Camera sentinels</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• detect + local VLM<br align="left"/>• signed hazard reports<br align="left"/>• no link: hand to a phone (LAN)<br align="left"/></font></td></tr></table>>];
+    e_mesh [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#1D6B47" bgcolor="white"><tr><td bgcolor="#1D6B47" align="left"><font color="white"><b>bitchat mesh phones</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• citizens and crews<br align="left"/>• SOS, status, alerts, offline maps<br align="left"/></font></td></tr></table>>];
+    e_gwp [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#1D6B47" bgcolor="white"><tr><td bgcolor="#1D6B47" align="left"><font color="white"><b>Gateway phones</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• bridge mesh ↔ network<br align="left"/></font></td></tr></table>>];
+    e_pwa [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#1D6B47" bgcolor="white"><tr><td bgcolor="#1D6B47" align="left"><font color="white"><b>Citizen &amp; Field Portal (PWA)</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• offline-capable web app<br align="left"/></font></td></tr></table>>];
+    e_k3s [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#1D6B47" bgcolor="white"><tr><td bgcolor="#1D6B47" align="left"><font color="white"><b>District node (k3s)</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• local cache + read replica<br align="left"/>• serves PWA, tiles, gateway<br align="left"/></font></td></tr></table>>];
+    { rank=same; e_cam; e_mesh; e_gwp; e_pwa; e_k3s; }
+  }
+  subgraph cluster_users {
+    label=<<b>People</b>>; fontsize=13; style="rounded"; color="#FDBA74"; bgcolor="#FFF7ED"; margin=14;
+    u_ctrl [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#9A5B13" bgcolor="white"><tr><td bgcolor="#9A5B13" align="left"><font color="white"><b>State control room</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• officers, commanders<br align="left"/></font></td></tr></table>>];
+    u_dist [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#9A5B13" bgcolor="white"><tr><td bgcolor="#9A5B13" align="left"><font color="white"><b>District officers</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• field coordination<br align="left"/></font></td></tr></table>>];
+  }
+  subgraph cluster_inet {
+    label=<<b>Public internet — optional</b>>; fontsize=13; style="rounded,dashed"; color="#CBD5E1"; bgcolor="#FFFFFF"; margin=14;
+    x_feeds [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#5B6470" bgcolor="white"><tr><td bgcolor="#5B6470" align="left"><font color="white"><b>External feeds</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• IMD, GloFAS, satellite imagery<br align="left"/>• OSM updates — all cached<br align="left"/></font></td></tr></table>>];
+  }
+  n_swan [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#374151" bgcolor="white" width="520"><tr><td bgcolor="#374151" align="left"><font color="white"><b>Government network: SWAN / NICNET + VSAT backup</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• links every district to the state centre<br align="left"/></font></td></tr></table>>];
+  subgraph cluster_dc {
+    label=<<b>State Emergency Operations Centre — on-prem Kubernetes, no public internet required</b>>; fontsize=13; style="rounded"; color="#1E3A8A"; bgcolor="#FFFFFF"; margin=14;
+    gw [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#374151" bgcolor="white" width="520"><tr><td bgcolor="#374151" align="left"><font color="white"><b>API Gateway (Kong / NGINX Ingress)</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• TLS · auth via Keycloak · rate limits · routing<br align="left"/></font></td></tr></table>>];
+    subgraph cluster_apps {
+    label=<<b>Application services — Kubernetes pods, autoscaled</b>>; fontsize=13; style="rounded"; color="#93C5FD"; bgcolor="#EFF6FF"; margin=14;
+    k_intake [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#1F4E79" bgcolor="white"><tr><td bgcolor="#1F4E79" align="left"><font color="white"><b>Intake Service</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• reports, voice, sensors<br align="left"/>• trust, classify, cluster<br align="left"/></font></td></tr></table>>];
+    k_mesh [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#1F4E79" bgcolor="white"><tr><td bgcolor="#1F4E79" align="left"><font color="white"><b>Mesh Gateway API</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• inbound packets, civ-sync<br align="left"/>• outbox for gateway phones<br align="left"/></font></td></tr></table>>];
+    k_orch [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#1F4E79" bgcolor="white"><tr><td bgcolor="#1F4E79" align="left"><font color="white"><b>Orchestrator + Event Router</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• consumes every topic<br align="left"/>• wakes the right agent<br align="left"/></font></td></tr></table>>];
+    k_replan [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#0E5E6F" bgcolor="white"><tr><td bgcolor="#0E5E6F" align="left"><font color="white"><b>Re-planner Workers</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• CP-SAT per city<br align="left"/>• scaled horizontally<br align="left"/></font></td></tr></table>>];
+    k_agents [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#4C3D8F" bgcolor="white"><tr><td bgcolor="#4C3D8F" align="left"><font color="white"><b>Agent Runtime</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• Incident Commander<br align="left"/>• Command Copilot<br align="left"/></font></td></tr></table>>];
+    k_mcp [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#1F4E79" bgcolor="white"><tr><td bgcolor="#1F4E79" align="left"><font color="white"><b>MCP Tool Server</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• tools, resources, prompts<br align="left"/></font></td></tr></table>>];
+    k_gate [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#7A2E2E" bgcolor="white"><tr><td bgcolor="#7A2E2E" align="left"><font color="white"><b>Policy Gate &amp; Executor</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• approve or queue<br align="left"/>• execute actions<br align="left"/></font></td></tr></table>>];
+    k_comm [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#1F4E79" bgcolor="white"><tr><td bgcolor="#1F4E79" align="left"><font color="white"><b>Communication Service</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• alerts and dispatch<br align="left"/>• mesh, push, SMS, cell broadcast<br align="left"/></font></td></tr></table>>];
+    k_console [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#9A5B13" bgcolor="white"><tr><td bgcolor="#9A5B13" align="left"><font color="white"><b>Console (web)</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• officer UI<br align="left"/></font></td></tr></table>>];
+    { rank=same; k_intake; k_mesh; k_orch; k_replan; k_console; }
+    { rank=same; k_agents; k_mcp; k_gate; k_comm; }
+  }
+    kafka [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#374151" bgcolor="white" width="720"><tr><td bgcolor="#374151" align="left"><font color="white"><b>Apache Kafka — event backbone</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• topics: reports.raw · sensor.events · incidents · plans · dispatch.outbox · agent.steps · audit<br align="left"/>• every service produces and consumes here · durable and replayable<br align="left"/></font></td></tr></table>>];
+    subgraph cluster_ai {
+    label=<<b>AI serving — GPU node pool (offline)</b>>; fontsize=13; style="rounded"; color="#C4B5FD"; bgcolor="#F5F3FF"; margin=14;
+    m_llm [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#4C3D8F" bgcolor="white"><tr><td bgcolor="#4C3D8F" align="left"><font color="white"><b>vLLM — LLM</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• Llama 3.1 70B / 8B or Qwen2.5<br align="left"/></font></td></tr></table>>];
+    m_vlm [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#4C3D8F" bgcolor="white"><tr><td bgcolor="#4C3D8F" align="left"><font color="white"><b>vLLM — VLM</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• Qwen2.5-VL photo checks<br align="left"/></font></td></tr></table>>];
+    m_triton [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#1F4E79" bgcolor="white"><tr><td bgcolor="#1F4E79" align="left"><font color="white"><b>Triton Inference Server</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• XLM-R classifier, YOLO<br align="left"/></font></td></tr></table>>];
+    m_guard [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#7A2E2E" bgcolor="white"><tr><td bgcolor="#7A2E2E" align="left"><font color="white"><b>Guardrail models</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• Llama Guard 3, Prompt Guard 2<br align="left"/>• NeMo Guardrails, Presidio<br align="left"/></font></td></tr></table>>];
+    { rank=same; m_llm; m_vlm; m_triton; m_guard; }
+  }
+    subgraph cluster_data {
+    label=<<b>Data</b>>; fontsize=13; style="rounded"; color="#FCD34D"; bgcolor="#FFFBEB"; margin=14;
+    d_pg [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#6B5320" bgcolor="white"><tr><td bgcolor="#6B5320" align="left"><font color="white"><b>PostgreSQL + PostGIS (HA)</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• CloudNativePG replicas<br align="left"/>• events, incidents, plans, memory<br align="left"/></font></td></tr></table>>];
+    d_redis [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#6B5320" bgcolor="white"><tr><td bgcolor="#6B5320" align="left"><font color="white"><b>Redis</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• cache, locks, sessions<br align="left"/></font></td></tr></table>>];
+    d_minio [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#6B5320" bgcolor="white"><tr><td bgcolor="#6B5320" align="left"><font color="white"><b>MinIO</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• photos, clips, evidence<br align="left"/></font></td></tr></table>>];
+    { rank=same; d_pg; d_redis; d_minio; }
+  }
+    subgraph cluster_geo {
+    label=<<b>Geo (offline)</b>>; fontsize=13; style="rounded"; color="#5EEAD4"; bgcolor="#F0FDFA"; margin=14;
+    g_osrm [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#0E5E6F" bgcolor="white"><tr><td bgcolor="#0E5E6F" align="left"><font color="white"><b>OSRM</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• state road graph<br align="left"/>• travel times for the re-planner<br align="left"/></font></td></tr></table>>];
+    g_tiles [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#0E5E6F" bgcolor="white"><tr><td bgcolor="#0E5E6F" align="left"><font color="white"><b>Tile server</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• OSM extract<br align="left"/>• map packs pushed to districts<br align="left"/></font></td></tr></table>>];
+    { rank=same; g_osrm; g_tiles; }
+  }
+    subgraph cluster_obs {
+    label=<<b>Observability</b>>; fontsize=13; style="rounded"; color="#FDBA74"; bgcolor="#FFF7ED"; margin=14;
+    o_prom [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#8A3B12" bgcolor="white"><tr><td bgcolor="#8A3B12" align="left"><font color="white"><b>Prometheus</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• metrics from every pod<br align="left"/>• queue lag, solver time, LLM latency<br align="left"/></font></td></tr></table>>];
+    o_loki [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#8A3B12" bgcolor="white"><tr><td bgcolor="#8A3B12" align="left"><font color="white"><b>Loki</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• central logs<br align="left"/></font></td></tr></table>>];
+    o_tempo [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#8A3B12" bgcolor="white"><tr><td bgcolor="#8A3B12" align="left"><font color="white"><b>Tempo + OpenTelemetry</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• traces across agents and tools<br align="left"/></font></td></tr></table>>];
+    o_graf [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#8A3B12" bgcolor="white"><tr><td bgcolor="#8A3B12" align="left"><font color="white"><b>Grafana</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• dashboards: operations, agents<br align="left"/>• mesh gateways, GPUs<br align="left"/></font></td></tr></table>>];
+    o_alert [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#8A3B12" bgcolor="white"><tr><td bgcolor="#8A3B12" align="left"><font color="white"><b>Alertmanager</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• pages the on-call engineer<br align="left"/></font></td></tr></table>>];
+    { rank=same; o_prom; o_loki; o_tempo; }
+  }
+    subgraph cluster_plat {
+    label=<<b>Platform</b>>; fontsize=13; style="rounded"; color="#CBD5E1"; bgcolor="#F8FAFC"; margin=14;
+    p_kc [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#374151" bgcolor="white"><tr><td bgcolor="#374151" align="left"><font color="white"><b>Keycloak</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• SSO and roles<br align="left"/>• for gateway and console<br align="left"/></font></td></tr></table>>];
+    p_vault [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#374151" bgcolor="white"><tr><td bgcolor="#374151" align="left"><font color="white"><b>Vault</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• secrets, HMAC + gateway keys<br align="left"/></font></td></tr></table>>];
+    p_argo [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#374151" bgcolor="white"><tr><td bgcolor="#374151" align="left"><font color="white"><b>Argo CD</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• GitOps deploys to<br align="left"/>• state and district clusters<br align="left"/></font></td></tr></table>>];
+    p_harbor [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#374151" bgcolor="white"><tr><td bgcolor="#374151" align="left"><font color="white"><b>Harbor</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• container registry<br align="left"/></font></td></tr></table>>];
+    { rank=same; p_kc; p_vault; p_argo; p_harbor; }
+  }
+    { rank=same; m_llm; d_pg; g_osrm; }
+    { rank=same; o_prom; p_kc; }
+  }
+  legend [label=<<table border="1" cellborder="0" cellspacing="3" cellpadding="3" color="#CBD5E1"><tr><td colspan="2" align="left"><b>Legend</b></td></tr><tr><td bgcolor="#4C3D8F" width="14"> </td><td align="left"><font point-size="10">model serving / LLM agents</font></td></tr><tr><td bgcolor="#1F4E79" width="14"> </td><td align="left"><font point-size="10">application service</font></td></tr><tr><td bgcolor="#0E5E6F" width="14"> </td><td align="left"><font point-size="10">optimisation / geo</font></td></tr><tr><td bgcolor="#7A2E2E" width="14"> </td><td align="left"><font point-size="10">governance / safety</font></td></tr><tr><td bgcolor="#6B5320" width="14"> </td><td align="left"><font point-size="10">data</font></td></tr><tr><td bgcolor="#8A3B12" width="14"> </td><td align="left"><font point-size="10">observability</font></td></tr><tr><td bgcolor="#374151" width="14"> </td><td align="left"><font point-size="10">platform / network</font></td></tr><tr><td bgcolor="#1D6B47" width="14"> </td><td align="left"><font point-size="10">field / edge</font></td></tr></table>>];
+  e_mesh -> e_gwp [color="#16A34A", style=dashed, dir=both, penwidth=1.6, label=" BLE mesh"];
+  e_pwa -> e_mesh [color="#C2410C", dir=both, constraint=false, label=" loopback"];
+  e_gwp -> n_swan [color="#2563EB", penwidth=2.2, dir=both, label=" cellular / VSAT"];
+  e_k3s -> n_swan [color="#2563EB", penwidth=2.2, dir=both];
+  e_cam -> n_swan [color="#2563EB", penwidth=2.2];
+  u_ctrl -> gw [color="#2563EB", penwidth=2.2]; u_dist -> n_swan [color="#2563EB", penwidth=2.2];
+  n_swan -> gw [color="#2563EB", penwidth=2.2, dir=both];
+  x_feeds -> gw [style=dashed, color="#94A3B8", label=" optional feeds"];
+  gw -> k_orch [lhead=cluster_apps, penwidth=1.6];
+  k_orch -> k_agents; k_orch -> k_replan [constraint=false];
+  k_agents -> k_mcp [label=" tools"]; k_mcp -> k_gate [label=" propose"];
+  k_gate -> k_comm;
+  k_gate -> kafka [ltail=cluster_apps, dir=both, penwidth=2.2, color="#374151", label=" produce / consume"];
+  kafka -> d_pg [lhead=cluster_data, label=" persist"];
+  kafka -> m_llm [style=invis]; kafka -> g_osrm [style=invis]; m_llm -> o_prom [style=invis]; d_pg -> p_kc [style=invis];
+  k_agents -> m_guard [lhead=cluster_ai, color="#4C3D8F", label=" screened prompts"];
+  d_pg -> o_prom [style=dotted, color="#8A3B12", constraint=false, label=" metrics · logs · traces from every pod"];
+  o_prom -> o_graf; o_loki -> o_graf; o_tempo -> o_graf; o_prom -> o_alert;
+  n_swan -> gw [style=invis];
+  o_graf -> legend [style=invis];
+}

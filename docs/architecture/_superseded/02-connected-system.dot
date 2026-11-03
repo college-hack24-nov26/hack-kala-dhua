@@ -1,0 +1,54 @@
+// Indradhanu — Connected System (field ↔ core)
+// Render: dot -Tsvg 02-connected-system.dot -o 02-connected-system.svg   (or -Tpng)
+digraph G {
+  label=<<font point-size="20"><b>Indradhanu — Connected System (field ↔ core)</b></font>>;
+  rankdir=TB;
+  graph [fontname="Helvetica", fontsize=12, bgcolor="white", pad=0.4, nodesep=0.35, ranksep=0.55,
+         newrank=true, compound=true, labelloc=t, labeljust=l];
+  node  [fontname="Helvetica", shape=plain];
+  edge  [fontname="Helvetica", fontsize=9, color="#475569", fontcolor="#334155", arrowsize=0.7, penwidth=1.2];
+  graph [ranksep=0.9, nodesep=0.45];
+  subgraph cluster_field {
+    label=<<b>FIELD — works with no internet</b>>; fontsize=13; style="rounded"; color="#16A34A"; bgcolor="#FFFFFF"; margin=14;
+    subgraph cluster_cam {
+    label=<<b>Camera sentinel (laptop / Jetson with GPU)</b>>; fontsize=13; style="rounded"; color="#86EFAC"; bgcolor="#F0FDF4"; margin=14;
+    c_det [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#1D6B47" bgcolor="white"><tr><td bgcolor="#1D6B47" align="left"><font color="white"><b>Detection</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• YOLOv8n + ByteTrack<br align="left"/>• fire, smoke, fall, fight, crowd<br align="left"/></font></td></tr></table>>];
+    c_gate [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#1D6B47" bgcolor="white"><tr><td bgcolor="#1D6B47" align="left"><font color="white"><b>Escalation gate</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• confidence × hazard weight<br align="left"/>• cooldown per hazard<br align="left"/></font></td></tr></table>>];
+    c_vlm [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#1D6B47" bgcolor="white"><tr><td bgcolor="#1D6B47" align="left"><font color="white"><b>Scene VLM (local)</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• Qwen2.5-VL-3B on the GPU<br align="left"/>• writes the scene brief<br align="left"/></font></td></tr></table>>];
+    c_bridge [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#1D6B47" bgcolor="white"><tr><td bgcolor="#1D6B47" align="left"><font color="white"><b>Indradhanu bridge</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• online: HTTPS to the API<br align="left"/>• offline: signed packet via phone<br align="left"/></font></td></tr></table>>];
+    c_log [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#6B5320" bgcolor="white"><tr><td bgcolor="#6B5320" align="left"><font color="white"><b>Forensic log</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• every event, keyframes, clips<br align="left"/>• SQLite on the device<br align="left"/></font></td></tr></table>>];
+    { rank=same; c_det; c_gate; c_vlm; c_bridge; }
+  }
+    subgraph cluster_mesh {
+    label=<<b>bitchat mesh — Bluetooth LE + Wi-Fi Aware, signed, encrypted, 7 hops</b>>; fontsize=13; style="rounded"; color="#86EFAC"; bgcolor="#F0FDF4"; margin=14;
+    p_cit [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#1D6B47" bgcolor="white"><tr><td bgcolor="#1D6B47" align="left"><font color="white"><b>Citizen phone</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• SOS with GPS, reports<br align="left"/>• offline map, nearest centre<br align="left"/>• role-sorted alerts<br align="left"/></font></td></tr></table>>];
+    p_crew [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#1D6B47" bgcolor="white"><tr><td bgcolor="#1D6B47" align="left"><font color="white"><b>Crew phone</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• receives dispatch + route<br align="left"/>• reports on site, done<br align="left"/>• road blocked, need backup<br align="left"/></font></td></tr></table>>];
+    p_gw [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#1D6B47" bgcolor="white"><tr><td bgcolor="#1D6B47" align="left"><font color="white"><b>Gateway phone</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• store and forward<br align="left"/>• push when online<br align="left"/>• pull alerts, centres, routes<br align="left"/></font></td></tr></table>>];
+    pwa [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#1D6B47" bgcolor="white"><tr><td bgcolor="#1D6B47" align="left"><font color="white"><b>Citizen &amp; Field Portal (PWA)</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• opens offline (cached app)<br align="left"/>• queues reports until online<br align="left"/>• mesh mode via bitchat<br align="left"/></font></td></tr></table>>];
+    { rank=same; p_cit; p_crew; p_gw; pwa; }
+  }
+  }
+  subgraph cluster_core {
+    label=<<b>CORE — cloud today (Render · Supabase · Vercel)  ·  on-prem state data centre in production</b>>; fontsize=13; style="rounded"; color="#2563EB"; bgcolor="#EFF6FF"; margin=14;
+    api [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#1F4E79" bgcolor="white" width="260"><tr><td bgcolor="#1F4E79" align="left"><font color="white"><b>Indradhanu API</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• intake &amp; trust<br align="left"/>• agents + CP-SAT re-planner<br align="left"/>• policy gate, executor<br align="left"/>• mesh gateway endpoints<br align="left"/></font></td></tr></table>>];
+    console [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#9A5B13" bgcolor="white"><tr><td bgcolor="#9A5B13" align="left"><font color="white"><b>Control-room Console</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• map, approvals, Copilot<br align="left"/>• agent trace, replay<br align="left"/></font></td></tr></table>>];
+    db [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#6B5320" bgcolor="white"><tr><td bgcolor="#6B5320" align="left"><font color="white"><b>PostgreSQL + PostGIS</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• events, incidents, plans<br align="left"/>• memory, mesh outbox<br align="left"/></font></td></tr></table>>];
+    llm [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#4C3D8F" bgcolor="white"><tr><td bgcolor="#4C3D8F" align="left"><font color="white"><b>LLM</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• demo: Gemini → Bedrock API<br align="left"/>• production: on-prem vLLM<br align="left"/></font></td></tr></table>>];
+    ext [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#5B6470" bgcolor="white"><tr><td bgcolor="#5B6470" align="left"><font color="white"><b>Maps &amp; hazard feeds</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• routing: Mapbox / OSRM<br align="left"/>• weather, flood feeds<br align="left"/></font></td></tr></table>>];
+    { rank=same; db; llm; ext; console; }
+  }
+  legend [label=<<table border="1" cellborder="0" cellspacing="3" cellpadding="3" color="#CBD5E1"><tr><td colspan="2" align="left"><b>Legend</b></td></tr><tr><td bgcolor="#1D6B47" width="14"> </td><td align="left"><font point-size="10">runs in the field, offline</font></td></tr><tr><td bgcolor="#1F4E79" width="14"> </td><td align="left"><font point-size="10">core service</font></td></tr><tr><td bgcolor="#4C3D8F" width="14"> </td><td align="left"><font point-size="10">LLM</font></td></tr><tr><td bgcolor="#6B5320" width="14"> </td><td align="left"><font point-size="10">storage</font></td></tr><tr><td bgcolor="#9A5B13" width="14"> </td><td align="left"><font point-size="10">people</font></td></tr><tr><td bgcolor="#2563EB" width="14"> </td><td align="left"><font point-size="10">blue: needs a link (internet today, state network in production)</font></td></tr><tr><td bgcolor="#16A34A" width="14"> </td><td align="left"><font point-size="10">green dashed: Bluetooth mesh</font></td></tr><tr><td bgcolor="#C2410C" width="14"> </td><td align="left"><font point-size="10">orange: local Wi-Fi / same phone</font></td></tr></table>>];
+  c_det -> c_gate -> c_vlm -> c_bridge;
+  c_gate -> c_log; c_vlm -> c_log;
+  p_cit -> p_crew [color="#16A34A", style=dashed, dir=both, penwidth=1.6, label=" BLE"];
+  p_crew -> p_gw [color="#16A34A", style=dashed, dir=both, penwidth=1.6, label=" BLE"];
+  p_cit -> pwa [color="#C2410C", dir=both, constraint=false, label=" loopback :8765"];
+  c_bridge -> p_gw [color="#C2410C", penwidth=1.6, label=" image + brief (LAN)"];
+  p_gw -> api [color="#2563EB", penwidth=2.2, dir=both, label=" up: reports, briefs, status\l down: alerts, dispatches, centres\l"];
+  pwa -> api [color="#2563EB", penwidth=2.2, label=" HTTPS when online"];
+  c_bridge -> api [color="#2563EB", penwidth=2.2, label=" HTTPS when online", constraint=false];
+  api -> console [color="#2563EB", penwidth=2.2, dir=both];
+  p_crew -> api [style=invis];
+  api -> db [dir=both]; api -> llm; api -> ext;
+  ext -> legend [style=invis];
+}

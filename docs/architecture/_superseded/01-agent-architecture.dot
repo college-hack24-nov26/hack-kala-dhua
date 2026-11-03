@@ -1,0 +1,81 @@
+// Indradhanu — Agent Architecture (agent tree + orchestration)
+// Render: dot -Tsvg 01-agent-architecture.dot -o 01-agent-architecture.svg   (or -Tpng)
+digraph G {
+  label=<<font point-size="20"><b>Indradhanu — Agent Architecture (agent tree + orchestration)</b></font>>;
+  rankdir=TB;
+  graph [fontname="Helvetica", fontsize=12, bgcolor="white", pad=0.4, nodesep=0.35, ranksep=0.55,
+         newrank=true, compound=true, labelloc=t, labeljust=l];
+  node  [fontname="Helvetica", shape=plain];
+  edge  [fontname="Helvetica", fontsize=9, color="#475569", fontcolor="#334155", arrowsize=0.7, penwidth=1.2];
+  graph [splines=spline, ranksep=0.7, nodesep=0.5];
+  subgraph cluster_in {
+    label=<<b>Inputs</b>>; fontsize=13; style="rounded"; color="#CBD5E1"; bgcolor="#FFFFFF"; margin=14;
+    in_cit [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#9A5B13" bgcolor="white"><tr><td bgcolor="#9A5B13" align="left"><font color="white"><b>Citizens</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• SOS / report (PWA, bitchat)<br align="left"/>• voice report<br align="left"/></font></td></tr></table>>];
+    in_crew [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#9A5B13" bgcolor="white"><tr><td bgcolor="#9A5B13" align="left"><font color="white"><b>Field crews</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• on site, done<br align="left"/>• road blocked, need backup<br align="left"/></font></td></tr></table>>];
+    in_cam [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#1D6B47" bgcolor="white"><tr><td bgcolor="#1D6B47" align="left"><font color="white"><b>Camera sentinels</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• confirmed hazard + VLM brief<br align="left"/></font></td></tr></table>>];
+    in_off [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#9A5B13" bgcolor="white"><tr><td bgcolor="#9A5B13" align="left"><font color="white"><b>Officers</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• commands, overrides<br align="left"/>• questions, approvals<br align="left"/></font></td></tr></table>>];
+    in_feed [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#5B6470" bgcolor="white"><tr><td bgcolor="#5B6470" align="left"><font color="white"><b>Hazard feeds</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• rainfall, river level<br align="left"/>• scheduled hazard runs<br align="left"/></font></td></tr></table>>];
+    { rank=same; in_cit; in_crew; in_cam; in_off; in_feed; }
+  }
+  bus [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#374151" bgcolor="white" width="440"><tr><td bgcolor="#374151" align="left"><font color="white"><b>Event Bus + Event Router  (always on)</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• append-only log of every report, plan, decision, action<br align="left"/>• routes each event kind to the agents that react to it<br align="left"/>• dedupe and debounce · replay and audit<br align="left"/></font></td></tr></table>>];
+  orch [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#1F4E79" bgcolor="white" width="440"><tr><td bgcolor="#1F4E79" align="left"><font color="white"><b>Orchestrator  (supervisor, deterministic)</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• control loop: sense → plan → gate → act<br align="left"/>• wakes agents · enforces step, time and token budgets<br align="left"/>• falls back to the solver plan if no model is reachable<br align="left"/></font></td></tr></table>>];
+  subgraph cluster_perc {
+    label=<<b>1 · Perception agents</b>>; fontsize=13; style="rounded"; color="#93C5FD"; bgcolor="#EFF6FF"; margin=14;
+    a_intake [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#1F4E79" bgcolor="white"><tr><td bgcolor="#1F4E79" align="left"><font color="white"><b>Intake &amp; Triage</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• isolate untrusted text<br align="left"/>• trust score<br align="left"/>• classify: keywords → XLM-R → LLM<br align="left"/>• merge duplicates, open incident<br align="left"/></font></td></tr></table>>];
+    a_vision [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#1F4E79" bgcolor="white"><tr><td bgcolor="#1F4E79" align="left"><font color="white"><b>Vision Verifier</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• check report photo (VLM)<br align="left"/>• adjust trust only<br align="left"/></font></td></tr></table>>];
+    a_hazard [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#1F4E79" bgcolor="white"><tr><td bgcolor="#1F4E79" align="left"><font color="white"><b>Hazard Risk</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• ingest hazard feeds<br align="left"/>• risk score per ward<br align="left"/></font></td></tr></table>>];
+    a_fore [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#1F4E79" bgcolor="white"><tr><td bgcolor="#1F4E79" align="left"><font color="white"><b>Forecast &amp; Preposition</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• demand forecast<br align="left"/>• flood forecast<br align="left"/>• propose prepositioning<br align="left"/></font></td></tr></table>>];
+    { rank=same; a_intake; a_vision; a_hazard; a_fore; }
+  }
+  subgraph cluster_plan {
+    label=<<b>2 · Planning agent</b>>; fontsize=13; style="rounded"; color="#5EEAD4"; bgcolor="#F0FDFA"; margin=14;
+    a_replan [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#0E5E6F" bgcolor="white"><tr><td bgcolor="#0E5E6F" align="left"><font color="white"><b>Re-planner</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• assign units (OR-Tools CP-SAT, ≤ 4 s)<br align="left"/>• route around road blocks<br align="left"/>• keep a unit unless a switch saves enough<br align="left"/>• obey pins, holds, standing orders<br align="left"/>• publish plan diff<br align="left"/></font></td></tr></table>>];
+  }
+  subgraph cluster_llm {
+    label=<<b>3 · Reasoning agents (LLM)</b>>; fontsize=13; style="rounded"; color="#C4B5FD"; bgcolor="#F5F3FF"; margin=14;
+    a_cmd [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#4C3D8F" bgcolor="white"><tr><td bgcolor="#4C3D8F" align="left"><font color="white"><b>Incident Commander</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• wakes on severe events<br align="left"/>• ReAct over tools, ≤ 6 steps<br align="left"/>• simulates before proposing<br align="left"/>• proposes or declines, with reasons<br align="left"/></font></td></tr></table>>];
+    a_cop [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#4C3D8F" bgcolor="white"><tr><td bgcolor="#4C3D8F" align="left"><font color="white"><b>Command Copilot</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• answers officers<br align="left"/>• resolves units, wards, incidents<br align="left"/>• numbers only from tools<br align="left"/>• proposes on request<br align="left"/></font></td></tr></table>>];
+    { rank=same; a_cmd; a_cop; }
+  }
+  { rank=same; a_intake; a_replan; a_cmd; }
+  a_fore -> a_replan [style=invis]; a_replan -> a_cmd [style=invis];
+  subgraph cluster_gov {
+    label=<<b>4 · Governance and action</b>>; fontsize=13; style="rounded"; color="#FCA5A5"; bgcolor="#FEF2F2"; margin=14;
+    a_gate [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#7A2E2E" bgcolor="white"><tr><td bgcolor="#7A2E2E" align="left"><font color="white"><b>Policy Gate</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• match action to a policy clause<br align="left"/>• auto if confidence ≥ 0.70<br align="left"/>• and severity within the clause<br align="left"/>• else queue for an officer<br align="left"/></font></td></tr></table>>];
+    a_exec [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#7A2E2E" bgcolor="white"><tr><td bgcolor="#7A2E2E" align="left"><font color="white"><b>Executor</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• reallocate, cancel, hold, pin<br align="left"/>• preposition, mutual aid<br align="left"/>• activate shelters<br align="left"/></font></td></tr></table>>];
+    a_comm [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#1F4E79" bgcolor="white"><tr><td bgcolor="#1F4E79" align="left"><font color="white"><b>Communication Agent</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• alerts and dispatch messages<br align="left"/>• prioritised outbox<br align="left"/>• console, app, mesh, SMS<br align="left"/></font></td></tr></table>>];
+    { rank=same; a_gate; a_exec; a_comm; }
+  }
+  subgraph cluster_svc {
+    label=<<b>Shared services for the LLM agents</b>>; fontsize=13; style="rounded"; color="#CBD5E1"; bgcolor="#F8FAFC"; margin=14;
+    s_mcp [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#1F4E79" bgcolor="white" style="dashed"><tr><td bgcolor="#1F4E79" align="left"><font color="white"><b>MCP Tool Server</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• 14 read · 7 analyse · 1 propose<br align="left"/>• role-scoped, every call logged<br align="left"/></font></td></tr></table>>];
+    s_guard [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#7A2E2E" bgcolor="white" style="dashed"><tr><td bgcolor="#7A2E2E" align="left"><font color="white"><b>Guardrails</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• Prompt Guard 2, Llama Guard 3<br align="left"/>• NeMo Guardrails, Presidio<br align="left"/></font></td></tr></table>>];
+    s_mem [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#6B5320" bgcolor="white" style="dashed"><tr><td bgcolor="#6B5320" align="left"><font color="white"><b>Memory Service</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• standing orders, facts, lessons<br align="left"/>• episodes, chat turns, overrides<br align="left"/>• ledger: who read what<br align="left"/></font></td></tr></table>>];
+    s_llm [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#374151" bgcolor="white"><tr><td bgcolor="#374151" align="left"><font color="white"><b>LLM Runtime</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• production: on-prem vLLM, offline<br align="left"/>• demo: Gemini → Bedrock API<br align="left"/></font></td></tr></table>>];
+    { rank=same; s_mcp; s_guard; s_mem; s_llm; }
+  }
+  subgraph cluster_out {
+    label=<<b>Outputs</b>>; fontsize=13; style="rounded"; color="#CBD5E1"; bgcolor="#FFFFFF"; margin=14;
+    o_console [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#9A5B13" bgcolor="white"><tr><td bgcolor="#9A5B13" align="left"><font color="white"><b>Control-room Console</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• plan diff, approval queue<br align="left"/>• Copilot chat, agent trace, memory<br align="left"/></font></td></tr></table>>];
+    o_field [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#1D6B47" bgcolor="white"><tr><td bgcolor="#1D6B47" align="left"><font color="white"><b>Crew phones &amp; field app</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• dispatch and new route<br align="left"/>• over app or mesh<br align="left"/></font></td></tr></table>>];
+    o_public [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="6" color="#1D6B47" bgcolor="white"><tr><td bgcolor="#1D6B47" align="left"><font color="white"><b>Public alerts</b></font></td></tr><tr><td align="left"><font point-size="10" color="#1F2937">• mesh broadcast, app, SMS<br align="left"/></font></td></tr></table>>];
+    { rank=same; o_console; o_field; o_public; }
+  }
+  legend [label=<<table border="1" cellborder="0" cellspacing="3" cellpadding="3" color="#CBD5E1"><tr><td colspan="2" align="left"><b>Legend</b></td></tr><tr><td bgcolor="#4C3D8F" width="14"> </td><td align="left"><font point-size="10">LLM reasoning agent</font></td></tr><tr><td bgcolor="#1F4E79" width="14"> </td><td align="left"><font point-size="10">deterministic agent / service</font></td></tr><tr><td bgcolor="#0E5E6F" width="14"> </td><td align="left"><font point-size="10">optimisation (CP-SAT)</font></td></tr><tr><td bgcolor="#7A2E2E" width="14"> </td><td align="left"><font point-size="10">governance / safety</font></td></tr><tr><td bgcolor="#6B5320" width="14"> </td><td align="left"><font point-size="10">memory</font></td></tr><tr><td bgcolor="#1D6B47" width="14"> </td><td align="left"><font point-size="10">field / edge</font></td></tr><tr><td bgcolor="#9A5B13" width="14"> </td><td align="left"><font point-size="10">people</font></td></tr><tr><td bgcolor="#FFFFFF" width="14"> </td><td align="left"><font point-size="10">dashed border = being built now</font></td></tr></table>>];
+  in_cam -> bus [ltail=cluster_in, penwidth=2, label=" every input becomes an event"];
+  bus -> orch [penwidth=2, label=" events"];
+  orch -> a_intake [penwidth=2.4, color="#1F2937", arrowhead=none, lhead=cluster_perc];
+  orch -> a_replan [penwidth=2.4, color="#1F2937", arrowhead=none, lhead=cluster_plan];
+  orch -> a_cmd [penwidth=2.4, color="#1F2937", arrowhead=none, lhead=cluster_llm];
+  a_intake -> a_replan [label=" new need / risk", constraint=false];
+  a_replan -> a_comm [label=" dispatches"];
+  a_cmd -> a_gate [label=" proposals", ltail=cluster_llm];
+  a_fore -> a_gate [label=" proposals"];
+  a_gate -> a_exec [label=" approved"];
+  a_exec -> a_comm;
+  a_comm -> o_field [lhead=cluster_out, label=" deliver"];
+  a_gate -> o_console [style=dashed, color="#7A2E2E", label=" needs officer"];
+  a_cop -> s_mem [ltail=cluster_llm, lhead=cluster_svc, style=dashed, color="#4C3D8F", penwidth=1.6, label=" tools via MCP · screened by guardrails\l recall memory · call the LLM\l"];
+  a_exec -> bus [style=dotted, color="#1F4E79", penwidth=1.6, constraint=false, label=" new events → replan"];
+  a_cmd -> s_mcp [style=invis]; { rank=same; a_gate; s_llm; } o_console -> legend [style=invis];
+}
